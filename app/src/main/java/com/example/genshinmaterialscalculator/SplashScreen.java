@@ -3,8 +3,6 @@ package com.example.genshinmaterialscalculator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 

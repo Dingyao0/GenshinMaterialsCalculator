@@ -1,40 +1,63 @@
 package com.example.genshinmaterialscalculator;
 
-import static android.widget.Toast.makeText;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton androidImageButton;
+
+    private MeowBottomNavigation bnv_Main;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        androidImageButton=(ImageButton)findViewById(R.id.btnFav1);
-        androidImageButton.setOnClickListener(new View.OnClickListener() {
+
+        bnv_Main = findViewById(R.id.bnv_Main);
+        bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
+        bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.search));
+        bnv_Main.add(new MeowBottomNavigation.Model(3, R.drawable.bookmark));
+        bnv_Main.add(new MeowBottomNavigation.Model(4, R.drawable.person));
+
+        bnv_Main.show(1, true);
+        replace(new com.example.genshinmaterialscalculator.HomeFragment());
+        bnv_Main.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
-            public void onClick(View v) {
-                makeText(MainActivity.this, "Btn1", Toast.LENGTH_SHORT).show();
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                switch (model.getId()) {
+                    case 1:
+                        replace(new com.example.genshinmaterialscalculator.HomeFragment());
+                        break;
+
+                    case 2:
+                        replace(new com.example.genshinmaterialscalculator.SearchFragment());
+                        break;
+
+                    case 3:
+                        replace(new com.example.genshinmaterialscalculator.BookmarkFragment());
+                        break;
+
+                    case 4:
+                        replace(new com.example.genshinmaterialscalculator.ProfileFragment());
+                        break;
+                }
+                return null;
             }
         });
-        androidImageButton=(ImageButton)findViewById(R.id.btnFav2);
-        androidImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeText(MainActivity.this, "Btn2", Toast.LENGTH_SHORT).show();
-            }
-        });
-        androidImageButton=(ImageButton)findViewById(R.id.btnFav3);
-        androidImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeText(MainActivity.this, "Btn3", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
+    }
+
+    private void replace(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.commit();
     }
 }

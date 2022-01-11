@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/line"
-        android:layout_width="280dp"
-        android:layout_height="2dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="420dp"
-        android:background="@color/black" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:elevation="10dp"-->
+<!--        android:id="@+id/toolbar"-->
+<!--        app:title="@string/app_name"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageButton
-        android:id="@+id/btnFav1"
-        android:layout_width="280dp"
-        android:layout_height="49dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="450dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/ayaka"/>
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btnFav2"
-        android:layout_width="280dp"
-        android:layout_height="49dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="550dp"
-        android:src="@drawable/raiden_shogun" />
 
-    <ImageButton
-        android:id="@+id/btnFav3"
-        android:layout_width="280dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="650dp"
-        android:layout_marginLeft="60dp"
-        android:src="@drawable/kokomi" />
-</RelativeLayout>
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/bnv_Main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:mbn_backgroundBottomColor="#ffffff"
+        app:mbn_circleColor="#ffffff"
+        app:mbn_countBackgroundColor="#ff6f00"
+        app:mbn_countTextColor="#ffffff"
+        app:mbn_defaultIconColor="#90a4ae"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_shadowColor="#1f212121" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/homebg"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="280dp"
+        android:layout_height="2dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="420dp"
+        android:background="@color/black" />
+
+    <ImageButton
+        android:id="@+id/btnFav1"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="450dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/ayaka"/>
+
+    <ImageButton
+        android:id="@+id/btnFav2"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="550dp"
+        android:src="@drawable/raiden_shogun" />
+
+    <ImageButton
+        android:id="@+id/btnFav3"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="60dp"
+        android:src="@drawable/kokomi" />
+</RelativeLayout>
