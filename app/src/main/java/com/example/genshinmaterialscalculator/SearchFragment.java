@@ -78,10 +78,19 @@ public class SearchFragment extends Fragment {
                 "Rarity : 1-star \n" +
                 "Base Attack : 23\n" +
                 "Secondary Stat : 7.7\n" +
-                "Secondary Stat Value : 0\n", R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel2", "w_1201", "Description book2", R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Maria Semples", "w_1201", "Description book3", R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("The Martian", "w_1201", "Description book4", R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("He Died with...", "w_1201", "Description book5", R.drawable.w_1201));
+                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));
+        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
+                "Rarity : 1-star \n" +
+                "Base Attack : 23\n" +
+                "Secondary Stat : 7.7\n" +
+                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
+                "Rarity : 1-star \n" +
+                "Base Attack : 23\n" +
+                "Secondary Stat : 7.7\n" +
+                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
+                "Rarity : 1-star \n" +
+                "Base Attack : 23\n" +
+                "Secondary Stat : 7.7\n" +
+                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));
     }
 }

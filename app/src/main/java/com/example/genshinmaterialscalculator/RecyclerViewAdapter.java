@@ -41,8 +41,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.tv_book_title.setText(mData.get(position).getTitle());
-        holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnail());
+        holder.tv_book_title.setText(mData.get(position).getName());
+        holder.img_book_thumbnail.setImageResource(mData.get(position).getImage());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +51,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent intent = new Intent(mContext, Details.class);
 
                 // passing data to the book activity
-                intent.putExtra("Title", mData.get(position).getTitle());
+                intent.putExtra("Name", mData.get(position).getName());
                 intent.putExtra("Code", mData.get(position).getCode());
-                intent.putExtra("Description", mData.get(position).getDescription());
-                intent.putExtra("Image", mData.get(position).getThumbnail());
+                intent.putExtra("Rarity", mData.get(position).getRarity());
+                intent.putExtra("Details", mData.get(position).getDetails());
+                intent.putExtra("InGame", mData.get(position).getIDescription());
+                intent.putExtra("Special", mData.get(position).getSDescription());
+                intent.putExtra("Image", mData.get(position).getImage());
                 // start the activity
                 mContext.startActivity(intent);
             }

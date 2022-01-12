@@ -6,53 +6,136 @@ package com.example.genshinmaterialscalculator;
 
 public class Weapons {
 
-    private String Title;
-    private String Description;
-    private int Thumbnail;
+    private int ID;
+    private String Name;
+    private String Details;
+    private int Image;
     private String Code;
-
+    private String Rarity;
+    private String SDescription;
+    private String IDescription;
+    private int FirstMatID;
+    private int SecondMatID;
+    private int ThirdMatID;
 
     public Weapons() {
     }
 
-    public Weapons(String title, String code, String description, int thumbnail) {
-        Title = title;
+    public Weapons(int id, String name, String code, String details, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+        ID=id;
+        Name = name;
         Code = code;
-        Description = description;
-        Thumbnail = thumbnail;
+        Details = details;
+        Rarity = rarity;
+        SDescription = sDescription;
+        IDescription = iDescription;
+        FirstMatID = firstMatID;
+        SecondMatID = secondMatID;
+        ThirdMatID = thirdMatID;
+        Image = image;
     }
 
+    public Weapons(String name, String code, String details, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+        Name = name;
+        Code = code;
+        Details = details;
+        Rarity = rarity;
+        SDescription = sDescription;
+        IDescription = iDescription;
+        FirstMatID = firstMatID;
+        SecondMatID = secondMatID;
+        ThirdMatID = thirdMatID;
+        Image = image;
 
-    public String getTitle() {
-        return Title;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getFirstMatID() {
+        return FirstMatID;
+    }
+
+    public void setFirstMatID(int firstMatID) {
+        FirstMatID = firstMatID;
+    }
+
+    public int getSecondMatID() {
+        return SecondMatID;
+    }
+
+    public void setSecondMatID(int secondMatID) {
+        SecondMatID = secondMatID;
+    }
+
+    public int getThirdMatID() {
+        return ThirdMatID;
+    }
+
+    public void setThirdMatID(int thirdMatID) {
+        ThirdMatID = thirdMatID;
+    }
+
+    public String getSDescription() {
+        return SDescription;
+    }
+
+    public void setSDescription(String SDescription) {
+        this.SDescription = SDescription;
+    }
+
+    public String getIDescription() {
+        return IDescription;
+    }
+
+    public void setIDescription(String IDescription) {
+        this.IDescription = IDescription;
+    }
+
+    public String getName() {
+        return Name;
     }
 
     public String getCode() {
         return Code;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getDetails() {
+        return Details;
     }
 
-    public int getThumbnail() {
-        return Thumbnail;
+    public String getRarity() {
+        return Rarity;
+    }
+
+    public int getImage() {
+        return Image;
     }
 
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setName(String name) {
+        Name = name;
     }
 
     public void setCode(String code) {
         Code = code;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setDetails(String details) {
+        Details = details;
     }
 
-    public void setThumbnail(int thumbnail) {
-        Thumbnail = thumbnail;
+    public void setRarity(String rarity) {
+        Rarity = rarity;
+    }
+
+
+    public void setImage(int image) {
+        Image = image;
     }
 }
