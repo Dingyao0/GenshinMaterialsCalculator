@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +22,7 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private ArrayList<com.example.genshinmaterialscalculator.Weapons> lstWeapons = new ArrayList<>();
+    private ArrayList<Weapon> lstWeapons = new ArrayList<>();
     private RecyclerView mRecyclerView;
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -92,23 +91,23 @@ public class SearchFragment extends Fragment {
 
 
 //        lstWeapons = new ArrayList<>();
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n",
+        lstWeapons.add(new Weapon("Cool Steel", "w_1201", "Type : Sword\n",
                 "Base Attack : 23\n", "Secondary Stat : 7.7\n", "Secondary Stat Value : 0\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
                 "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",
                 1, 1, 1, R.drawable.w_1201));
 
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n",
+        lstWeapons.add(new Weapon("Cool Steel", "w_1201", "Type : Sword\n",
                 "Base Attack : 23\n", "Secondary Stat : 7.7\n", "Secondary Stat Value : 0\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
                 "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",
                 1, 1, 1, R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n",
+        lstWeapons.add(new Weapon("Cool Steel", "w_1201", "Type : Sword\n",
                 "Base Attack : 23\n", "Secondary Stat : 7.7\n", "Secondary Stat Value : 0\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
                 "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",
                 1, 1, 1, R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n",
+        lstWeapons.add(new Weapon("Cool Steel", "w_1201", "Type : Sword\n",
                 "Base Attack : 23\n", "Secondary Stat : 7.7\n", "Secondary Stat Value : 0\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
                 "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",

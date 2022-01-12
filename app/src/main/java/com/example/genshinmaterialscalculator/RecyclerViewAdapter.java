@@ -22,10 +22,10 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Weapons> mData;
+    private List<Weapon> mData;
 
 
-    public RecyclerViewAdapter(Context mContext, List<Weapons> mData) {
+    public RecyclerViewAdapter(Context mContext, List<Weapon> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }

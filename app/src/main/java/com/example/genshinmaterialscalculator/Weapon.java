@@ -4,7 +4,7 @@ package com.example.genshinmaterialscalculator;
  * Created by Aws on 28/01/2018.
  */
 
-public class Weapons {
+public class Weapon {
 
     private int ID;
     private String Name;
@@ -21,10 +21,10 @@ public class Weapons {
     private int SecondMatID;
     private int ThirdMatID;
 
-    public Weapons() {
+    public Weapon() {
     }
 
-    public Weapons(int id, String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+    public Weapon(int id, String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
         ID=id;
         Name = name;
         Code = code;
@@ -41,7 +41,7 @@ public class Weapons {
         Image = image;
     }
 
-    public Weapons(String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+    public Weapon(String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
         Name = name;
         Code = code;
         Type = type;
