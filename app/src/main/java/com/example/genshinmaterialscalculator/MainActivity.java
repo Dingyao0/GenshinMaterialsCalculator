@@ -1,6 +1,8 @@
 package com.example.genshinmaterialscalculator;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        //db.deleteDatabase();
+        db.addWeapon(new Weapons("Cool_Steel", "w_1201", "Sword\n",
+                "23\n", "ATK\n", "7.7\n",
+                "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
+                "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",
+                1, 1, 1, 1));//R.drawable.w_1201
+
+        Log.d("string value of first object", String.valueOf(db.getAllWeapons().get(0).getType()));
+
 
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
