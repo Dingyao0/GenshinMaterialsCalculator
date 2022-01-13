@@ -63,7 +63,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
-        bindBooks();
+        bindWeapons();
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_id);
         com.example.genshinmaterialscalculator.RecyclerViewAdapter myAdapter = new com.example.genshinmaterialscalculator.RecyclerViewAdapter(this.getActivity(), lstWeapons);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 3));
@@ -72,25 +72,27 @@ public class SearchFragment extends Fragment {
     }
 
 
-    private void bindBooks() {
+    private void bindWeapons() {
 //        lstWeapons = new ArrayList<>();
         lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
-                "Rarity : 1-star \n" +
-                "Base Attack : 23\n" +
-                "Secondary Stat : 7.7\n" +
-                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));
-        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
-                "Rarity : 1-star \n" +
-                "Base Attack : 23\n" +
-                "Secondary Stat : 7.7\n" +
-                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
-                "Rarity : 1-star \n" +
-                "Base Attack : 23\n" +
-                "Secondary Stat : 7.7\n" +
-                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
-                "Rarity : 1-star \n" +
-                "Base Attack : 23\n" +
-                "Secondary Stat : 7.7\n" +
-                "Secondary Stat Value : 0\n", "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",1,1,1, R.drawable.w_1201));
+                "Rarity : 3-star \n" +
+                "Base Attack : 39\n" +
+                "Secondary Stat : ATK\n" +
+                "Secondary Stat Value : 0\n", "3-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.", 1, 1, 1, R.drawable.w_1201));
+        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Blackcliff Longsword", "w_1301", "Type : Sword\n" +
+                "Rarity : 4-star \n" +
+                "Base Attack : 44\n" +
+                "Secondary Stat : CRIT DMG\n" +
+                "Secondary Stat Value : 8\n", "4-star", "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.", "A sword made of a material known as \"blackcliff.\" It has a dark crimson glow on its black blade.", 1, 1, 1, R.drawable.w_1201));
+        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Aquila Favonia", "w_1401", "Type : Sword\n" +
+                "Rarity : 5-star \n" +
+                "Base Attack : 48\n" +
+                "Secondary Stat : Physical DMG Bonus\n" +
+                "Secondary Stat Value : 9\n", "5-star", "ATK is increased by 20%. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to 100% of ATK and dealing 200% of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.", "The soul of the Knights of Favonius. Millennia later, it still calls on the winds of swift justice to vanquish all evil — just like the last heroine who wielded it.", 1, 1, 1, R.drawable.w_1201));
+        lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Fillet Blade", "w_1203", "Type : Sword\n" +
+                "Rarity : 3-star \n" +
+                "Base Attack : 39\n" +
+                "Secondary Stat : ATK\n" +
+                "Secondary Stat Value : 7.7\n", "3-star", "On hit, has a 50% chance to deal 240% ATK DMG to a single opponent. Can only occur once every 15s.", "A sharp filleting knife. The blade is long, thin, and incredibly sharp.", 1, 1, 1, R.drawable.w_1201));
     }
 }

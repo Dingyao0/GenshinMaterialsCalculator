@@ -3,13 +3,13 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_id"
     android:layout_width="120dp"
-    android:layout_height="190dp"
+    android:layout_height="200dp"
     android:layout_margin="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     cardview:cardCornerRadius="4dp"
     cardview:strokeColor="@color/purple_200"
-    cardview:strokeWidth="2dp">
+    cardview:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"

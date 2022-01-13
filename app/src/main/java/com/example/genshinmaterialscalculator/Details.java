@@ -44,8 +44,14 @@ public class Details extends AppCompatActivity {
         int image = intent.getExtras().getInt("Image");
 
         Log.d("hi", Rarity);
-        if (Rarity.equals("1-star")) {
-            layout.setBackgroundColor(getColor(R.color.purple_200));
+        if (Rarity.equals("3-star")) {
+            layout.setBackgroundColor(getColor(R.color.blue));
+        }else if(Rarity.equals("4-star")){
+            layout.setBackgroundColor(getColor(R.color.purple));
+
+        }else if(Rarity.equals("5-star")){
+            layout.setBackgroundColor(getColor(R.color.orange));
+
         }
         // Setting values
         CharName.setText(Name);
