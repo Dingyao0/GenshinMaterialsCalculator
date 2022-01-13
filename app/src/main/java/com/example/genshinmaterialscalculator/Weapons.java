@@ -8,7 +8,10 @@ public class Weapons {
 
     private int ID;
     private String Name;
-    private String Details;
+    private String Type;
+    private String AttackValue;
+    private String SubStat;
+    private String SubStatValue;
     private int Image;
     private String Code;
     private String Rarity;
@@ -21,11 +24,14 @@ public class Weapons {
     public Weapons() {
     }
 
-    public Weapons(int id, String name, String code, String details, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+    public Weapons(int id, String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
         ID=id;
         Name = name;
         Code = code;
-        Details = details;
+        Type = type;
+        AttackValue = attackValue;
+        SubStat = subStat;
+        SubStatValue = subStatValue;
         Rarity = rarity;
         SDescription = sDescription;
         IDescription = iDescription;
@@ -35,10 +41,13 @@ public class Weapons {
         Image = image;
     }
 
-    public Weapons(String name, String code, String details, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+    public Weapons(String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
         Name = name;
         Code = code;
-        Details = details;
+        Type = type;
+        AttackValue = attackValue;
+        SubStat = subStat;
+        SubStatValue = subStatValue;
         Rarity = rarity;
         SDescription = sDescription;
         IDescription = iDescription;
@@ -101,13 +110,15 @@ public class Weapons {
         return Name;
     }
 
+    public String getType() { return Type; }
+
     public String getCode() {
         return Code;
     }
 
-    public String getDetails() {
-        return Details;
-    }
+    public String getAttackValue() { return AttackValue; }
+    public String getSubStat() { return SubStat; }
+    public String getSubStatValue() { return SubStatValue; }
 
     public String getRarity() {
         return Rarity;
@@ -126,9 +137,11 @@ public class Weapons {
         Code = code;
     }
 
-    public void setDetails(String details) {
-        Details = details;
-    }
+    public void setType(String type) { Type = type; }
+
+    public void setAttackValue(String attackValue) { AttackValue = attackValue; }
+    public void setSubStat (String subStat ) { SubStat = subStat ; }
+    public void setSubStatValue (String subStatValue ) { SubStatValue = subStatValue ; }
 
     public void setRarity(String rarity) {
         Rarity = rarity;

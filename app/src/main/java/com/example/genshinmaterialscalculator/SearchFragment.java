@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,6 +74,20 @@ public class SearchFragment extends Fragment {
 
 
     private void bindWeapons() {
+
+        //DatabaseHandler db = new DatabaseHandler(getActivity());
+//        List<Weapons> weaponsList = db.getAllWeapons();
+
+//        for (int i = 0; i < weaponsList.size(); i++) {
+//          lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons(
+//                  weaponsList.get(i).getName(), weaponsList.get(i).getCode(),
+//                  weaponsList.get(i).getType(), weaponsList.get(i).getAttackValue(),
+//                  weaponsList.get(i).getSubStat(), weaponsList.get(i).getSubStatValue(),
+//                  weaponsList.get(i).getRarity(),
+//                  weaponsList.get(i).getSDescription(), weaponsList.get(i).getIDescription(),
+//                  weaponsList.get(i).getFirstMatID(), weaponsList.get(i).getSecondMatID(), weaponsList.get(i).getThirdMatID(),
+//                  weaponsList.get(i).getImage()));
+//        }
 //        lstWeapons = new ArrayList<>();
         lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword\n" +
                 "Rarity : 3-star \n" +
