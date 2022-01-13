@@ -54,7 +54,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("Name", mData.get(position).getName());
                 intent.putExtra("Code", mData.get(position).getCode());
                 intent.putExtra("Rarity", mData.get(position).getRarity());
-                intent.putExtra("Details", mData.get(position).getDetails());
+                intent.putExtra("Type",mData.get(position).getType());
+                intent.putExtra("Attack",mData.get(position).getAttackValue());
+                intent.putExtra("SubStat",mData.get(position).getSubStat());
+                intent.putExtra("Substat value",mData.get(position).getSubStatValue());
                 intent.putExtra("InGame", mData.get(position).getIDescription());
                 intent.putExtra("Special", mData.get(position).getSDescription());
                 intent.putExtra("Image", mData.get(position).getImage());
