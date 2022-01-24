@@ -65,7 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_WEAPON_NAME + " TEXT,"
                 + KEY_TYPE + " TEXT,"
                 + KEY_ATTACKVALUE + " TEXT,"
-                + KEY_SUBSTAT + " TEXT,"
+                + KEY_SUBSTAT + " z,"
                 + KEY_SUBSTATVALUE + " TEXT,"
                 + KEY_IMAGE + " TEXT,"
                 + KEY_CODE + " TEXT,"
@@ -136,7 +136,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 weapons.setName(cursor.getString(1));
                 weapons.setType(cursor.getString(2));
                 weapons.setAttackValue(cursor.getString(3));
-                weapons.setSubStat(cursor.getString(4));
+                weapons.setSubStat(cursor.getInt(4));
                 weapons.setSubStatValue(cursor.getString(5));
                 weapons.setImage(cursor.getInt(6));
                 weapons.setCode(cursor.getString(7));

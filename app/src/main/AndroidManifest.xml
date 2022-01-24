@@ -36,6 +36,9 @@
             android:name=".Details"
             android:theme="@style/Theme.GenshinMaterialsCalculator" />
         <activity
+            android:name=".Details2"
+            android:theme="@style/Theme.GenshinMaterialsCalculator" />
+        <activity
             android:name=".Webview"
             android:theme="@style/Theme.GenshinMaterialsCalculator" />
     </application>

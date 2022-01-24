@@ -12,7 +12,7 @@
         android:layout_width="280dp"
         android:layout_height="2dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="370dp"
         android:background="@color/black" />
 
     <ImageButton
@@ -20,7 +20,7 @@
         android:layout_width="280dp"
         android:layout_height="49dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="400dp"
         android:foregroundGravity="center"
         android:src="@drawable/ayaka"/>
 
@@ -29,14 +29,14 @@
         android:layout_width="280dp"
         android:layout_height="49dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="500dp"
         android:src="@drawable/raiden_shogun" />
 
     <ImageButton
         android:id="@+id/btnFav3"
         android:layout_width="280dp"
         android:layout_height="49dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="600dp"
         android:layout_marginLeft="60dp"
         android:src="@drawable/kokomi" />
 </RelativeLayout>

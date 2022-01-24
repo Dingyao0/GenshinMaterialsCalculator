@@ -10,7 +10,7 @@ public class Weapons {
     private String Name;
     private String Type;
     private String AttackValue;
-    private String SubStat;
+    private int SubStat;
     private String SubStatValue;
     private int Image;
     private String Code;
@@ -24,7 +24,7 @@ public class Weapons {
     public Weapons() {
     }
 
-    public Weapons(int id, String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+    public Weapons(int id, String name, String code, String type, String attackValue, int subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
         ID=id;
         Name = name;
         Code = code;
@@ -41,7 +41,7 @@ public class Weapons {
         Image = image;
     }
 
-    public Weapons(String name, String code, String type, String attackValue, String subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
+    public Weapons(String name, String code, String type, String attackValue, int subStat, String subStatValue, String rarity, String sDescription, String iDescription, int firstMatID, int secondMatID, int thirdMatID, int image) {
         Name = name;
         Code = code;
         Type = type;
@@ -55,7 +55,6 @@ public class Weapons {
         SecondMatID = secondMatID;
         ThirdMatID = thirdMatID;
         Image = image;
-
     }
 
     public int getID() {
@@ -117,7 +116,7 @@ public class Weapons {
     }
 
     public String getAttackValue() { return AttackValue; }
-    public String getSubStat() { return SubStat; }
+    public int getSubStat() { return SubStat; }
     public String getSubStatValue() { return SubStatValue; }
 
     public String getRarity() {
@@ -140,7 +139,7 @@ public class Weapons {
     public void setType(String type) { Type = type; }
 
     public void setAttackValue(String attackValue) { AttackValue = attackValue; }
-    public void setSubStat (String subStat ) { SubStat = subStat ; }
+    public void setSubStat (int subStat ) { SubStat = subStat ; }
     public void setSubStatValue (String subStatValue ) { SubStatValue = subStatValue ; }
 
     public void setRarity(String rarity) {
