@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
         //db.deleteDatabase();
         db.addWeapon(new Weapon("Cool_Steel", "w_1201", "Sword\n",
-                "23\n", "ATK\n", "7.7\n",
+                "23\n", 1, "7.7\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
                 "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",
-                1, 1, 1, 1));//R.drawable.w_1201
+                1, 1, 1, 1));
         Log.d("weapon type of first weapon", String.valueOf(db.getAllWeapons().get(1).getType()));
 
         db.addCharacter(new Character("name", "fire", "sword", "12","12", "12","attack", "12", "12",

@@ -36,7 +36,7 @@ public class Details2 extends AppCompatActivity {
 //        tabLayout=findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
         DatabaseHandler lstWeapons = new DatabaseHandler(this);
-        ArrayList<Weapons> weaponsList = (ArrayList<Weapons>) lstWeapons.getAllWeapons();
+        ArrayList<Weapon> weaponsList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
         Log.d("hi", String.valueOf(weaponsList));
         ArrayList<String> arrayList = new ArrayList<>();
 
@@ -48,7 +48,7 @@ public class Details2 extends AppCompatActivity {
 
     }
 
-    private void prepareViewPager(ViewPager viewPager, ArrayList<Weapons> arrayList) {
+    private void prepareViewPager(ViewPager viewPager, ArrayList<Weapon> arrayList) {
 
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager());
         MainFragment fragment = new MainFragment();
