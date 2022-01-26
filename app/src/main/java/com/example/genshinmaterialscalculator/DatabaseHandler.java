@@ -560,6 +560,112 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return character;
     }
 
+    public List<Character> getAllCharacter() {
+        List<Character> characterList = new ArrayList<Character>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_CHARACTERS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Character character = new Character();
+                character.setName((cursor.getString(1)));
+                character.setElement((cursor.getString(2)));
+                character.setWeaponType((cursor.getString(3)));
+                character.setHp((cursor.getString(4)));
+                character.setAttackValue((cursor.getString(5)));
+                character.setDef((cursor.getString(6)));
+                character.setSecondaryStat((cursor.getString(7)));
+                character.setSecondaryStatValue((cursor.getString(8)));
+                character.setCritRate((cursor.getString(9)));
+                character.setCritDamage((cursor.getString(10)));
+                character.setImage((cursor.getInt(11)));
+                character.setCode((cursor.getString(12)));
+                character.setRarity((cursor.getString(13)));
+                character.setSDescription((cursor.getString(14)));
+                character.setIDescription((cursor.getString(15)));
+                character.setRegion((cursor.getString(16)));
+                character.setCharacterStoneId((cursor.getInt(17)));
+                character.setCharacterLocalId((cursor.getInt(18)));
+                character.setCharacterPrimaryId((cursor.getInt(19)));
+                character.setCharacterSecondaryId((cursor.getInt(20)));
+                character.setWeeklyBossId((cursor.getInt(21)));
+                // Adding weapons to list
+                characterList.add(character);
+            } while (cursor.moveToNext());
+        }
+        // return weapon list
+        return characterList;
+    }
+
+    public List<Character> getCharacterSearchResult(String search) {
+        List<Character> resultList = new ArrayList<Character>();
+        String selectQuery = "SELECT  * FROM " + TABLE_CHARACTERS + " WHERE name LIKE " + search +"%";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Character character = new Character();
+                character.setName((cursor.getString(1)));
+                character.setElement((cursor.getString(2)));
+                character.setWeaponType((cursor.getString(3)));
+                character.setHp((cursor.getString(4)));
+                character.setAttackValue((cursor.getString(5)));
+                character.setDef((cursor.getString(6)));
+                character.setSecondaryStat((cursor.getString(7)));
+                character.setSecondaryStatValue((cursor.getString(8)));
+                character.setCritRate((cursor.getString(9)));
+                character.setCritDamage((cursor.getString(10)));
+                character.setImage((cursor.getInt(11)));
+                character.setCode((cursor.getString(12)));
+                character.setRarity((cursor.getString(13)));
+                character.setSDescription((cursor.getString(14)));
+                character.setIDescription((cursor.getString(15)));
+                character.setRegion((cursor.getString(16)));
+                character.setCharacterStoneId((cursor.getInt(17)));
+                character.setCharacterLocalId((cursor.getInt(18)));
+                character.setCharacterPrimaryId((cursor.getInt(19)));
+                character.setCharacterSecondaryId((cursor.getInt(20)));
+                character.setWeeklyBossId((cursor.getInt(21)));
+                // Adding weapons to list
+                resultList.add(character);
+            } while (cursor.moveToNext());
+        }
+        return resultList;
+    }
+
+    public List<Weapon> getWeaponSearchResult(String search) {
+        List<Weapon> resultList = new ArrayList<Weapon>();
+        String selectQuery = "SELECT  * FROM " + TABLE_WEAPONS + " WHERE name LIKE " + search +"%";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Weapon weapons = new Weapon();
+                weapons.setID(cursor.getInt(0));
+                weapons.setName(cursor.getString(1));
+                weapons.setType(cursor.getString(2));
+                weapons.setAttackValue(cursor.getString(3));
+                weapons.setSubStat(cursor.getInt(4));
+                weapons.setSubStatValue(cursor.getString(5));
+                weapons.setImage(cursor.getInt(6));
+                weapons.setCode(cursor.getString(7));
+                weapons.setRarity(cursor.getString(8));
+                weapons.setSDescription(cursor.getString(9));
+                weapons.setIDescription(cursor.getString(10));
+                weapons.setFirstMatID(cursor.getInt(11));
+                weapons.setSecondMatID(cursor.getInt(12));
+                weapons.setThirdMatID(cursor.getInt(13));
+                // Adding weapons to list
+                resultList.add(weapons);
+            } while (cursor.moveToNext());
+        }
+        return resultList;
+    }
+
 
     public void addWeapon(Weapon weapon) {
         SQLiteDatabase db = this.getWritableDatabase();
