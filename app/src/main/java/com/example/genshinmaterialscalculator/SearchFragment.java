@@ -37,7 +37,7 @@ public class SearchFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter adapter;
     private SearchView searchView;
-    List<Weapons> filteredList = new ArrayList<>();
+    List<Weapon> filteredList = new ArrayList<>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -83,7 +83,7 @@ public class SearchFragment extends Fragment {
         bindWeapons();
         DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
 //        Log.d("Reading: ", "Reading all contacts..");
-        ArrayList<Weapons> weaponsList = (ArrayList<Weapons>) lstWeapons.getAllWeapons();
+        ArrayList<Weapon> weaponsList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_id);
         com.example.genshinmaterialscalculator.RecyclerViewAdapter myAdapter = new com.example.genshinmaterialscalculator.RecyclerViewAdapter(this.getActivity(), weaponsList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 3));
@@ -123,7 +123,7 @@ public class SearchFragment extends Fragment {
     private void bindWeapons() {
 //        lstWeapons = new ArrayList<>();
         DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
-        List<Weapons> weaponsList = lstWeapons.getAllWeapons();
+        List<Weapon> weaponsList = lstWeapons.getAllWeapons();
         Log.d("Insert Data : ", "Inserting ..");
 //        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword",
 //                "39\n",
@@ -156,9 +156,9 @@ public class SearchFragment extends Fragment {
 //        }
 
         Log.d("Reading: ", "Reading all contacts..");
-        ArrayList<Weapons> weaponsArrayList = (ArrayList<Weapons>) lstWeapons.getAllWeapons();
+        ArrayList<Weapon> weaponsArrayList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
 
-        for (Weapons cn : weaponsArrayList) {
+        for (Weapon cn : weaponsArrayList) {
             String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
                     cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
             // Writing Contacts to log
