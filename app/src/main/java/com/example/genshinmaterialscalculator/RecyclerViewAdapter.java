@@ -3,9 +3,14 @@ package com.example.genshinmaterialscalculator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,19 +18,22 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Aws on 28/01/2018.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> implements Filterable {
 
     private Context mContext;
-    private List<Weapon> mData;
+    private List<Weapons> mData;
+    private ArrayList<Weapons> FullList;
 
 
-    public RecyclerViewAdapter(Context mContext, List<Weapon> mData) {
+
+    public RecyclerViewAdapter(Context mContext, List<Weapons> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -48,9 +56,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(mContext, Details.class);
+                Intent intent = new Intent(mContext, Details2.class);
 
                 // passing data to the book activity
+                intent.putExtra("ID", mData.get(position).getID());
                 intent.putExtra("Name", mData.get(position).getName());
                 intent.putExtra("Code", mData.get(position).getCode());
                 intent.putExtra("Rarity", mData.get(position).getRarity());
@@ -69,10 +78,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     }
 
+
     @Override
     public int getItemCount() {
         return mData.size();
     }
+
+//    public void filterList(List<Weapons> filteredList){
+//        Log.d("bye", String.valueOf(mData));
+//        mData=filteredList;
+//        notifyDataSetChanged();
+//    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -89,5 +105,36 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         }
     }
+    @Override
+    public Filter getFilter() {
+        return Searched_Filter;
+    }
+
+    private Filter Searched_Filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Weapons> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(FullList);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Weapons item : FullList) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            mData.clear();
+            mData.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
 
 }

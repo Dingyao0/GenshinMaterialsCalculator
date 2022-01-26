@@ -4,13 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="8dp">
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="8dp">
 
+    </androidx.appcompat.widget.SearchView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        >
     </androidx.recyclerview.widget.RecyclerView>
 
 

@@ -27,29 +27,34 @@ public class Details extends AppCompatActivity {
 
         layout = (View) findViewById(R.id.detailsBG);
 
-        CharName = (TextView) findViewById(R.id.Name);
-        CharDetails = (TextView) findViewById(R.id.details);
+        CharName = (TextView) findViewById(R.id.WeaponName);
+//        CharDetails = (TextView) findViewById(R.id.details);
         CharSpecial = (TextView) findViewById(R.id.SDescriptionText);
         CharInGame = (TextView) findViewById(R.id.IDescriptionText);
 
-        CharImg = (ImageView) findViewById(R.id.Image);
+        CharImg = (ImageView) findViewById(R.id.WeaponImg);
 
         // Receive data
         Intent intent = getIntent();
         String Name = intent.getExtras().getString("Name");
         String Rarity = intent.getExtras().getString("Rarity");
-        String Details = intent.getExtras().getString("Details");
+        String Details = intent.getExtras().getString("Type");
         String Special = intent.getExtras().getString("Special");
         String InGame = intent.getExtras().getString("InGame");
         int image = intent.getExtras().getInt("Image");
 
         Log.d("hi", Rarity);
-        if (Rarity.equals("1-star")) {
-            layout.setBackgroundColor(getColor(R.color.purple_200));
+        if (Rarity.equals("3-star")) {
+            layout.setBackgroundColor(getColor(R.color.blue));
+        }else if(Rarity.equals("4-star")){
+            layout.setBackgroundColor(getColor(R.color.purple));
+
+        }else if(Rarity.equals("5-star")){
+            layout.setBackgroundColor(getColor(R.color.orange));
         }
         // Setting values
         CharName.setText(Name);
-        CharDetails.setText(Details);
+//        CharDetails.setText(Details);
         CharSpecial.setText(Special);
         CharInGame.setText(InGame);
         CharImg.setImageResource(image);
@@ -68,9 +73,12 @@ public class Details extends AppCompatActivity {
                 mycontent.toggle();
                 break;
             case R.id.moreDetails:
-                Intent intent = new Intent(this, com.example.genshinmaterialscalculator.Webview.class);
+//                Intent intent = new Intent(this, com.example.genshinmaterialscalculator.Webview.class);
+//                startActivity(intent);
+                String value="Hello world";
+                Intent intent = new Intent(Details.this, Webview.class);
+                intent.putExtra("key","w_1101");
                 startActivity(intent);
-
                 break;
         }
 
