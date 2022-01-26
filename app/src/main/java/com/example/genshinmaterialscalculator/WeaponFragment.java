@@ -1,8 +1,6 @@
 package com.example.genshinmaterialscalculator;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,31 +9,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SearchFragment#newInstance} factory method to
+ * Use the {@link WeaponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchFragment extends Fragment {
+
+public class WeaponFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter adapter;
+    private RecyclerAdapter adapter;
     private SearchView searchView;
     List<Weapons> filteredList = new ArrayList<>();
     // TODO: Rename and change types of parameters
@@ -43,7 +40,7 @@ public class SearchFragment extends Fragment {
     private String mParam2;
 
 
-    public SearchFragment() {
+    public WeaponFragment() {
         // Required empty public constructor
     }
 
@@ -56,8 +53,8 @@ public class SearchFragment extends Fragment {
      * @return A new instance of fragment SearchFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchFragment newInstance(String param1, String param2) {
-        SearchFragment fragment = new SearchFragment();
+    public static WeaponFragment newInstance(String param1, String param2) {
+        WeaponFragment fragment = new WeaponFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,7 +74,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_weapon, container, false);
         setHasOptionsMenu(true);
         searchView = rootView.findViewById(R.id.search_view);
         bindWeapons();
@@ -86,8 +83,10 @@ public class SearchFragment extends Fragment {
         ArrayList<Weapons> weaponsList = (ArrayList<Weapons>) lstWeapons.getAllWeapons();
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_id);
         com.example.genshinmaterialscalculator.RecyclerViewAdapter myAdapter = new com.example.genshinmaterialscalculator.RecyclerViewAdapter(this.getActivity(), weaponsList);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 3));
-        mRecyclerView.setAdapter(myAdapter);        // Inflate the layout for this fragment
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 2));
+        mRecyclerView.setAdapter(myAdapter);
+        adapter = new RecyclerAdapter(weaponsList);
+        // Inflate the layout for this fragment
 //        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 //            @Override
 //            public boolean onQueryTextSubmit(String query) {
@@ -115,7 +114,8 @@ public class SearchFragment extends Fragment {
 //            }
 //        }
 //        Log.d("hi", String.valueOf(filteredList));
-//        recyclerViewAdapter.filterList(filteredList);
+//
+//        adapter.filterList(filteredList);
 //        Log.d("hi", "hi7");
 //    }
 
@@ -127,20 +127,40 @@ public class SearchFragment extends Fragment {
         Log.d("Insert Data : ", "Inserting ..");
 //        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword",
 //                "39\n",
-//                R.drawable.substat,
-//                "0\n", "Rarity: 3-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.", 1, 1, 1, R.drawable.w_1201));
+//                R.drawable.atk,
+//                "0\n", "3-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.", 1, 1, 1, R.drawable.w_1201));
 //        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Blackcliff Longsword", "w_1301", "Type : Sword\n",
 //                "44\n",
-//                R.drawable.substat,
+//                R.drawable.cd,
 //                "8\n", "4-star", "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.", "A sword made of a material known as \"blackcliff.\" It has a dark crimson glow on its black blade.", 1, 1, 1, R.drawable.w_1301));
 //        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Aquila Favonia", "w_1401", "Type : Sword\n",
 //                "48\n",
-//                R.drawable.substat,
+//                R.drawable.p_dmg,
 //                "9\n", "5-star", "ATK is increased by 20%. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to 100% of ATK and dealing 200% of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.", "The soul of the Knights of Favonius. Millennia later, it still calls on the winds of swift justice to vanquish all evil — just like the last heroine who wielded it.", 1, 1, 1, R.drawable.w_1401));
 //        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Fillet Blade", "w_1203", "Type : Sword\n",
 //                "39\n",
-//                R.drawable.substat,
+//                R.drawable.atk,
 //                "7.7\n", "3-star", "On hit, has a 50% chance to deal 240% ATK DMG to a single opponent. Can only occur once every 15s.", "A sharp filleting knife. The blade is long, thin, and incredibly sharp.", 1, 1, 1, R.drawable.w_1203));
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Luxurious Sea-Lord", "w_2313", "Type : Claymore\n",
+//                "41\n",
+//                R.drawable.atk,
+//                "12\n", "4-star", "Increases Elemental Burst DMG by 12%. When Elemental Burst hits opponents, there is a 100% chance of summoning a huge onrush of tuna that deals 100% ATK as AoE DMG. This effect can occur once every 15s.", "The great king of the ocean. Having been air-dried, it makes for a fine weapon as well as emergency sustenance.", 1, 1, 1, R.drawable.w_2313));
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Engulfing Lightning", "w_3406", "Type : Polearm\n",
+//                "46\n",
+//                R.drawable.em,
+//                "12\n", "5-star", "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst.  ", "A naginata used to \"cut grass.\" Any army that stands before this weapon will probably be likewise cut down...", 1, 1, 1, R.drawable.w_3406));
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Mitternachts Waltz", "w_4312", "Type : Bow\n",
+//                "42\n",
+//                R.drawable.p_dmg,
+//                "11.3\n", "4-star", "Normal Attack hits on opponents increase Elemental Skill DMG by 20% for 5s. Elemental Skill hits on opponents increase Normal Attack DMG by 20% for 5s. ", "A bow painted the color of transgression and nights of illusion.", 1, 1, 1, R.drawable.w_4312));
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Apprentice's Notes", "w_5001", "Type : Catalyst\n",
+//                "23\n",
+//                R.drawable.none,
+//                "", "1-star", "", "Notes left behind by a top student. Many useful spells are listed, and the handwriting is beautiful.", 1, 1, 1, R.drawable.w_5001));
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Pocket Grimoire", "w_5101", "Type : Catalyst\n",
+//                "33\n",
+//                R.drawable.none,
+//                "", "2-star", "", "A carefully compiled notebook featuring the essentials needed to pass a magic exam.", 1, 1, 1, R.drawable.w_5101));
 
         Log.d("hi", lstWeapons.toString());
 
@@ -165,6 +185,7 @@ public class SearchFragment extends Fragment {
             Log.d("Name: ", log);
         }
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // TODO Add your menu entries here
@@ -176,7 +197,6 @@ public class SearchFragment extends Fragment {
         searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 Log.d("newText1", query);
                 return false;
             }

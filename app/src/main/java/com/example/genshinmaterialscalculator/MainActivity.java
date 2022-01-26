@@ -1,8 +1,6 @@
 package com.example.genshinmaterialscalculator;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -50,15 +48,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        replace(new com.example.genshinmaterialscalculator.SearchFragment());
+                        replace(new com.example.genshinmaterialscalculator.WeaponFragment());
                         break;
 
                     case 3:
-                        replace(new com.example.genshinmaterialscalculator.BookmarkFragment());
+                        replace(new com.example.genshinmaterialscalculator.CharacterFragment());
                         break;
 
                     case 4:
-                        replace(new com.example.genshinmaterialscalculator.ProfileFragment());
+                        replace(new CalculatorFragment());
                         break;
                 }
                 return null;

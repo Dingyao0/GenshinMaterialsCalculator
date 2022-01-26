@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/top"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -62,20 +62,19 @@
                 android:layout_width="70dp"
                 android:layout_height="86dp"
                 android:layout_gravity="center"
-                android:src="@drawable/attack" />
+                android:src="@drawable/atk" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/WeaponDmg"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:text="hi"
                 android:textSize="50dp" />
         </LinearLayout>
 
@@ -103,7 +102,6 @@
                 android:id="@+id/WeaponStats"
                 android:layout_width="164dp"
                 android:layout_height="match_parent"
-                android:text="hi"
                 android:textSize="50dp" />
         </LinearLayout>
     </LinearLayout>
@@ -190,24 +188,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/second">
+
         <Button
             android:id="@+id/moreDetails"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="120dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="80dp"
             android:onClick="show"
             android:text="More Details" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/second">
+
         <Button
             android:id="@+id/calculator"
-            android:layout_marginTop="170dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
             android:onClick="show"
             android:text="Calculator" />
     </LinearLayout>
@@ -215,7 +216,7 @@
     <com.github.aakira.expandablelayout.ExpandableRelativeLayout
         android:id="@+id/special"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
         android:layout_below="@id/first"
         android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
@@ -239,7 +240,7 @@
         android:id="@+id/inGame"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
         android:layout_below="@id/second"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"

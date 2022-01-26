@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +31,9 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageButton button1, button2;
+    private Button button3;
+    private View layout;
     private ExpandableRelativeLayout mycontent;
 
 
@@ -74,6 +79,7 @@ public class MainFragment extends Fragment {
         TextView SubStatValue = view.findViewById(R.id.WeaponStats);
         ImageView SubStat = view.findViewById(R.id.WeaponSubStat);
         ImageView Image = view.findViewById(R.id.WeaponImg);
+        layout = (View) view.findViewById(R.id.detailsBG);
 
         String sTitle = getArguments().getString("title");
         String WeaponSpecial = getArguments().getString("WeaponSpecial");
@@ -82,6 +88,47 @@ public class MainFragment extends Fragment {
         String WeaponSubStatValue = getArguments().getString("WeaponSubStatValue");
         int WeaponSubStat = getArguments().getInt("WeaponSubStat");
         int WeaponImg = getArguments().getInt("WeaponImg");
+        String Code = getArguments().getString("Code");
+        String Rarity = getArguments().getString("Rarity");
+
+
+        button1 = view.findViewById(R.id.details1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mycontent = (ExpandableRelativeLayout) view.findViewById(R.id.special);
+                mycontent.toggle();
+            }
+        });
+        button2 = view.findViewById(R.id.details2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mycontent = (ExpandableRelativeLayout) view.findViewById(R.id.inGame);
+                mycontent.toggle();
+            }
+        });
+        button3 = view.findViewById(R.id.moreDetails);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Webview.class);
+                intent.putExtra("key", Code);
+                startActivity(intent);
+            }
+        });
+
+        if (Rarity.equals("1-star")) {
+            layout.setBackgroundResource(R.drawable.onestar);
+        } else if (Rarity.equals("2-star")) {
+            layout.setBackgroundResource(R.drawable.twostar);
+        } else if (Rarity.equals("3-star")) {
+            layout.setBackgroundResource(R.drawable.threestar);
+        } else if (Rarity.equals("4-star")) {
+            layout.setBackgroundResource(R.drawable.fourstar);
+        } else if (Rarity.equals("5-star")) {
+            layout.setBackgroundResource(R.drawable.fivestar);
+        }
 
         Name.setText(sTitle);
         IDescription.setText(WeaponInGame);
@@ -92,5 +139,6 @@ public class MainFragment extends Fragment {
         Image.setImageResource(WeaponImg);
         return view;
     }
+
 
 }

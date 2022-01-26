@@ -36,6 +36,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public RecyclerViewAdapter(Context mContext, List<Weapons> mData) {
         this.mContext = mContext;
         this.mData = mData;
+        FullList = new ArrayList<>(mData);
+
     }
 
     @Override
@@ -84,11 +86,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mData.size();
     }
 
-//    public void filterList(List<Weapons> filteredList){
-//        Log.d("bye", String.valueOf(mData));
-//        mData=filteredList;
-//        notifyDataSetChanged();
-//    }
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -99,12 +97,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            tv_book_title = (TextView) itemView.findViewById(R.id.book_title_id);
-            img_book_thumbnail = (ImageView) itemView.findViewById(R.id.book_img_id);
+            tv_book_title = (TextView) itemView.findViewById(R.id.CardViewText);
+            img_book_thumbnail = (ImageView) itemView.findViewById(R.id.cardViewImg);
             cardView = (CardView) itemView.findViewById(R.id.cardview_id);
 
         }
     }
+
+    public void filterList(List<Weapons> filteredList){
+        Log.d("bye", String.valueOf(mData));
+        mData=filteredList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public Filter getFilter() {
         return Searched_Filter;

@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 import com.google.android.material.tabs.TabLayout;
@@ -25,6 +27,9 @@ public class Details2 extends AppCompatActivity {
     private ViewPager viewPager;
     private ExpandableRelativeLayout mycontent;
     private View layout;
+    private ImageButton button1,button2;
+    private Button button3;
+
 
 
     @Override
@@ -62,9 +67,13 @@ public class Details2 extends AppCompatActivity {
             bundle.putString("WeaponSubStatValue", arrayList.get(i).getSubStatValue());
             bundle.putInt("WeaponImg", arrayList.get(i).getImage());
             bundle.putInt("WeaponSubStat", arrayList.get(i).getSubStat());
+            bundle.putString("Code", arrayList.get(i).getCode());
+            bundle.putString("Rarity", arrayList.get(i).getRarity());
             fragment.setArguments(bundle);
-            adapter.addFragment(fragment, arrayList.get(i).getSDescription());
+            adapter.addFragment(fragment, arrayList.get(i).getName());
+
             fragment = new MainFragment();
+
         }
         Intent intent = getIntent();
         int ID = intent.getExtras().getInt("ID");
@@ -122,7 +131,7 @@ public class Details2 extends AppCompatActivity {
 //                startActivity(intent);
                 String value = "Hello world";
                 Intent intent = new Intent(Details2.this, Webview.class);
-                intent.putExtra("key", "w_1101");
+                intent.putExtra("key",value);
                 startActivity(intent);
                 break;
         }

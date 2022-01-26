@@ -68,8 +68,8 @@ public class HomeFragment extends Fragment {
         androidImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(HomeFragment.this.getActivity(), "Btn1", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), Details.class);
+                Intent intent = new Intent(getActivity(), Details2.class);
+                intent.putExtra("ID", 2);
                 startActivity(intent);
             }
         });
