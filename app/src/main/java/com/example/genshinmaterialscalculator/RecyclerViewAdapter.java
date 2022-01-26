@@ -28,12 +28,12 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> implements Filterable {
 
     private Context mContext;
-    private List<Weapons> mData;
-    private ArrayList<Weapons> FullList;
+    private List<Weapon> mData;
+    private ArrayList<Weapon> FullList;
 
 
 
-    public RecyclerViewAdapter(Context mContext, List<Weapons> mData) {
+    public RecyclerViewAdapter(Context mContext, List<Weapon> mData) {
         this.mContext = mContext;
         this.mData = mData;
         FullList = new ArrayList<>(mData);
@@ -118,12 +118,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Filter Searched_Filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Weapons> filteredList = new ArrayList<>();
+            ArrayList<Weapon> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(FullList);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Weapons item : FullList) {
+                for (Weapon item : FullList) {
                     if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
