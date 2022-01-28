@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         DatabaseHandler db = new DatabaseHandler(this);
         //db.deleteDatabase();
+
         db.addWeapon(new Weapon("Cool_Steel", "w_1201", "Sword\n",
                 "23\n", 1, "7.7\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
@@ -33,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         db.addCharacter(new Character("name", "fire", "sword", "12","12", "12","attack", "12", "12",
                 "12", 1, "code", "rarity", "sdescriptionasd",
-                "idesc", "regio", 1, 1, 1,
+                "idesc", "regio", 1, 1, 1,1,1,1,
         1, 1));
         Log.d("character name", String.valueOf(db.getCharacterById(1).getName()));
+        Log.d("character name from search", String.valueOf(db.getCharacterSearchResult("nam").get(0).getName()));
+
 
         db.addCharacterLocal(new CharacterLocal("name", "region"));
         Log.d("characterlocal name", String.valueOf(db.getCharacterLocalById(1).getClName()));
@@ -44,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("characterPrimary name1", String.valueOf(db.getCharacterPrimaryById(1).getCpName1()));
 
         db.addCharacterSecondary(new CharacterSecondary("name12","name2","name3","wherer",1));
-        Log.d("characterSecondary name1", String.valueOf(db.getCharacterSecondaryById(1).getCs_Name1()));
+        Log.d("characterSecondary name1", String.valueOf(db.getCharacterSecondaryById(1).getCseName1()));
 
         db.addCharacterStone(new CharacterStone("stone",1));
-        Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCsName()));
+        Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCstName()));
 
         db.addWeaponPrimary(new WeaponPrimary("weaqpp","name2","name3","name4","name5",1));
         Log.d("weap primary name1", String.valueOf(db.getWeaponPrimaryById(1).getWpName1()));
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         db.addFavorite(2);
         Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
+
 
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
