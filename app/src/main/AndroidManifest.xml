@@ -33,10 +33,10 @@
 <!--            android:theme="@style/Theme.GenshinMaterialsCalculator">-->
 <!--        </activity>-->
         <activity
-            android:name=".Details"
+            android:name=".Details2"
             android:theme="@style/Theme.GenshinMaterialsCalculator" />
         <activity
-            android:name=".Details2"
+            android:name=".CharDetails"
             android:theme="@style/Theme.GenshinMaterialsCalculator" />
         <activity
             android:name=".Webview"

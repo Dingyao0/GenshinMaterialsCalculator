@@ -25,14 +25,15 @@ import java.util.List;
  * Created by Aws on 28/01/2018.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> implements Filterable {
+public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerViewAdapter.MyViewHolder> implements Filterable {
 
     private Context mContext;
-    private List<Weapon> mData;
-    private ArrayList<Weapon> FullList;
+    private List<Character> mData;
+    private ArrayList<Character> FullList;
 
 
-    public RecyclerViewAdapter(Context mContext, List<Weapon> mData) {
+
+    public CharRecyclerViewAdapter(Context mContext, List<Character> mData) {
         this.mContext = mContext;
         this.mData = mData;
         FullList = new ArrayList<>(mData);
@@ -57,17 +58,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(mContext, Details2.class);
+                Intent intent = new Intent(mContext, CharDetails.class);
 
                 // passing data to the book activity
-                intent.putExtra("ID", mData.get(position).getID());
+                intent.putExtra("ID", mData.get(position).getId());
                 intent.putExtra("Name", mData.get(position).getName());
                 intent.putExtra("Code", mData.get(position).getCode());
                 intent.putExtra("Rarity", mData.get(position).getRarity());
-                intent.putExtra("Type", mData.get(position).getType());
-                intent.putExtra("Attack", mData.get(position).getAttackValue());
-                intent.putExtra("SubStat", mData.get(position).getSubStat());
-                intent.putExtra("Substat value", mData.get(position).getSubStatValue());
                 intent.putExtra("InGame", mData.get(position).getIDescription());
                 intent.putExtra("Special", mData.get(position).getSDescription());
                 intent.putExtra("Image", mData.get(position).getImage());
@@ -75,6 +72,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 mContext.startActivity(intent);
             }
         });
+
+
     }
 
 
@@ -82,6 +81,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return mData.size();
     }
+
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -100,9 +100,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
-    public void filterList(List<Weapon> filteredList) {
-        mData.clear();
-        mData.addAll((ArrayList) filteredList);
+    public void filterList(List<Character> filteredList){
+        Log.d("bye", String.valueOf(mData));
+        mData=filteredList;
         notifyDataSetChanged();
     }
 
@@ -114,12 +114,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Filter Searched_Filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Weapon> filteredList = new ArrayList<>();
+            ArrayList<Character> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(FullList);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Weapon item : FullList) {
+                for (Character item : FullList) {
                     if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
@@ -129,7 +129,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             results.values = filteredList;
             return results;
         }
-
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             mData.clear();

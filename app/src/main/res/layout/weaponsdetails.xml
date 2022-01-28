@@ -2,16 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailsBG"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/detailsBG">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="10dp"
+        android:orientation="vertical"
         android:paddingBottom="10dp">
 
         <ImageView
@@ -23,7 +23,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/Name">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -38,9 +39,17 @@
                     android:layout_gravity="center"
                     android:text="Cool Steel"
                     android:textColor="@color/black"
-                    android:textSize="35dp" />
+                    android:textSize="30dp" />
+                <ImageView
+                    android:id="@+id/Stars"
+                    android:layout_below="@id/Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/five" />
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -48,63 +57,73 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/top"
+        android:layout_marginLeft="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="40dp"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <!--            android:background="@drawable/border">-->
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="86dp"
-                android:layout_gravity="center"
-                android:src="@drawable/attack" />
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="86dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/atk" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/WeaponDmg"
-                android:layout_width="80dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="hi"
-                android:textSize="50dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/WeaponDmg"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:textSize="40dp" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/WeaponSubStat"
-                android:layout_width="70dp"
-                android:layout_height="86dp"
-                android:layout_gravity="center"
-                android:src="@drawable/w_1201" />
-        </LinearLayout>
+            <!--            android:background="@drawable/border">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/WeaponStats"
-                android:layout_width="164dp"
+                <ImageView
+                    android:id="@+id/WeaponSubStat"
+                    android:layout_width="70dp"
+                    android:layout_height="86dp"
+                    android:src="@drawable/w_1201" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="hi"
-                android:textSize="50dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/WeaponStats"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:textSize="40dp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -113,8 +132,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/desc"
-        android:orientation="horizontal"
-        android:background="@color/purple_200">
+        android:background="@color/purple_200"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -136,14 +155,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:orientation="vertical">
+
             <ImageButton
                 android:id="@+id/details1"
                 android:layout_width="51dp"
                 android:layout_height="51dp"
-                android:foregroundGravity="center"
                 android:background="@null"
+                android:foregroundGravity="center"
                 android:onClick="show"
-                android:src="@drawable/arrow"/>
+                android:src="@drawable/arrow" />
         </LinearLayout>
     </LinearLayout>
 
@@ -153,8 +173,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/first"
         android:layout_marginTop="160dp"
-        android:orientation="horizontal"
-        android:background="@color/purple_200">
+        android:background="@color/purple_200"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -176,38 +196,43 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:orientation="vertical">
+
             <ImageButton
                 android:id="@+id/details2"
                 android:layout_width="51dp"
                 android:layout_height="51dp"
-                android:foregroundGravity="center"
                 android:background="@null"
+                android:foregroundGravity="center"
                 android:onClick="show"
-                android:src="@drawable/arrow"/>
+                android:src="@drawable/arrow" />
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/second">
+
         <Button
             android:id="@+id/moreDetails"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="120dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="80dp"
             android:onClick="show"
             android:text="More Details" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/second">
+
         <Button
             android:id="@+id/calculator"
-            android:layout_marginTop="170dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
             android:onClick="show"
             android:text="Calculator" />
     </LinearLayout>
@@ -215,7 +240,7 @@
     <com.github.aakira.expandablelayout.ExpandableRelativeLayout
         android:id="@+id/special"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
         android:layout_below="@id/first"
         android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
@@ -237,10 +262,10 @@
 
     <com.github.aakira.expandablelayout.ExpandableRelativeLayout
         android:id="@+id/inGame"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
         android:layout_below="@id/second"
+        android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
         app:ael_duration="200"
