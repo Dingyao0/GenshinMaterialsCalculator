@@ -32,7 +32,7 @@ public class WeaponFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView mRecyclerView;
-    private RecyclerAdapter adapter;
+    private RecyclerViewAdapter adapter;
     private SearchView searchView;
     List<Weapon> filteredList = new ArrayList<>();
     // TODO: Rename and change types of parameters
@@ -85,20 +85,19 @@ public class WeaponFragment extends Fragment {
         com.example.genshinmaterialscalculator.RecyclerViewAdapter myAdapter = new com.example.genshinmaterialscalculator.RecyclerViewAdapter(this.getActivity(), weaponsList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 2));
         mRecyclerView.setAdapter(myAdapter);
-        adapter = new RecyclerAdapter(weaponsList);
-        // Inflate the layout for this fragment
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                filter(newText);
-//                return true;
-//            }
-//        });
+        adapter = new RecyclerViewAdapter(this.getActivity(),weaponsList);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
 
         return rootView;
     }
@@ -106,15 +105,14 @@ public class WeaponFragment extends Fragment {
 //    private void filter(String newText) {
 ////        List<Weapons> filteredList= null;
 //        DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
-//        ArrayList<Weapons> weaponsList = (ArrayList<Weapons>) lstWeapons.getAllWeapons();
-//        for (Weapons item : weaponsList) {
+//        ArrayList<Weapon> weaponsList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
+//        for (Weapon item : weaponsList) {
 //            if (item.getName().toLowerCase().contains(newText.toLowerCase())) {
 //                Log.d("hi",item.getName());
 //                filteredList.add(item);
 //            }
 //        }
 //        Log.d("hi", String.valueOf(filteredList));
-//
 //        adapter.filterList(filteredList);
 //        Log.d("hi", "hi7");
 //    }
@@ -125,39 +123,39 @@ public class WeaponFragment extends Fragment {
         DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
         List<Weapon> weaponsList = lstWeapons.getAllWeapons();
         Log.d("Insert Data : ", "Inserting ..");
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Cool Steel", "w_1201", "Type : Sword",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Cool Steel", "w_1201", "Type : Sword",
 //                "39\n",
 //                R.drawable.atk,
 //                "0\n", "3-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.", "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.", 1, 1, 1, R.drawable.w_1201));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Blackcliff Longsword", "w_1301", "Type : Sword\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Blackcliff Longsword", "w_1301", "Type : Sword\n",
 //                "44\n",
 //                R.drawable.cd,
 //                "8\n", "4-star", "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.", "A sword made of a material known as \"blackcliff.\" It has a dark crimson glow on its black blade.", 1, 1, 1, R.drawable.w_1301));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Aquila Favonia", "w_1401", "Type : Sword\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Aquila Favonia", "w_1401", "Type : Sword\n",
 //                "48\n",
 //                R.drawable.p_dmg,
 //                "9\n", "5-star", "ATK is increased by 20%. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to 100% of ATK and dealing 200% of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.", "The soul of the Knights of Favonius. Millennia later, it still calls on the winds of swift justice to vanquish all evil — just like the last heroine who wielded it.", 1, 1, 1, R.drawable.w_1401));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Fillet Blade", "w_1203", "Type : Sword\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Fillet Blade", "w_1203", "Type : Sword\n",
 //                "39\n",
 //                R.drawable.atk,
 //                "7.7\n", "3-star", "On hit, has a 50% chance to deal 240% ATK DMG to a single opponent. Can only occur once every 15s.", "A sharp filleting knife. The blade is long, thin, and incredibly sharp.", 1, 1, 1, R.drawable.w_1203));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Luxurious Sea-Lord", "w_2313", "Type : Claymore\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Luxurious Sea-Lord", "w_2313", "Type : Claymore\n",
 //                "41\n",
 //                R.drawable.atk,
 //                "12\n", "4-star", "Increases Elemental Burst DMG by 12%. When Elemental Burst hits opponents, there is a 100% chance of summoning a huge onrush of tuna that deals 100% ATK as AoE DMG. This effect can occur once every 15s.", "The great king of the ocean. Having been air-dried, it makes for a fine weapon as well as emergency sustenance.", 1, 1, 1, R.drawable.w_2313));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Engulfing Lightning", "w_3406", "Type : Polearm\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Engulfing Lightning", "w_3406", "Type : Polearm\n",
 //                "46\n",
 //                R.drawable.em,
 //                "12\n", "5-star", "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst.  ", "A naginata used to \"cut grass.\" Any army that stands before this weapon will probably be likewise cut down...", 1, 1, 1, R.drawable.w_3406));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Mitternachts Waltz", "w_4312", "Type : Bow\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Mitternachts Waltz", "w_4312", "Type : Bow\n",
 //                "42\n",
 //                R.drawable.p_dmg,
 //                "11.3\n", "4-star", "Normal Attack hits on opponents increase Elemental Skill DMG by 20% for 5s. Elemental Skill hits on opponents increase Normal Attack DMG by 20% for 5s. ", "A bow painted the color of transgression and nights of illusion.", 1, 1, 1, R.drawable.w_4312));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Apprentice's Notes", "w_5001", "Type : Catalyst\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Apprentice's Notes", "w_5001", "Type : Catalyst\n",
 //                "23\n",
 //                R.drawable.none,
 //                "", "1-star", "", "Notes left behind by a top student. Many useful spells are listed, and the handwriting is beautiful.", 1, 1, 1, R.drawable.w_5001));
-//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapons("Pocket Grimoire", "w_5101", "Type : Catalyst\n",
+//        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Pocket Grimoire", "w_5101", "Type : Catalyst\n",
 //                "33\n",
 //                R.drawable.none,
 //                "", "2-star", "", "A carefully compiled notebook featuring the essentials needed to pass a magic exam.", 1, 1, 1, R.drawable.w_5101));
@@ -179,10 +177,11 @@ public class WeaponFragment extends Fragment {
         ArrayList<Weapon> weaponsArrayList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
 
         for (Weapon cn : weaponsArrayList) {
-            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
-                    cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
+//            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
+//                    cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
             // Writing Contacts to log
-            Log.d("Name: ", log);
+            int log = cn.getImage();
+            Log.d("Name: ", String.valueOf(log));
         }
     }
 
@@ -206,7 +205,7 @@ public class WeaponFragment extends Fragment {
                 Log.d("newText", newText);
                 adapter.getFilter().filter(newText);
                 Log.d("newText2", newText);
-                return false;
+                return true;
             }
         });
     }

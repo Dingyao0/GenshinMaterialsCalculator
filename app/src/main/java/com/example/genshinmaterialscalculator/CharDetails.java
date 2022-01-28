@@ -20,7 +20,7 @@ import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Details2 extends AppCompatActivity {
+public class CharDetails extends AppCompatActivity {
 
     private ViewPager viewPager;
 
@@ -29,36 +29,34 @@ public class Details2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewpager);
-
         viewPager = findViewById(R.id.view_pager);
         DatabaseHandler db = new DatabaseHandler(this);
-        ArrayList<Weapon> weaponList = (ArrayList<Weapon>) db.getAllWeapons();
-        Log.d("hi", String.valueOf(weaponList));
+        ArrayList<Character> charactersList = (ArrayList<Character>) db.getAllCharacter();
+        Log.d("hi", String.valueOf(charactersList));
 
-        prepareViewPager(viewPager, weaponList);
+        prepareViewPager(viewPager, charactersList);
 
     }
 
-    private void prepareViewPager(ViewPager viewPager, ArrayList<Weapon> arrayList) {
+    private void prepareViewPager(ViewPager viewPager, ArrayList<Character> arrayList) {
 
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager());
-        WeaponDetailsFragment fragment = new WeaponDetailsFragment();
+        CharacterDetailsFragment fragment = new CharacterDetailsFragment();
 
         for (int i = 0; i < arrayList.size(); i++) {
             Bundle bundle = new Bundle();
             bundle.putString("title", arrayList.get(i).getName());
-            bundle.putString("WeaponSpecial", arrayList.get(i).getSDescription());
-            bundle.putString("WeaponInGame", arrayList.get(i).getIDescription());
-            bundle.putString("WeaponDamage", arrayList.get(i).getAttackValue());
-            bundle.putString("WeaponSubStatValue", arrayList.get(i).getSubStatValue());
-            bundle.putInt("WeaponImg", arrayList.get(i).getImage());
-            bundle.putInt("WeaponSubStat", arrayList.get(i).getSubStat());
+            bundle.putString("CharInGame", arrayList.get(i).getIDescription());
+            bundle.putString("CharDamage", arrayList.get(i).getAttackValue());
+            bundle.putString("Health", arrayList.get(i).getHp());
+            bundle.putString("Shield", arrayList.get(i).getDef());
+            bundle.putString("CharSubStatValue", arrayList.get(i).getSecondaryStatValue());
+            bundle.putInt("CharImg", arrayList.get(i).getImage());
             bundle.putString("Code", arrayList.get(i).getCode());
             bundle.putString("Rarity", arrayList.get(i).getRarity());
             fragment.setArguments(bundle);
             adapter.addFragment(fragment, arrayList.get(i).getName());
-
-            fragment = new WeaponDetailsFragment();
+            fragment = new CharacterDetailsFragment();
 
         }
         Intent intent = getIntent();
