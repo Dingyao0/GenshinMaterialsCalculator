@@ -96,6 +96,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_CSKILL1 = "skill1";
     private static final String KEY_CSKILL2 = "skill2";
     private static final String KEY_CSKILL3 = "skill3";
+    private static final String KEY_CBANNERIMAGE = "banner";
     private static final String KEY_CCHARACTERSTONEID = "characterStoneId";
     private static final String KEY_CCHARACTERLOCALID = "characterLocalId";
     private static final String KEY_CCHARACTERPRIMARYID = "characterPrimaryId";
@@ -248,6 +249,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_CSKILL1 + " INTEGER,"
                 + KEY_CSKILL2 + " INTEGER,"
                 + KEY_CSKILL3 + " INTEGER,"
+                + KEY_CBANNERIMAGE + " INTEGER,"
                 + KEY_CCHARACTERSTONEID + " INTEGER,"
                 + KEY_CCHARACTERLOCALID + " INTEGER,"
                 + KEY_CCHARACTERPRIMARYID + " INTEGER,"
@@ -314,6 +316,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         CharacterStone charStone = new CharacterStone();
+        charStone.setCstId(cursor.getInt(0));
         charStone.setCstName(cursor.getString(1));
         charStone.setCstImage(cursor.getInt(2));
 
@@ -340,6 +343,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         Weekly weekly = new Weekly();
+        weekly.setId(cursor.getInt(0));
         weekly.setName(cursor.getString(1));
         weekly.setImage(cursor.getInt(2));
 
@@ -365,6 +369,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         CharacterLocal characterLocal = new CharacterLocal();
+        characterLocal.setClId(cursor.getInt(0));
         characterLocal.setClName((cursor.getString(1)));
         characterLocal.setClRegion(cursor.getString(2));
 
@@ -394,6 +399,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         CharacterPrimary characterPrimary = new CharacterPrimary();
+        characterPrimary.setCpId(cursor.getInt(0));
         characterPrimary.setCpName1((cursor.getString(1)));
         characterPrimary.setCpName2((cursor.getString(2)));
         characterPrimary.setCpName3((cursor.getString(3)));
@@ -428,6 +434,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         CharacterSecondary characterSecondary = new CharacterSecondary();
+        characterSecondary.setCseId(cursor.getInt(0));
         characterSecondary.setCseName1((cursor.getString(1)));
         characterSecondary.setCseName2((cursor.getString(2)));
         characterSecondary.setCseName3((cursor.getString(3)));
@@ -459,6 +466,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         WeaponPrimary weaponPrimary = new WeaponPrimary();
+        weaponPrimary.setWpId(cursor.getInt(0));
         weaponPrimary.setWpName1((cursor.getString(1)));
         weaponPrimary.setWpName2((cursor.getString(2)));
         weaponPrimary.setWpName3((cursor.getString(3)));
@@ -491,6 +499,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         WeaponSecondary weaponSecondary = new WeaponSecondary();
+        weaponSecondary.setWsId(cursor.getInt(0));
         weaponSecondary.setWsName1((cursor.getString(1)));
         weaponSecondary.setWsName2((cursor.getString(2)));
         weaponSecondary.setWsName3((cursor.getString(3)));
@@ -523,6 +532,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_CSKILL1, character.getSkill1());
         values.put(KEY_CSKILL2, character.getSkill2());
         values.put(KEY_CSKILL3, character.getSkill3());
+        values.put(KEY_CBANNERIMAGE, character.getBannerImage());
         values.put(KEY_CCHARACTERSTONEID, character.getCharacterStoneId());
         values.put(KEY_CCHARACTERLOCALID, character.getCharacterLocalId());
         values.put(KEY_CCHARACTERPRIMARYID, character.getCharacterPrimaryId());
@@ -544,6 +554,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Character character = new Character();
         cursor.moveToFirst();
         //Log.d("cursor id", cursor.getString(0));
+        character.setId((cursor.getInt(0)));
         character.setName((cursor.getString(1)));
         character.setElement((cursor.getString(2)));
         character.setWeaponType((cursor.getString(3)));
@@ -563,11 +574,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         character.setSkill1((cursor.getInt(17)));
         character.setSkill2((cursor.getInt(18)));
         character.setSkill3((cursor.getInt(19)));
-        character.setCharacterStoneId((cursor.getInt(20)));
-        character.setCharacterLocalId((cursor.getInt(21)));
-        character.setCharacterPrimaryId((cursor.getInt(22)));
-        character.setCharacterSecondaryId((cursor.getInt(23)));
-        character.setWeeklyBossId((cursor.getInt(24)));
+        character.setBannerImage((cursor.getInt(20)));
+        character.setCharacterStoneId((cursor.getInt(21)));
+        character.setCharacterLocalId((cursor.getInt(22)));
+        character.setCharacterPrimaryId((cursor.getInt(23)));
+        character.setCharacterSecondaryId((cursor.getInt(24)));
+        character.setWeeklyBossId((cursor.getInt(25)));
 
         return character;
     }
@@ -602,11 +614,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 character.setSkill1((cursor.getInt(17)));
                 character.setSkill2((cursor.getInt(18)));
                 character.setSkill3((cursor.getInt(19)));
-                character.setCharacterStoneId((cursor.getInt(20)));
-                character.setCharacterLocalId((cursor.getInt(21)));
-                character.setCharacterPrimaryId((cursor.getInt(22)));
-                character.setCharacterSecondaryId((cursor.getInt(23)));
-                character.setWeeklyBossId((cursor.getInt(24)));
+                character.setBannerImage((cursor.getInt(20)));
+                character.setCharacterStoneId((cursor.getInt(21)));
+                character.setCharacterLocalId((cursor.getInt(22)));
+                character.setCharacterPrimaryId((cursor.getInt(23)));
+                character.setCharacterSecondaryId((cursor.getInt(24)));
+                character.setWeeklyBossId((cursor.getInt(25)));
                 // Adding weapons to list
                 characterList.add(character);
             } while (cursor.moveToNext());
@@ -624,6 +637,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Character character = new Character();
+                character.setId((cursor.getInt(0)));
                 character.setName((cursor.getString(1)));
                 character.setElement((cursor.getString(2)));
                 character.setWeaponType((cursor.getString(3)));
@@ -643,11 +657,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 character.setSkill1((cursor.getInt(17)));
                 character.setSkill2((cursor.getInt(18)));
                 character.setSkill3((cursor.getInt(19)));
-                character.setCharacterStoneId((cursor.getInt(20)));
-                character.setCharacterLocalId((cursor.getInt(21)));
-                character.setCharacterPrimaryId((cursor.getInt(22)));
-                character.setCharacterSecondaryId((cursor.getInt(23)));
-                character.setWeeklyBossId((cursor.getInt(24)));
+                character.setBannerImage((cursor.getInt(20)));
+                character.setCharacterStoneId((cursor.getInt(21)));
+                character.setCharacterLocalId((cursor.getInt(22)));
+                character.setCharacterPrimaryId((cursor.getInt(23)));
+                character.setCharacterSecondaryId((cursor.getInt(24)));
+                character.setWeeklyBossId((cursor.getInt(25)));
                 // Adding weapons to list
                 resultList.add(character);
             } while (cursor.moveToNext());
