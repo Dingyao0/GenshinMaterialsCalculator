@@ -245,9 +245,9 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        app:ael_duration="200"
+        app:ael_duration="1000"
         app:ael_expanded="false"
-        app:ael_interpolator="bounce"
+        app:ael_interpolator="anticipateOvershoot"
         app:ael_orientation="vertical">
 
         <TextView
@@ -268,9 +268,9 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        app:ael_duration="200"
+        app:ael_duration="1000"
         app:ael_expanded="false"
-        app:ael_interpolator="bounce"
+        app:ael_interpolator="anticipateOvershoot"
         app:ael_orientation="vertical">
 
         <TextView

@@ -8,7 +8,7 @@ public class Character {
     private String Hp;
     private String AttackValue;
     private String Def;
-    private String SecondaryStat;
+    private int SecondaryStat;
     private String SecondaryStatValue;
     private String CritRate;
     private String CritDamage;
@@ -25,7 +25,7 @@ public class Character {
     private int WeeklyId;
 
     public Character(int id, String name, String element, String weaponType, String hp, String attackValue,
-                     String def, String secondaryStat, String secondaryStatValue, String critRate,
+                     String def, int secondaryStat, String secondaryStatValue, String critRate,
                      String critDamage, int image, String code, String rarity, String sDescription,
                      String iDescription, String region, int characterStoneId, int characterLocalId, int characterPrimaryId,
                      int characterSecondaryId, int weeklyId) {
@@ -54,7 +54,7 @@ public class Character {
     }
 
     public Character(String name, String element, String weaponType, String hp, String attackValue,
-                     String def, String secondaryStat, String secondaryStatValue, String critRate,
+                     String def, int secondaryStat, String secondaryStatValue, String critRate,
                      String critDamage, int image, String code, String rarity, String sDescription,
                      String iDescription, String region, int characterStoneId, int characterLocalId, int characterPrimaryId,
                      int characterSecondaryId, int weeklyId) {
@@ -141,11 +141,11 @@ public class Character {
         Def = def;
     }
 
-    public String getSecondaryStat() {
+    public int getSecondaryStat() {
         return SecondaryStat;
     }
 
-    public void setSecondaryStat(String secondaryStat) {
+    public void setSecondaryStat(int secondaryStat) {
         SecondaryStat = secondaryStat;
     }
 

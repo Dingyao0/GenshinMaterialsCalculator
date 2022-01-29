@@ -1,12 +1,11 @@
 package com.example.genshinmaterialscalculator;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
@@ -18,92 +17,72 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Created by Aws on 28/01/2018.
- */
+import java.util.ArrayList;
 
 public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerViewAdapter.MyViewHolder> implements Filterable {
 
-    private Context mContext;
-    private List<Character> mData;
+    private ArrayList<Character> dataSet;
     private ArrayList<Character> FullList;
+    private Context mContext;
 
 
+    class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView tvName;
+        CardView cardView;
 
-    public CharRecyclerViewAdapter(Context mContext, List<Character> mData) {
+
+        MyViewHolder(View itemView) {
+            super(itemView);
+            cardView = (CardView) itemView.findViewById(R.id.cardview_id);
+            imageView = itemView.findViewById(R.id.cardViewImg);
+            tvName = itemView.findViewById(R.id.CardViewText);
+        }
+    }
+
+    public CharRecyclerViewAdapter(Context mContext,ArrayList<Character> itemList) {
+        this.dataSet = itemList;
         this.mContext = mContext;
-        this.mData = mData;
-        FullList = new ArrayList<>(mData);
+        FullList = new ArrayList<>(itemList);
+    }
 
+    @NonNull
+    @Override
+    public CharRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_recycleritem,
+                parent, false);
+        return new MyViewHolder(v);
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view;
-        LayoutInflater mInflater = LayoutInflater.from(mContext);
-        view = mInflater.inflate(R.layout.list_recycleritem, parent, false);
-        return new MyViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.tv_book_title.setText(mData.get(position).getName());
-        holder.img_book_thumbnail.setImageResource(mData.get(position).getImage());
-
+    public void onBindViewHolder(@NonNull CharRecyclerViewAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        holder.imageView.setImageResource(dataSet.get(position).getImage());
+        holder.tvName.setText(dataSet.get(position).getName());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(mContext, CharDetails.class);
-
                 // passing data to the book activity
-                intent.putExtra("ID", mData.get(position).getId());
-                intent.putExtra("Name", mData.get(position).getName());
-                intent.putExtra("Code", mData.get(position).getCode());
-                intent.putExtra("Rarity", mData.get(position).getRarity());
-                intent.putExtra("InGame", mData.get(position).getIDescription());
-                intent.putExtra("Special", mData.get(position).getSDescription());
-                intent.putExtra("Image", mData.get(position).getImage());
+                intent.putExtra("ID", dataSet.get(position).getId());
+                intent.putExtra("Name", dataSet.get(position).getName());
+                intent.putExtra("Code", dataSet.get(position).getCode());
+                intent.putExtra("Rarity", dataSet.get(position).getRarity());
+                intent.putExtra("Attack", dataSet.get(position).getAttackValue());
+                intent.putExtra("InGame", dataSet.get(position).getIDescription());
+                intent.putExtra("Special", dataSet.get(position).getSDescription());
+                intent.putExtra("Image", dataSet.get(position).getImage());
                 // start the activity
                 mContext.startActivity(intent);
             }
         });
-
-
     }
-
 
     @Override
     public int getItemCount() {
-        return mData.size();
-    }
-
-
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tv_book_title;
-        ImageView img_book_thumbnail;
-        CardView cardView;
-
-        public MyViewHolder(View itemView) {
-            super(itemView);
-
-            tv_book_title = (TextView) itemView.findViewById(R.id.CardViewText);
-            img_book_thumbnail = (ImageView) itemView.findViewById(R.id.cardViewImg);
-            cardView = (CardView) itemView.findViewById(R.id.cardview_id);
-
-        }
-    }
-
-    public void filterList(List<Character> filteredList){
-        Log.d("bye", String.valueOf(mData));
-        mData=filteredList;
-        notifyDataSetChanged();
+        Log.d("Hi","count");
+        return dataSet.size();
     }
 
     @Override
@@ -129,13 +108,12 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
             results.values = filteredList;
             return results;
         }
+
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            mData.clear();
-            mData.addAll((ArrayList) results.values);
+            dataSet.clear();
+            dataSet.addAll((ArrayList) results.values);
             notifyDataSetChanged();
         }
     };
-
-
 }

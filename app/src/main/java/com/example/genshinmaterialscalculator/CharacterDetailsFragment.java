@@ -93,9 +93,6 @@ public class CharacterDetailsFragment extends Fragment {
         String ShieldText = getArguments().getString("Shield");
         String Rarity = getArguments().getString("Rarity");
 
-
-
-
         button1 = view.findViewById(R.id.details1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
