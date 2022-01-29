@@ -21,48 +21,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         DatabaseHandler db = new DatabaseHandler(this);
         //db.deleteDatabase();
-
         db.addWeapon(new Weapon("Cool_Steel", "w_1201", "Sword\n",
                 "23\n", 1, "7.7\n",
                 "1-star", "Increases DMG against opponents affected by Hydro or Cryo by 12%.\n",
                 "A reliable steel-forged weapon that serves as a testament to the great adventures of its old master.\n",
-                1, 1, 1, 1));
+                1, 1, 1, R.drawable.w_2313));
         Log.d("weapon type of first weapon", String.valueOf(db.getAllWeapons().get(1).getType()));
 
-        db.addCharacter(new Character("name", "fire", "sword", "12","12", "12","attack", "12", "12",
-                "12", 1, "code", "rarity", "sdescriptionasd",
-                "idesc", "regio", 1, 1, 1,1,1,1,
-        1, 1));
+                db.addCharacter(new Character("Kaedehara Kazuha", "fire", "Sword", "1039","23", "63","attack", "12", "12",
+                "12", R.drawable.w_2313, "kazuha", "5-star", "sdescriptionasd",
+                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,
+                1, 1,1,1,1));
         Log.d("character name", String.valueOf(db.getCharacterById(1).getName()));
-        Log.d("character name from search", String.valueOf(db.getCharacterSearchResult("nam").get(0).getName()));
-
 
         db.addCharacterLocal(new CharacterLocal("name", "region"));
         Log.d("characterlocal name", String.valueOf(db.getCharacterLocalById(1).getClName()));
 
-        db.addCharacterPrimary(new CharacterPrimary("name11","name2","name3","name4","whereee",1));
+        db.addCharacterPrimary(new CharacterPrimary("name11","name2","name3","name4","whereee",R.drawable.w_2313));
         Log.d("characterPrimary name1", String.valueOf(db.getCharacterPrimaryById(1).getCpName1()));
 
-        db.addCharacterSecondary(new CharacterSecondary("name12","name2","name3","wherer",1));
+        db.addCharacterSecondary(new CharacterSecondary("name12","name2","name3","wherer",R.drawable.w_2313));
         Log.d("characterSecondary name1", String.valueOf(db.getCharacterSecondaryById(1).getCseName1()));
 
-        db.addCharacterStone(new CharacterStone("stone",1));
+        db.addCharacterStone(new CharacterStone("stone",R.drawable.w_2313));
         Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCstName()));
 
-        db.addWeaponPrimary(new WeaponPrimary("weaqpp","name2","name3","name4","name5",1));
+        db.addWeaponPrimary(new WeaponPrimary("weaqpp","name2","name3","name4","name5",R.drawable.w_2313));
         Log.d("weap primary name1", String.valueOf(db.getWeaponPrimaryById(1).getWpName1()));
 
-        db.addWeaponSecondary(new WeaponSecondary("weapse","name2","name3","where",1));
+        db.addWeaponSecondary(new WeaponSecondary("weapse","name2","name3","where",R.drawable.w_2313));
         Log.d("weap secondary name1", String.valueOf(db.getWeaponSecondaryById(1).getWsName1()));
 
-        db.addWeekly(new Weekly("weekly",1));
+        db.addWeekly(new Weekly("weekly",R.drawable.w_2313));
         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
 
         db.addFavorite(2);
         Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
-
 
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
@@ -81,15 +78,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        replace(new com.example.genshinmaterialscalculator.SearchFragment());
+                        replace(new com.example.genshinmaterialscalculator.WeaponFragment());
                         break;
 
                     case 3:
-                        replace(new com.example.genshinmaterialscalculator.BookmarkFragment());
+                        replace(new com.example.genshinmaterialscalculator.CharacterFragment());
                         break;
 
                     case 4:
-                        replace(new com.example.genshinmaterialscalculator.ProfileFragment());
+                        replace(new com.example.genshinmaterialscalculator.CalculatorFragment());
                         break;
                 }
                 return null;
