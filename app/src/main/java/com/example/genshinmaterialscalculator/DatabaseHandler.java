@@ -582,6 +582,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Character character = new Character();
+                character.setId((cursor.getInt(0)));
                 character.setName((cursor.getString(1)));
                 character.setElement((cursor.getString(2)));
                 character.setWeaponType((cursor.getString(3)));

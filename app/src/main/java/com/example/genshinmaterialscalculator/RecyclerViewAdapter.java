@@ -77,6 +77,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("InGame", dataSet.get(position).getIDescription());
                 intent.putExtra("Special", dataSet.get(position).getSDescription());
                 intent.putExtra("Image", dataSet.get(position).getImage());
+
+                Log.d("ID", String.valueOf(dataSet.get(position).getName()+"and"+dataSet.get(position).getID()));
+
                 // start the activity
                 mContext.startActivity(intent);
             }
@@ -85,7 +88,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        Log.d("Hi","count");
         return dataSet.size();
     }
 

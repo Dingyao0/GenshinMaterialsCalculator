@@ -32,8 +32,6 @@ public class CharDetails extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         DatabaseHandler db = new DatabaseHandler(this);
         ArrayList<Character> charactersList = (ArrayList<Character>) db.getAllCharacter();
-        Log.d("hi", String.valueOf(charactersList));
-
         prepareViewPager(viewPager, charactersList);
 
     }
@@ -45,6 +43,7 @@ public class CharDetails extends AppCompatActivity {
 
         for (int i = 0; i < arrayList.size(); i++) {
             Bundle bundle = new Bundle();
+            Log.d("IDDD",arrayList.get(i).getName()+" "+arrayList.get(i).getId());
             bundle.putString("title", arrayList.get(i).getName());
             bundle.putString("CharInGame", arrayList.get(i).getIDescription());
             bundle.putString("CharDamage", arrayList.get(i).getAttackValue());
@@ -52,6 +51,7 @@ public class CharDetails extends AppCompatActivity {
             bundle.putString("Shield", arrayList.get(i).getDef());
             bundle.putString("CharSubStatValue", arrayList.get(i).getSecondaryStatValue());
             bundle.putInt("CharImg", arrayList.get(i).getImage());
+            bundle.putInt("CharSubStat", arrayList.get(i).getSecondaryStat());
             bundle.putString("Code", arrayList.get(i).getCode());
             bundle.putString("Rarity", arrayList.get(i).getRarity());
             fragment.setArguments(bundle);

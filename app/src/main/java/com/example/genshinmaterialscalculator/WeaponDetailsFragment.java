@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
@@ -30,8 +31,7 @@ public class WeaponDetailsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ImageButton button1, button2;
-    private Button button3;
+    private ImageButton button1, button2,button3,button4;
     private View layout;
     private ExpandableRelativeLayout mycontent;
 
@@ -117,6 +117,24 @@ public class WeaponDetailsFragment extends Fragment {
                 intent.putExtra("key", Code);
                 intent.putExtra("type", "Weapons");
                 startActivity(intent);
+            }
+        });
+        button4 = view.findViewById(R.id.calculator);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CalculatorFragment.class);
+                intent.putExtra("Name", sTitle);
+                Fragment newFragment = new CalculatorFragment();
+                // consider using Java coding conventions (upper first char class names!!!)
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.detailsBG, newFragment);
+                transaction.addToBackStack(null);
+                // Commit the transaction
+                transaction.commit();
             }
         });
 

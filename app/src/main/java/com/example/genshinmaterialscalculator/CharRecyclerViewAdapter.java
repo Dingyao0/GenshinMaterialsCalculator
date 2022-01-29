@@ -64,6 +64,7 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
             public void onClick(View v) {
 
                 Intent intent = new Intent(mContext, CharDetails.class);
+
                 // passing data to the book activity
                 intent.putExtra("ID", dataSet.get(position).getId());
                 intent.putExtra("Name", dataSet.get(position).getName());
@@ -73,6 +74,7 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
                 intent.putExtra("InGame", dataSet.get(position).getIDescription());
                 intent.putExtra("Special", dataSet.get(position).getSDescription());
                 intent.putExtra("Image", dataSet.get(position).getImage());
+
                 // start the activity
                 mContext.startActivity(intent);
             }
@@ -81,7 +83,6 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
 
     @Override
     public int getItemCount() {
-        Log.d("Hi","count");
         return dataSet.size();
     }
 

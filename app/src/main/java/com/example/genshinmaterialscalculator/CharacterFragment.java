@@ -154,7 +154,7 @@ public class CharacterFragment extends Fragment {
 //                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio", 1, 1, 1,
 //                1, 1));
 
-        Log.d("hi", db.toString());
+//        Log.d("hi", db.toString());
 
 //        for (int i = 0; i < weaponsList.size(); i++) {
 //            lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons(
@@ -167,15 +167,15 @@ public class CharacterFragment extends Fragment {
 //                    weaponsList.get(i).getImage()));
 //        }
 
-        Log.d("Reading: ", "Reading all contacts..");
-
-        for (Character cn : characterList) {
-//            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
-//                    cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
-            // Writing Contacts to log
-            int log = cn.getImage();
-            Log.d("Name: ", String.valueOf(log));
-        }
+//        Log.d("Reading: ", "Reading all contacts..");
+//
+//        for (Character cn : characterList) {
+////            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
+////                    cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
+//            // Writing Contacts to log
+//            int log = cn.getImage();
+//            Log.d("Name: ", String.valueOf(log));
+//        }
     }
 
 

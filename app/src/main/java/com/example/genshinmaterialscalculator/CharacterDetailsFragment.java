@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
@@ -30,8 +31,7 @@ public class CharacterDetailsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ImageButton button1, button2;
-    private Button button3;
+    private ImageButton button1, button3, button4;
     private View layout;
     private ExpandableRelativeLayout mycontent;
 
@@ -78,7 +78,7 @@ public class CharacterDetailsFragment extends Fragment {
         TextView Health = view.findViewById(R.id.health);
         TextView Shield = view.findViewById(R.id.shield);
         ImageView stars = view.findViewById(R.id.Stars);
-//        ImageView SubStat = view.findViewById(R.id.CharSubStat);
+        ImageView SubStat = view.findViewById(R.id.CharSubStat);
         ImageView Image = view.findViewById(R.id.WeaponImg);
         layout = (View) view.findViewById(R.id.detailsBG);
 
@@ -86,7 +86,7 @@ public class CharacterDetailsFragment extends Fragment {
         String CharInGame = getArguments().getString("CharInGame");
         String CharDamage = getArguments().getString("CharDamage");
         String CharSubStatValue = getArguments().getString("CharSubStatValue");
-//        int WeaponSubStat = getArguments().getInt("WeaponSubStat");
+        int CharSubStat = getArguments().getInt("CharSubStat");
         int CharImg = getArguments().getInt("CharImg");
         String Code = getArguments().getString("Code");
         String HealthText = getArguments().getString("Health");
@@ -111,6 +111,24 @@ public class CharacterDetailsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        button4 = view.findViewById(R.id.calculator);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CalculatorFragment.class);
+                intent.putExtra("Name", sTitle);
+                Fragment newFragment = new CalculatorFragment();
+                // consider using Java coding conventions (upper first char class names!!!)
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.detailsBG, newFragment);
+                transaction.addToBackStack(null);
+                // Commit the transaction
+                transaction.commit();
+            }
+        });
 
         if (Rarity.equals("1-star")) {
             layout.setBackgroundResource(R.drawable.onestar);
@@ -128,14 +146,13 @@ public class CharacterDetailsFragment extends Fragment {
             layout.setBackgroundResource(R.drawable.fivestar);
             stars.setImageResource(R.drawable.five);
         }
-
         Name.setText(sTitle);
         IDescription.setText(CharInGame);
         Damage.setText(CharDamage);
         SubStatValue.setText(CharSubStatValue);
         Health.setText(HealthText);
         Shield.setText(ShieldText);
-//        SubStat.setImageResource(WeaponSubStat);
+        SubStat.setImageResource(CharSubStat);
         Image.setImageResource(CharImg);
         return view;
     }
