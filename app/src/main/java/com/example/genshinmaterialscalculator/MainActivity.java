@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
                 db.addCharacter(new Character("Kaedehara Kazuha", "fire", "Sword", "1039","23", "63","attack", "12", "12",
                 "12", R.drawable.w_2313, "kazuha", "5-star", "sdescriptionasd",
-                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,
+                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,
                 1, 1,1,1,1));
         Log.d("character name", String.valueOf(db.getCharacterById(1).getName()));
 

@@ -26,11 +26,12 @@ public class Character {
     private int Skill1;
     private int Skill2;
     private int Skill3;
+    private int BannerImage;
 
     public Character(int id, String name, String element, String weaponType, String hp, String attackValue,
                      String def, String secondaryStat, String secondaryStatValue, String critRate,
                      String critDamage, int image, String code, String rarity, String sDescription,
-                     String iDescription, String region, int skill1, int skill2, int skill3, int characterStoneId, int characterLocalId, int characterPrimaryId,
+                     String iDescription, String region, int skill1, int skill2, int skill3, int bannerImage, int characterStoneId, int characterLocalId, int characterPrimaryId,
                      int characterSecondaryId, int weeklyId) {
         Id = id;
         Name = name;
@@ -52,6 +53,7 @@ public class Character {
         Skill1 = skill1;
         Skill2 = skill2;
         Skill3 = skill3;
+        BannerImage = bannerImage;
         CharacterStoneId = characterStoneId;
         CharacterLocalId = characterLocalId;
         CharacterPrimaryId = characterPrimaryId;
@@ -62,7 +64,7 @@ public class Character {
     public Character(String name, String element, String weaponType, String hp, String attackValue,
                      String def, String secondaryStat, String secondaryStatValue, String critRate,
                      String critDamage, int image, String code, String rarity, String sDescription,
-                     String iDescription, String region, int skill1, int skill2, int skill3, int characterStoneId, int characterLocalId, int characterPrimaryId,
+                     String iDescription, String region, int skill1, int skill2, int skill3, int bannerImage, int characterStoneId, int characterLocalId, int characterPrimaryId,
                      int characterSecondaryId, int weeklyId) {
 
         Name = name;
@@ -84,6 +86,7 @@ public class Character {
         Skill1 = skill1;
         Skill2 = skill2;
         Skill3 = skill3;
+        BannerImage = bannerImage;
         CharacterStoneId = characterStoneId;
         CharacterLocalId = characterLocalId;
         CharacterPrimaryId = characterPrimaryId;
@@ -293,5 +296,13 @@ public class Character {
 
     public void setSkill3(int skill3) {
         Skill3 = skill3;
+    }
+
+    public int getBannerImage() {
+        return BannerImage;
+    }
+
+    public void setBannerImage(int bannerImage) {
+        BannerImage = bannerImage;
     }
 }
