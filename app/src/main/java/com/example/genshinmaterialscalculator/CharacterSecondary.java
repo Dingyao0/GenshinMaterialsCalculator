@@ -1,79 +1,79 @@
 package com.example.genshinmaterialscalculator;
 
 public class CharacterSecondary {
-    private int cs_Id;
-    private String cs_Name1;
-    private String cs_Name2;
-    private String cs_Name3;
-    private String cs_Where;
-    private int cs_Image;
+    private int cseId;
+    private String cseName1;
+    private String cseName2;
+    private String cseName3;
+    private String cseWhere;
+    private int cseImage;
 
     public CharacterSecondary(int id, String name1, String name2, String name3, String where, int image) {
-        cs_Id = id;
-        cs_Name1 = name1;
-        cs_Name2 = name2;
-        cs_Name3 = name3;
-        cs_Where = where;
-        cs_Image = image;
+        cseId = id;
+        cseName1 = name1;
+        cseName2 = name2;
+        cseName3 = name3;
+        cseWhere = where;
+        cseImage = image;
     }
 
     public CharacterSecondary(String name1, String name2, String name3, String where, int image) {
-        cs_Name1 = name1;
-        cs_Name2 = name2;
-        cs_Name3 = name3;
-        cs_Where = where;
-        cs_Image = image;
+        cseName1 = name1;
+        cseName2 = name2;
+        cseName3 = name3;
+        cseWhere = where;
+        cseImage = image;
     }
 
     public CharacterSecondary() {
 
     }
 
-    public int getCs_Id() {
-        return cs_Id;
+    public int getCseId() {
+        return cseId;
     }
 
-    public void setCs_Id(int cs_Id) {
-        this.cs_Id = cs_Id;
+    public void setCseId(int cseId) {
+        this.cseId = cseId;
     }
 
-    public String getCs_Name1() {
-        return cs_Name1;
+    public String getCseName1() {
+        return cseName1;
     }
 
-    public void setCs_Name1(String cs_Name1) {
-        this.cs_Name1 = cs_Name1;
+    public void setCseName1(String cseName1) {
+        this.cseName1 = cseName1;
     }
 
-    public String getCs_Name2() {
-        return cs_Name2;
+    public String getCseName2() {
+        return cseName2;
     }
 
-    public void setCs_Name2(String cs_Name2) {
-        this.cs_Name2 = cs_Name2;
+    public void setCseName2(String cseName2) {
+        this.cseName2 = cseName2;
     }
 
-    public String getCs_Name3() {
-        return cs_Name3;
+    public String getCseName3() {
+        return cseName3;
     }
 
-    public void setCs_Name3(String cs_Name3) {
-        this.cs_Name3 = cs_Name3;
+    public void setCseName3(String cseName3) {
+        this.cseName3 = cseName3;
     }
 
-    public String getCs_Where() {
-        return cs_Where;
+    public String getCseWhere() {
+        return cseWhere;
     }
 
-    public void setCs_Where(String cs_Where) {
-        this.cs_Where = cs_Where;
+    public void setCseWhere(String cseWhere) {
+        this.cseWhere = cseWhere;
     }
 
-    public int getCs_Image() {
-        return cs_Image;
+    public int getCseImage() {
+        return cseImage;
     }
 
-    public void setCs_Image(int cs_Image) {
-        this.cs_Image = cs_Image;
+    public void setCseImage(int cseImage) {
+        this.cseImage = cseImage;
     }
 }

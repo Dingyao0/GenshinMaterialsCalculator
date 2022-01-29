@@ -1,46 +1,46 @@
 package com.example.genshinmaterialscalculator;
 
 public class CharacterStone {
-    private int csId;
-    private String csName;
-    private int csImage;
+    private int cstId;
+    private String cstName;
+    private int cstImage;
 
     public CharacterStone() {
 
     }
 
     public CharacterStone(int id, String name, int image) {
-        csId = id;
-        csName = name;
-        csImage = image;
+        cstId = id;
+        cstName = name;
+        cstImage = image;
     }
 
     public CharacterStone(String name, int image) {
-        csName = name;
-        csImage = image;
+        cstName = name;
+        cstImage = image;
     }
 
-    public int getCsId() {
-        return csId;
+    public int getCstId() {
+        return cstId;
     }
 
-    public void setCsId(int csId) {
-        this.csId = csId;
+    public void setCstId(int cstId) {
+        this.cstId = cstId;
     }
 
-    public String getCsName() {
-        return csName;
+    public String getCstName() {
+        return cstName;
     }
 
-    public void setCsName(String csName) {
-        this.csName = csName;
+    public void setCstName(String cstName) {
+        this.cstName = cstName;
     }
 
-    public int getCsImage() {
-        return csImage;
+    public int getCstImage() {
+        return cstImage;
     }
 
-    public void setCsImage(int csImage) {
-        this.csImage = csImage;
+    public void setCstImage(int cstImage) {
+        this.cstImage = cstImage;
     }
 }

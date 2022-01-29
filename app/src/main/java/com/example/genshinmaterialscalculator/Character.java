@@ -23,11 +23,14 @@ public class Character {
     private int CharacterPrimaryId;
     private int CharacterSecondaryId;
     private int WeeklyId;
+    private int Skill1;
+    private int Skill2;
+    private int Skill3;
 
     public Character(int id, String name, String element, String weaponType, String hp, String attackValue,
                      String def, int secondaryStat, String secondaryStatValue, String critRate,
                      String critDamage, int image, String code, String rarity, String sDescription,
-                     String iDescription, String region, int characterStoneId, int characterLocalId, int characterPrimaryId,
+                     String iDescription, String region, int skill1, int skill2, int skill3, int characterStoneId, int characterLocalId, int characterPrimaryId,
                      int characterSecondaryId, int weeklyId) {
         Id = id;
         Name = name;
@@ -46,6 +49,9 @@ public class Character {
         SDescription = sDescription;
         IDescription = iDescription;
         Region = region;
+        Skill1 = skill1;
+        Skill2 = skill2;
+        Skill3 = skill3;
         CharacterStoneId = characterStoneId;
         CharacterLocalId = characterLocalId;
         CharacterPrimaryId = characterPrimaryId;
@@ -56,8 +62,9 @@ public class Character {
     public Character(String name, String element, String weaponType, String hp, String attackValue,
                      String def, int secondaryStat, String secondaryStatValue, String critRate,
                      String critDamage, int image, String code, String rarity, String sDescription,
-                     String iDescription, String region, int characterStoneId, int characterLocalId, int characterPrimaryId,
+                     String iDescription, String region, int skill1, int skill2, int skill3, int characterStoneId, int characterLocalId, int characterPrimaryId,
                      int characterSecondaryId, int weeklyId) {
+
         Name = name;
         Element = element;
         WeaponType = weaponType;
@@ -74,6 +81,9 @@ public class Character {
         SDescription = sDescription;
         IDescription = iDescription;
         Region = region;
+        Skill1 = skill1;
+        Skill2 = skill2;
+        Skill3 = skill3;
         CharacterStoneId = characterStoneId;
         CharacterLocalId = characterLocalId;
         CharacterPrimaryId = characterPrimaryId;
@@ -259,5 +269,29 @@ public class Character {
 
     public void setRegion(String region) {
         Region = region;
+    }
+
+    public int getSkill1() {
+        return Skill1;
+    }
+
+    public void setSkill1(int skill1) {
+        Skill1 = skill1;
+    }
+
+    public int getSkill2() {
+        return Skill2;
+    }
+
+    public void setSkill2(int skill2) {
+        Skill2 = skill2;
+    }
+
+    public int getSkill3() {
+        return Skill3;
+    }
+
+    public void setSkill3(int skill3) {
+        Skill3 = skill3;
     }
 }

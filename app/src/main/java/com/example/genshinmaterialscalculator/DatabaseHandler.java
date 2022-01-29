@@ -23,9 +23,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_FCID = "characterId";
 
     private static final String TABLE_CHARACTER_STONE = "characterStone";
-    private static final String KEY_CSID = "id";
-    private static final String KEY_CSNAME = "name";
-    private static final String KEY_CSIMAGE = "image";
+    private static final String KEY_cstId = "id";
+    private static final String KEY_CstName = "name";
+    private static final String KEY_CstImage = "image";
 
     private static final String TABLE_CHARACTER_LOCAL = "characterLocal";
     private static final String KEY_CLID = "id";
@@ -59,20 +59,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_WSIMAGE = "image";
 
     private static final String TABLE_CHARACTER_SECONDARY = "CharacterSecondary";
-    private static final String KEY_CS_ID = "id";
-    private static final String KEY_CS_NAME1 = "name1";
-    private static final String KEY_CS_NAME2 = "name2";
-    private static final String KEY_CS_NAME3 = "name3";
-    private static final String KEY_CS_WHERE = "'where'";
-    private static final String KEY_CS_IMAGE = "image";
+    private static final String KEY_cseID = "id";
+    private static final String KEY_cseNAME1 = "name1";
+    private static final String KEY_cseNAME2 = "name2";
+    private static final String KEY_cseNAME3 = "name3";
+    private static final String KEY_cseWHERE = "'where'";
+    private static final String KEY_cseIMAGE = "image";
 
     private static final String TABLE_WEEKLY = "Weekly";
     private static final String KEY_WID = "id";
     private static final String KEY_WNAME = "name";
     private static final String KEY_W_IMAGE = "image";
 
-    //KEY_CS_ID IS CHARACTER SECONDARY
-    //KEY_CSID IS CHARACTER STONE
+    //KEY_cseID IS CHARACTER SECONDARY
+    //KEY_cstId IS CHARACTER STONE
     //ETC
 
     private static final String TABLE_CHARACTERS = "characters";
@@ -92,12 +92,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_CRARITY = "rarity";
     private static final String KEY_CSDESCRIPTION = "sDescription";
     private static final String KEY_CIDESCRIPTION = "iDescription";
+    private static final String KEY_CREGION = "region";
+    private static final String KEY_CSKILL1 = "skill1";
+    private static final String KEY_CSKILL2 = "skill2";
+    private static final String KEY_CSKILL3 = "skill3";
     private static final String KEY_CCHARACTERSTONEID = "characterStoneId";
     private static final String KEY_CCHARACTERLOCALID = "characterLocalId";
     private static final String KEY_CCHARACTERPRIMARYID = "characterPrimaryId";
     private static final String KEY_CCHARACTERSECONDARYID = "characterSecondaryId";
     private static final String KEY_CWEEKLYID = "weeklyId";
-    private static final String KEY_CREGION = "region";
 
 
 
@@ -143,8 +146,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         //create character stones table query
         String CREATE_CHARACTER_STONE_TABLE = "CREATE TABLE " + TABLE_CHARACTER_STONE + "("
-                + KEY_CSID + " INTEGER PRIMARY KEY," + KEY_CSNAME + " TEXT,"
-                + KEY_CSIMAGE + " INTEGER" + ")";
+                + KEY_cstId + " INTEGER PRIMARY KEY," + KEY_CstName + " TEXT,"
+                + KEY_CstImage + " INTEGER" + ")";
         db.execSQL(CREATE_CHARACTER_STONE_TABLE);
 
 
@@ -196,12 +199,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         //create character secondary
         String CREATE_CHARACTER_SECONDARY_TABLE = "CREATE TABLE " + TABLE_CHARACTER_SECONDARY + "("
-                + KEY_CS_ID + " INTEGER PRIMARY KEY,"
-                + KEY_CS_NAME1 + " TEXT,"
-                + KEY_CS_NAME2 + " TEXT,"
-                + KEY_CS_NAME3 + " TEXT,"
-                + KEY_CS_WHERE + " TEXT,"
-                + KEY_CS_IMAGE + " INTEGER" + ")";
+                + KEY_cseID + " INTEGER PRIMARY KEY,"
+                + KEY_cseNAME1 + " TEXT,"
+                + KEY_cseNAME2 + " TEXT,"
+                + KEY_cseNAME3 + " TEXT,"
+                + KEY_cseWHERE + " TEXT,"
+                + KEY_cseIMAGE + " INTEGER" + ")";
         db.execSQL(CREATE_CHARACTER_SECONDARY_TABLE);
 
         //create weapons table query
@@ -242,6 +245,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_CSDESCRIPTION + " TEXT,"
                 + KEY_CIDESCRIPTION + " TEXT,"
                 + KEY_CREGION + " TEXT,"
+                + KEY_CSKILL1 + " INTEGER,"
+                + KEY_CSKILL2 + " INTEGER,"
+                + KEY_CSKILL3 + " INTEGER,"
                 + KEY_CCHARACTERSTONEID + " INTEGER,"
                 + KEY_CCHARACTERLOCALID + " INTEGER,"
                 + KEY_CCHARACTERPRIMARYID + " INTEGER,"
@@ -292,8 +298,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addCharacterStone(CharacterStone characterStone) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_CSNAME, characterStone.getCsName());
-        values.put(KEY_CSIMAGE, characterStone.getCsImage());
+        values.put(KEY_CstName, characterStone.getCstName());
+        values.put(KEY_CstImage, characterStone.getCstImage());
 
         // Inserting Row
         db.insert(TABLE_CHARACTER_STONE, null, values);
@@ -308,8 +314,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         CharacterStone charStone = new CharacterStone();
-        charStone.setCsName(cursor.getString(1));
-        charStone.setCsImage(cursor.getInt(2));
+        charStone.setCstName(cursor.getString(1));
+        charStone.setCstImage(cursor.getInt(2));
 
         return charStone;
     }
@@ -318,8 +324,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addWeekly(Weekly weekly) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_CSNAME, weekly.getName());
-        values.put(KEY_CSIMAGE, weekly.getImage());
+        values.put(KEY_CstName, weekly.getName());
+        values.put(KEY_CstImage, weekly.getImage());
 
         // Inserting Row
         db.insert(TABLE_WEEKLY, null, values);
@@ -403,11 +409,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addCharacterSecondary(CharacterSecondary characterSecondary) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_CS_NAME1, characterSecondary.getCs_Name1());
-        values.put(KEY_CS_NAME2, characterSecondary.getCs_Name2());
-        values.put(KEY_CS_NAME3, characterSecondary.getCs_Name3());
-        values.put(KEY_CS_WHERE, characterSecondary.getCs_Where());
-        values.put(KEY_CS_IMAGE, characterSecondary.getCs_Image());
+        values.put(KEY_cseNAME1, characterSecondary.getCseName1());
+        values.put(KEY_cseNAME2, characterSecondary.getCseName2());
+        values.put(KEY_cseNAME3, characterSecondary.getCseName3());
+        values.put(KEY_cseWHERE, characterSecondary.getCseWhere());
+        values.put(KEY_cseIMAGE, characterSecondary.getCseImage());
 
         // Inserting Row
         db.insert(TABLE_CHARACTER_SECONDARY, null, values);
@@ -422,11 +428,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         CharacterSecondary characterSecondary = new CharacterSecondary();
-        characterSecondary.setCs_Name1((cursor.getString(1)));
-        characterSecondary.setCs_Name2((cursor.getString(2)));
-        characterSecondary.setCs_Name3((cursor.getString(3)));
-        characterSecondary.setCs_Where(cursor.getString(4));
-        characterSecondary.setCs_Image(cursor.getInt(5));
+        characterSecondary.setCseName1((cursor.getString(1)));
+        characterSecondary.setCseName2((cursor.getString(2)));
+        characterSecondary.setCseName3((cursor.getString(3)));
+        characterSecondary.setCseWhere(cursor.getString(4));
+        characterSecondary.setCseImage(cursor.getInt(5));
 
         return characterSecondary;
     }
@@ -514,6 +520,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_CSDESCRIPTION, character.getSDescription());
         values.put(KEY_CIDESCRIPTION, character.getIDescription());
         values.put(KEY_CREGION, character.getRegion());
+        values.put(KEY_CSKILL1, character.getSkill1());
+        values.put(KEY_CSKILL2, character.getSkill2());
+        values.put(KEY_CSKILL3, character.getSkill3());
         values.put(KEY_CCHARACTERSTONEID, character.getCharacterStoneId());
         values.put(KEY_CCHARACTERLOCALID, character.getCharacterLocalId());
         values.put(KEY_CCHARACTERPRIMARYID, character.getCharacterPrimaryId());
@@ -551,11 +560,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         character.setSDescription((cursor.getString(14)));
         character.setIDescription((cursor.getString(15)));
         character.setRegion((cursor.getString(16)));
-        character.setCharacterStoneId((cursor.getInt(17)));
-        character.setCharacterLocalId((cursor.getInt(18)));
-        character.setCharacterPrimaryId((cursor.getInt(19)));
-        character.setCharacterSecondaryId((cursor.getInt(20)));
-        character.setWeeklyBossId((cursor.getInt(21)));
+        character.setSkill1((cursor.getInt(17)));
+        character.setSkill2((cursor.getInt(18)));
+        character.setSkill3((cursor.getInt(19)));
+        character.setCharacterStoneId((cursor.getInt(20)));
+        character.setCharacterLocalId((cursor.getInt(21)));
+        character.setCharacterPrimaryId((cursor.getInt(22)));
+        character.setCharacterSecondaryId((cursor.getInt(23)));
+        character.setWeeklyBossId((cursor.getInt(24)));
 
         return character;
     }
@@ -586,11 +598,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 character.setSDescription((cursor.getString(14)));
                 character.setIDescription((cursor.getString(15)));
                 character.setRegion((cursor.getString(16)));
-                character.setCharacterStoneId((cursor.getInt(17)));
-                character.setCharacterLocalId((cursor.getInt(18)));
-                character.setCharacterPrimaryId((cursor.getInt(19)));
-                character.setCharacterSecondaryId((cursor.getInt(20)));
-                character.setWeeklyBossId((cursor.getInt(21)));
+                character.setSkill1((cursor.getInt(17)));
+                character.setSkill2((cursor.getInt(18)));
+                character.setSkill3((cursor.getInt(19)));
+                character.setCharacterStoneId((cursor.getInt(20)));
+                character.setCharacterLocalId((cursor.getInt(21)));
+                character.setCharacterPrimaryId((cursor.getInt(22)));
+                character.setCharacterSecondaryId((cursor.getInt(23)));
+                character.setWeeklyBossId((cursor.getInt(24)));
                 // Adding weapons to list
                 characterList.add(character);
             } while (cursor.moveToNext());
@@ -601,7 +616,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public List<Character> getCharacterSearchResult(String search) {
         List<Character> resultList = new ArrayList<Character>();
-        String selectQuery = "SELECT  * FROM " + TABLE_CHARACTERS + " WHERE name LIKE " + search +"%";
+        String selectQuery = "SELECT * FROM " + TABLE_CHARACTERS + " WHERE name LIKE '" + search +"%'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -624,11 +639,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 character.setSDescription((cursor.getString(14)));
                 character.setIDescription((cursor.getString(15)));
                 character.setRegion((cursor.getString(16)));
-                character.setCharacterStoneId((cursor.getInt(17)));
-                character.setCharacterLocalId((cursor.getInt(18)));
-                character.setCharacterPrimaryId((cursor.getInt(19)));
-                character.setCharacterSecondaryId((cursor.getInt(20)));
-                character.setWeeklyBossId((cursor.getInt(21)));
+                character.setSkill1((cursor.getInt(17)));
+                character.setSkill2((cursor.getInt(18)));
+                character.setSkill3((cursor.getInt(19)));
+                character.setCharacterStoneId((cursor.getInt(20)));
+                character.setCharacterLocalId((cursor.getInt(21)));
+                character.setCharacterPrimaryId((cursor.getInt(22)));
+                character.setCharacterSecondaryId((cursor.getInt(23)));
+                character.setWeeklyBossId((cursor.getInt(24)));
                 // Adding weapons to list
                 resultList.add(character);
             } while (cursor.moveToNext());
