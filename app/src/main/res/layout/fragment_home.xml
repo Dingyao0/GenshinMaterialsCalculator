@@ -38,5 +38,5 @@
         android:layout_height="49dp"
         android:layout_marginTop="600dp"
         android:layout_marginLeft="60dp"
-        android:src="@drawable/kokomi" />
+        android:src="@drawable/kokomibanner" />
 </RelativeLayout>

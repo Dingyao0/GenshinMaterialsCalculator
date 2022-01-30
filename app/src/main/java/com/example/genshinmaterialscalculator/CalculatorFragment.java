@@ -1,6 +1,7 @@
 package com.example.genshinmaterialscalculator;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,13 @@ public class CalculatorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calculator, container, false);
+        View rootview=inflater.inflate(R.layout.fragment_calculator, container, false);
+        String codeText = null;
+        Bundle extras = getActivity().getIntent().getExtras();
+        if (extras != null) {
+            codeText = extras.getString("Name");
+            Log.d("hi",codeText);
+        }
+        return rootview;
     }
 }

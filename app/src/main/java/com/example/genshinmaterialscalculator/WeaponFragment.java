@@ -75,17 +75,14 @@ public class WeaponFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weapon, container, false);
-        setHasOptionsMenu(true);
         searchView = rootView.findViewById(R.id.search_view);
         bindWeapons();
         DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
-//        Log.d("Reading: ", "Reading all contacts..");
         ArrayList<Weapon> weaponsList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_id);
-        com.example.genshinmaterialscalculator.RecyclerViewAdapter myAdapter = new com.example.genshinmaterialscalculator.RecyclerViewAdapter(this.getActivity(), weaponsList);
+        adapter = new RecyclerViewAdapter(this.getActivity(), weaponsList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 2));
-        mRecyclerView.setAdapter(myAdapter);
-        adapter = new RecyclerViewAdapter(this.getActivity(),weaponsList);
+        mRecyclerView.setAdapter(adapter);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -102,26 +99,9 @@ public class WeaponFragment extends Fragment {
         return rootView;
     }
 
-//    private void filter(String newText) {
-////        List<Weapons> filteredList= null;
-//        DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
-//        ArrayList<Weapon> weaponsList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
-//        for (Weapon item : weaponsList) {
-//            if (item.getName().toLowerCase().contains(newText.toLowerCase())) {
-//                Log.d("hi",item.getName());
-//                filteredList.add(item);
-//            }
-//        }
-//        Log.d("hi", String.valueOf(filteredList));
-//        adapter.filterList(filteredList);
-//        Log.d("hi", "hi7");
-//    }
-
-
     private void bindWeapons() {
-//        lstWeapons = new ArrayList<>();
-        DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
-        List<Weapon> weaponsList = lstWeapons.getAllWeapons();
+        DatabaseHandler db = new DatabaseHandler(this.getActivity());
+        List<Weapon> weaponsList = db.getAllWeapons();
         Log.d("Insert Data : ", "Inserting ..");
 //        lstWeapons.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Cool Steel", "w_1201", "Type : Sword",
 //                "39\n",
@@ -160,7 +140,7 @@ public class WeaponFragment extends Fragment {
 //                R.drawable.none,
 //                "", "2-star", "", "A carefully compiled notebook featuring the essentials needed to pass a magic exam.", 1, 1, 1, R.drawable.w_5101));
 
-        Log.d("hi", lstWeapons.toString());
+        Log.d("hi", db.toString());
 
 //        for (int i = 0; i < weaponsList.size(); i++) {
 //            lstWeapons.add(new com.example.genshinmaterialscalculator.Weapons(
@@ -174,40 +154,15 @@ public class WeaponFragment extends Fragment {
 //        }
 
         Log.d("Reading: ", "Reading all contacts..");
-        ArrayList<Weapon> weaponsArrayList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
+        ArrayList<Weapon> weaponsArrayList = (ArrayList<Weapon>) db.getAllWeapons();
 
-        for (Weapon cn : weaponsArrayList) {
-//            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
-//                    cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
-            // Writing Contacts to log
-            int log = cn.getImage();
-            Log.d("Name: ", String.valueOf(log));
-        }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // TODO Add your menu entries here
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.search_menu, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        android.widget.SearchView searchView = (android.widget.SearchView) searchItem.getActionView();
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Log.d("newText1", query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.d("newText", newText);
-                adapter.getFilter().filter(newText);
-                Log.d("newText2", newText);
-                return true;
-            }
-        });
+//        for (Weapon cn : weaponsArrayList) {
+////            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
+////                    cn.getCode() + cn.getType() + cn.getAttackValue() + cn.getSubStat() + cn.getSubStatValue() + cn.getRarity() + cn.getSDescription() + cn.getIDescription() + cn.getAttackValue();
+//            // Writing Contacts to log
+//            int log = cn.getImage();
+//            Log.d("Name: ", String.valueOf(log));
+//        }
     }
 
 

@@ -567,7 +567,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         character.setHp((cursor.getString(4)));
         character.setAttackValue((cursor.getString(5)));
         character.setDef((cursor.getString(6)));
-        character.setSecondaryStat((cursor.getString(7)));
+        character.setSecondaryStat((cursor.getInt(7)));
         character.setSecondaryStatValue((cursor.getString(8)));
         character.setCritRate((cursor.getString(9)));
         character.setCritDamage((cursor.getString(10)));
@@ -607,7 +607,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 character.setHp((cursor.getString(4)));
                 character.setAttackValue((cursor.getString(5)));
                 character.setDef((cursor.getString(6)));
-                character.setSecondaryStat((cursor.getString(7)));
+                character.setSecondaryStat((cursor.getInt(7)));
                 character.setSecondaryStatValue((cursor.getString(8)));
                 character.setCritRate((cursor.getString(9)));
                 character.setCritDamage((cursor.getString(10)));
@@ -650,7 +650,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 character.setHp((cursor.getString(4)));
                 character.setAttackValue((cursor.getString(5)));
                 character.setDef((cursor.getString(6)));
-                character.setSecondaryStat((cursor.getString(7)));
+                character.setSecondaryStat((cursor.getInt(7)));
                 character.setSecondaryStatValue((cursor.getString(8)));
                 character.setCritRate((cursor.getString(9)));
                 character.setCritDamage((cursor.getString(10)));
