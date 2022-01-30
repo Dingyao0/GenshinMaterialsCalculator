@@ -278,6 +278,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    public void removeFavourite(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_FAVOURITE, KEY_FCID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
     public List<Integer> getAllFavouriteCharacterId() {
         List<Integer> idList = new ArrayList<Integer>();
         // Select All Query

@@ -2,6 +2,7 @@ package com.example.genshinmaterialscalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +33,7 @@ public class CharacterDetailsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ImageButton button1, button2;
+    private ImageButton button1, button2, favouriteButton;
     private Button button3;
     private View layout;
     private ExpandableRelativeLayout mycontent;
@@ -82,6 +85,7 @@ public class CharacterDetailsFragment extends Fragment {
         ImageView Image = view.findViewById(R.id.WeaponImg);
         layout = (View) view.findViewById(R.id.detailsBG);
 
+        int cId = getArguments().getInt("id");
         String sTitle = getArguments().getString("title");
         String CharInGame = getArguments().getString("CharInGame");
         String CharDamage = getArguments().getString("CharDamage");
@@ -115,6 +119,30 @@ public class CharacterDetailsFragment extends Fragment {
             }
         });
 
+        favouriteButton = view.findViewById(R.id.favouriteStar);
+        favouriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHandler db = new DatabaseHandler(getActivity());
+                List<Integer> favIds = db.getAllFavouriteCharacterId();
+                boolean favourited = true;
+                for (int i = 0; i < favIds.size(); i++) {
+                    if (favIds.get(i) == cId) {
+                        db.removeFavourite(cId);
+                        favourited = false;
+                        Log.d("removinging", "removing from favourite");
+                        favouriteButton.setBackgroundResource(R.drawable.starwhite);
+                    }
+                }
+                if (favourited) {
+                    db.addFavorite(cId);
+                    Log.d("adding", "add to favourite");
+                    favouriteButton.setBackgroundResource(R.drawable.starfilled);
+                }
+                db.close();
+            }
+        });
+
         if (Rarity.equals("1-star")) {
             layout.setBackgroundResource(R.drawable.onestar);
             stars.setImageResource(R.drawable.one);
@@ -132,6 +160,24 @@ public class CharacterDetailsFragment extends Fragment {
             stars.setImageResource(R.drawable.five);
         }
 
+        // set favourited image to which ever at the start
+        DatabaseHandler db = new DatabaseHandler(getActivity());
+        List<Integer> favIds = db.getAllFavouriteCharacterId();
+        boolean favourited2 = true;
+        for (int i = 0; i < favIds.size(); i++) {
+            if (favIds.get(i) == cId) {
+                favourited2 = false;
+                favouriteButton.setBackgroundResource(R.drawable.starfilled);
+                Log.d("HEY!", "why is this ran");
+            }
+        }
+        if (favourited2 && favIds.size() != 0) {
+            Log.d("favids list", String.valueOf(favIds));
+            favouriteButton.setBackgroundResource(R.drawable.starwhite);
+            Log.d("HEY!", "star is suppose to be yellow");
+        }
+        db.close();
+
         Name.setText(sTitle);
         IDescription.setText(CharInGame);
         Damage.setText(CharDamage);
@@ -140,6 +186,8 @@ public class CharacterDetailsFragment extends Fragment {
         Shield.setText(ShieldText);
 //        SubStat.setImageResource(WeaponSubStat);
         Image.setImageResource(CharImg);
+
+
         return view;
     }
 

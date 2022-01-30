@@ -48,6 +48,7 @@
                     android:src="@drawable/five" />
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -240,8 +241,6 @@
                 android:src="@drawable/arrow"/>
         </LinearLayout>
     </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -255,6 +254,16 @@
             android:layout_marginTop="80dp"
             android:onClick="show"
             android:text="More Details" />
+
+        <ImageButton
+            android:id="@+id/favouriteStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/starwhite"
+            android:onClick="favourite"
+            app:srcCompat="@drawable/starborder" />
     </LinearLayout>
 
     <LinearLayout

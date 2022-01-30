@@ -98,7 +98,7 @@ public class CharacterFragment extends Fragment {
 //                return true;
 //            }
 //        });
-
+        db.close();
         return rootView;
     }
 
