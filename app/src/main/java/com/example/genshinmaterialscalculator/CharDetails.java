@@ -33,7 +33,7 @@ public class CharDetails extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
         ArrayList<Character> charactersList = (ArrayList<Character>) db.getAllCharacter();
         prepareViewPager(viewPager, charactersList);
-
+        db.close();
     }
 
     private void prepareViewPager(ViewPager viewPager, ArrayList<Character> arrayList) {
@@ -43,6 +43,7 @@ public class CharDetails extends AppCompatActivity {
 
         for (int i = 0; i < arrayList.size(); i++) {
             Bundle bundle = new Bundle();
+            bundle.putInt("id", arrayList.get(i).getId());
             Log.d("IDDD",arrayList.get(i).getName()+" "+arrayList.get(i).getId());
             bundle.putString("title", arrayList.get(i).getName());
             bundle.putString("CharInGame", arrayList.get(i).getIDescription());
