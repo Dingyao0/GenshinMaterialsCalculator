@@ -32,8 +32,6 @@ public class CharDetails extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         DatabaseHandler db = new DatabaseHandler(this);
         ArrayList<Character> charactersList = (ArrayList<Character>) db.getAllCharacter();
-        Log.d("hi", String.valueOf(charactersList));
-
         prepareViewPager(viewPager, charactersList);
         db.close();
     }

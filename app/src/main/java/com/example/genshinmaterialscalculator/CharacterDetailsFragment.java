@@ -37,6 +37,7 @@ public class CharacterDetailsFragment extends Fragment {
     private ImageButton button1, button2, favouriteButton;
     private ImageButton button3;
     private ImageButton button4;
+
     private View layout;
     private ExpandableRelativeLayout mycontent;
 
@@ -98,9 +99,6 @@ public class CharacterDetailsFragment extends Fragment {
         String HealthText = getArguments().getString("Health");
         String ShieldText = getArguments().getString("Shield");
         String Rarity = getArguments().getString("Rarity");
-
-
-
 
         button1 = view.findViewById(R.id.details1);
         button1.setOnClickListener(new View.OnClickListener() {
