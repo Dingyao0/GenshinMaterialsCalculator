@@ -4,6 +4,7 @@ package com.example.genshinmaterialscalculator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerViewAdapter.MyViewHolder> implements Filterable {
 
@@ -57,12 +65,12 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull CharRecyclerViewAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
         holder.imageView.setImageResource(dataSet.get(position).getImage());
         holder.tvName.setText(dataSet.get(position).getName());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(mContext, CharDetails.class);
 
                 // passing data to the book activity
@@ -74,12 +82,12 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
                 intent.putExtra("InGame", dataSet.get(position).getIDescription());
                 intent.putExtra("Special", dataSet.get(position).getSDescription());
                 intent.putExtra("Image", dataSet.get(position).getImage());
-
                 // start the activity
                 mContext.startActivity(intent);
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -117,4 +125,36 @@ public class CharRecyclerViewAdapter extends RecyclerView.Adapter<CharRecyclerVi
             notifyDataSetChanged();
         }
     };
+
+    private class MainAdapter extends FragmentPagerAdapter {
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        List<Fragment> fragmentList = new ArrayList<>();
+
+        public void addFragment(Fragment fragment, String title) {
+
+            fragmentList.add(fragment);
+        }
+
+        public MainAdapter(@NonNull FragmentManager fm) {
+            super(fm);
+        }
+
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return arrayList.get(position);
+        }
+    }
 }

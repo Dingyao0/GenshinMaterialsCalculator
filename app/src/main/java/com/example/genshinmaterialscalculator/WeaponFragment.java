@@ -76,7 +76,6 @@ public class WeaponFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weapon, container, false);
         searchView = rootView.findViewById(R.id.search_view);
-        bindWeapons();
         DatabaseHandler lstWeapons = new DatabaseHandler(this.getActivity());
         ArrayList<Weapon> weaponsList = (ArrayList<Weapon>) lstWeapons.getAllWeapons();
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_id);
