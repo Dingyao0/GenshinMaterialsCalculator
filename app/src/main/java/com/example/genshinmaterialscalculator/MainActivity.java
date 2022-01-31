@@ -69,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
 //                "idesc", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,
 //                1, 1, 1, 1, 1));
         db.addCharacter(new Character("Amber", "fire", "Bow", "793", "19", "50", R.drawable.atk_pct, "0", "12",
+                "12", R.drawable.amberbanner, "amber", "4-star", "sdescriptionasd",
+                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                1, 1, 1, 1, 1));
+        db.addCharacter(new Character("Arataki Itto", "fire", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
+                "12", R.drawable.ittobanner, "itto", "5-star", "sdescriptionasd",
                 "12", R.drawable.amber, "amber", "4-star", "sdescriptionasd",
                 "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
                 1, 1, 1, 1, 1));
@@ -78,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Eula", "fire", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
+                "12", R.drawable.eulabanner, "eula", "5-star", "sdescriptionasd",
+                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                1, 1, 1, 1, 1));
+        db.addCharacter(new Character("Hu Tao", "fire", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
+                "12", R.drawable.hutaobanner, "hutao", "5-star", "sdescriptionasd",
                 "12", R.drawable.eula, "eula", "5-star", "sdescriptionasd",
                 " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
                 1, 1, 1, 1, 1));
@@ -87,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Kaedehara Kazuha", "fire", "Sword", "1039", "23", "63", R.drawable.em, "0", "12",
+                "12", R.drawable.kazuhabanner, "kazuha", "5-star", "sdescriptionasd",
                 "12", R.drawable.kazuha, "kazuha", "5-star", "sdescriptionasd",
                 " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
                 1, 1, 1, 1, 1));
@@ -96,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
                 1, 1, 1, 1, 1));
         db.addCharacter(new Character("Rosaria", "fire", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
+                "12", R.drawable.rosariabanner, "rosaria", "4-star", "sdescriptionasd",
                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
                 " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
                 1, 1, 1, 1, 1));
