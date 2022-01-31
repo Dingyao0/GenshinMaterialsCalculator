@@ -33,7 +33,6 @@ public class Details2 extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         DatabaseHandler db = new DatabaseHandler(this);
         ArrayList<Weapon> weaponList = (ArrayList<Weapon>) db.getAllWeapons();
-        Log.d("hi", String.valueOf(weaponList));
 
         prepareViewPager(viewPager, weaponList);
 

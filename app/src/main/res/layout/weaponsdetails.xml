@@ -208,34 +208,25 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/second">
+    <ImageButton
+        android:id="@+id/moreDetails"
+        android:layout_width="125dp"
+        android:layout_height="63dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="left"
+        android:onClick="show"
+        android:src="@drawable/butt_web" />
 
-        <Button
-            android:id="@+id/moreDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="80dp"
-            android:onClick="show"
-            android:text="More Details" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/second">
-
-        <Button
-            android:id="@+id/calculator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
-            android:onClick="show"
-            android:text="Calculator" />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/calculator"
+        android:layout_width="125dp"
+        android:layout_height="63dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:onClick="show"
+        android:src="@drawable/butt_calc" />
 
     <com.github.aakira.expandablelayout.ExpandableRelativeLayout
         android:id="@+id/special"
@@ -245,9 +236,9 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        app:ael_duration="200"
+        app:ael_duration="1000"
         app:ael_expanded="false"
-        app:ael_interpolator="bounce"
+        app:ael_interpolator="anticipateOvershoot"
         app:ael_orientation="vertical">
 
         <TextView
@@ -268,9 +259,9 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        app:ael_duration="200"
+        app:ael_duration="1000"
         app:ael_expanded="false"
-        app:ael_interpolator="bounce"
+        app:ael_interpolator="anticipateOvershoot"
         app:ael_orientation="vertical">
 
         <TextView

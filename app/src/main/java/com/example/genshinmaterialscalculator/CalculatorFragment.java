@@ -2,6 +2,7 @@ package com.example.genshinmaterialscalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +93,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         View rootView = inflater.inflate(R.layout.fragment_calculator, container, false);
 
         //put code here
+
+        // intent
+        String codeText = null;
+        Bundle extras = getActivity().getIntent().getExtras();
+        if (extras != null) {
+            codeText = extras.getString("Name");
+            Log.d("hi",codeText);
+        }
 
         // View stuff
         View layout = (View) rootView.findViewById(R.id.bg);
