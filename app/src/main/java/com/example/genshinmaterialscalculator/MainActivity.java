@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         DatabaseHandler db = new DatabaseHandler(this);
         //db.deleteDatabase();
 //      Add Weapons
@@ -67,40 +66,40 @@ public class MainActivity extends AppCompatActivity {
 
         db.addCharacter(new Character("Amber", "fire", "Bow", "793", "19", "50", R.drawable.atk_pct, "0", "12",
                 "12", R.drawable.amber, "amber", "4-star", "sdescriptionasd",
-                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.amberbanner,
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Arataki Itto", "fire", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
                 "12", R.drawable.itto, "itto", "5-star", "sdescriptionasd",
-                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.ittobanner,
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Eula", "fire", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
                 "12", R.drawable.eula, "eula", "5-star", "sdescriptionasd",
-                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.eulabanner,
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Hu Tao", "fire", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
                 "12", R.drawable.hutao, "hutao", "5-star", "sdescriptionasd",
-                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.hutaobanner,
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Raiden Shogun", "fire", "Polearm", "1005", "26", "61", R.drawable.em, "0", "12",
                 "12", R.drawable.shougun, "shougun", "5-star", "sdescriptionasd",
-                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.raiden_shogun,
                 1, 1, 1, 1, 1));
         db.addCharacter(new Character("Rosaria", "fire", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
-                " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.rosariabanner,
                 1, 1, 1, 1, 1));
         db.addCharacter(new Character("Sangonomiya Kokomi", "fire", "Catalyst", "1049", "18", "51", R.drawable.atk_pct, "0", "12",
                 "12", R.drawable.kokomi, "kokomi", "5-star", "sdescriptionasd",
-                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.w_2313,
+                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.kokomibanner,
                 1, 1, 1, 1, 1));
 
         db.addCharacter(new Character("Kaedehara Kazuha", "fire", "Sword", "1039", "23", "63", R.drawable.atk_pct, "0", "12",
                 "12", R.drawable.kazuha, "kazuha", "5-star", "sdescriptionasd",
-                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,
+                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.kazuhabanner,
                 1, 1, 1, 1, 1));
 
         Log.d("character name", String.valueOf(db.getCharacterById(1).getName()));
