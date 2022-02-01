@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
             firstTime();
         }
 
-
-
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
         bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.search));
@@ -66,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void firstTime() {
@@ -77,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
-                        //db.deleteDatabase();
 //      Add Weapons
                         db.addWeapon(new com.example.genshinmaterialscalculator.Weapon("Cool Steel", "w_1201", "Type : Sword",
                                 "39\n",
@@ -122,35 +117,35 @@ public class MainActivity extends AppCompatActivity {
 
                         db.addCharacter(new Character("Amber", "fire", "Bow", "793", "19", "50", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.amber, "amber", "4-star", "sdescriptionasd",
-                                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.amberbanner,
+                                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.amberbanner,
                                 1, 1, 1, 1, 1));
 
                         db.addCharacter(new Character("Arataki Itto", "fire", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
                                 "12", R.drawable.itto, "itto", "5-star", "sdescriptionasd",
-                                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.ittobanner,
+                                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.ittobanner,
                                 1, 1, 1, 1, 1));
 
                         db.addCharacter(new Character("Eula", "fire", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
                                 "12", R.drawable.eula, "eula", "5-star", "sdescriptionasd",
-                                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.eulabanner,
+                                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.eulabanner,
                                 1, 1, 1, 1, 1));
 
                         db.addCharacter(new Character("Hu Tao", "fire", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
                                 "12", R.drawable.hutao, "hutao", "5-star", "sdescriptionasd",
-                                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.hutaobanner,
+                                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.hutaobanner,
                                 1, 1, 1, 1, 1));
 
                         db.addCharacter(new Character("Raiden Shogun", "fire", "Polearm", "1005", "26", "61", R.drawable.em, "0", "12",
                                 "12", R.drawable.shougun, "shougun", "5-star", "sdescriptionasd",
-                                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.raiden_shogun,
+                                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.raiden_shogun,
                                 1, 1, 1, 1, 1));
                         db.addCharacter(new Character("Rosaria", "fire", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
-                                " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.rosariabanner,
+                                " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.rosariabanner,
                                 1, 1, 1, 1, 1));
                         db.addCharacter(new Character("Sangonomiya Kokomi", "fire", "Catalyst", "1049", "18", "51", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.kokomi, "kokomi", "5-star", "sdescriptionasd",
-                                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio",R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313,R.drawable.kokomibanner,
+                                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.kokomibanner,
                                 1, 1, 1, 1, 1));
 
                         db.addCharacter(new Character("Kaedehara Kazuha", "fire", "Sword", "1039", "23", "63", R.drawable.atk_pct, "0", "12",
@@ -181,52 +176,20 @@ public class MainActivity extends AppCompatActivity {
                         db.addWeekly(new Weekly("weekly", R.drawable.w_2313));
                         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
 
-//        db.addFavorite(2);
-//        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
-
-        bnv_Main = findViewById(R.id.bnv_Main);
-        bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
-        bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.search));
-        bnv_Main.add(new MeowBottomNavigation.Model(3, R.drawable.bookmark));
-        bnv_Main.add(new MeowBottomNavigation.Model(4, R.drawable.person));
-
-        bnv_Main.show(1, true);
-        replace(new com.example.genshinmaterialscalculator.HomeFragment());
-        bnv_Main.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-                switch (model.getId()) {
-                    case 1:
-                        replace(new com.example.genshinmaterialscalculator.HomeFragment());
-                        break;
-
-                    case 2:
-                        replace(new com.example.genshinmaterialscalculator.WeaponFragment());
-                        break;
-
-                    case 3:
-                        replace(new com.example.genshinmaterialscalculator.CharacterFragment());
-                        break;
-
-                    case 4:
-                        replace(new com.example.genshinmaterialscalculator.CalculatorFragment());
-                        break;
-                }
-                return null;
-            }
-        });
                         db.addFavorite(2);
                         Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
                         dialog.dismiss();
                     }
                 })
                 .create().show();
-
+//        db.addFavorite(2);
+//        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("firstStart", false);
         editor.apply();
     }
+
 
     private void replace(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
