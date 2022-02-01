@@ -181,6 +181,40 @@ public class MainActivity extends AppCompatActivity {
                         db.addWeekly(new Weekly("weekly", R.drawable.w_2313));
                         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
 
+//        db.addFavorite(2);
+//        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
+
+        bnv_Main = findViewById(R.id.bnv_Main);
+        bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
+        bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.search));
+        bnv_Main.add(new MeowBottomNavigation.Model(3, R.drawable.bookmark));
+        bnv_Main.add(new MeowBottomNavigation.Model(4, R.drawable.person));
+
+        bnv_Main.show(1, true);
+        replace(new com.example.genshinmaterialscalculator.HomeFragment());
+        bnv_Main.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                switch (model.getId()) {
+                    case 1:
+                        replace(new com.example.genshinmaterialscalculator.HomeFragment());
+                        break;
+
+                    case 2:
+                        replace(new com.example.genshinmaterialscalculator.WeaponFragment());
+                        break;
+
+                    case 3:
+                        replace(new com.example.genshinmaterialscalculator.CharacterFragment());
+                        break;
+
+                    case 4:
+                        replace(new com.example.genshinmaterialscalculator.CalculatorFragment());
+                        break;
+                }
+                return null;
+            }
+        });
                         db.addFavorite(2);
                         Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
                         dialog.dismiss();

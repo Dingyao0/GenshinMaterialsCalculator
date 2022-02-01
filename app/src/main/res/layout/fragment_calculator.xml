@@ -1,18 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:background="@color/purple_200"
-    android:gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/bg">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="161dp"
+        android:layout_height="641dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="62dp" />
+
+    <ImageView
+        android:id="@+id/card"
+        android:layout_width="162dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="469dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/itto" />
+
+    <ImageView
+        android:id="@+id/skill1"
+        android:layout_width="109dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="294dp"
+        android:layout_marginEnd="241dp"
+        android:layout_marginBottom="331dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/itto_1" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="325dp"
+        android:max="10"
+        android:progress="1"
+        android:progressDrawable="@drawable/seek_bar"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:thumb="@drawable/seek_thumb" />
+
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textSize="24sp"
-        android:textColor="#ffffff"/>
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="300dp"
+        android:text="1" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/skill2"
+        android:layout_width="133dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="413dp"
+        android:layout_marginEnd="227dp"
+        android:layout_marginBottom="203dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/itto_2" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="450dp"
+        android:max="10"
+        android:progress="1"
+        android:progressDrawable="@drawable/seek_bar"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:thumb="@drawable/seek_thumb" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        android:layout_marginLeft="225dp"
+        android:text="1" />
+
+    <ImageView
+        android:id="@+id/skill3"
+        android:layout_width="107dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="538dp"
+        android:layout_marginEnd="241dp"
+        android:layout_marginBottom="83dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/itto_3" />
+
+    <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="585dp"
+        android:max="10"
+        android:progress="1"
+        android:progressDrawable="@drawable/seek_bar"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:thumb="@drawable/seek_thumb" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="565dp"
+        android:layout_marginLeft="225dp"
+        android:text="1" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="630dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/go" />
+
+</RelativeLayout>
