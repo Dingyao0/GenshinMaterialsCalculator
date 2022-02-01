@@ -125,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
         db.addWeekly(new Weekly("weekly", R.drawable.w_2313));
         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
 
-        db.addFavorite(2);
-        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
+//        db.addFavorite(2);
+//        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
 
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
