@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                         db.addCharacter(new Character("Rosaria", "Cryo", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
                                 " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio", R.drawable.spear_of_the_church, R.drawable.ravaging_confession, R.drawable.rites_of_termination, R.drawable.rosariabanner,
-                                1, 1, 1, 1, 1));
+                                6, 6, 6, 6, 6));
 
                         db.addCharacter(new Character("Sangonomiya Kokomi", "Hydro", "Catalyst", "1049", "18", "51", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.kokomi, "kokomi", "5-star", "sdescriptionasd",
@@ -165,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
                         db.addCharacterLocal(new CharacterLocal("Sil Flower", "Li Yue", R.drawable.silk_flower));
                         db.addCharacterLocal(new CharacterLocal("Onikabuto","Inazuma", R.drawable.onikabuto));
                         db.addCharacterLocal(new CharacterLocal("Valberry","Mondstadt", R.drawable.valberry));
-
                         db.addCharacterLocal(new CharacterLocal("Amakumo Fruit","Inazuma",R.drawable.amakumo_fruit));
                         db.addCharacterLocal(new CharacterLocal("Sango Pearl","Inazuma",R.drawable.sango_pearl));
                         db.addCharacterLocal(new CharacterLocal("Sea Ganoderma", "Inazuma", R.drawable.sea_ganoderma));
@@ -176,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
                         db.addCharacterPrimary(new CharacterPrimary("Teachings Of Diligence", "Guide To Diligence", "Philosophies Of Diligence", "domain", R.drawable.teachings_of_diligence, R.drawable.guide_to_diligence, R.drawable.philosophies_of_diligence));
                         db.addCharacterPrimary(new CharacterPrimary("Teachings Of Elegance", "Guide To Elegance", "Philosophies Of Elegance", "domain", R.drawable.teachings_of_elegance, R.drawable.guide_to_elegance, R.drawable.philosophies_of_elegance));
                         db.addCharacterPrimary(new CharacterPrimary("Teachings Of Ballad", "Guide To Ballad", "Philosophies Of Ballad", "domain", R.drawable.teachings_of_ballad, R.drawable.guide_to_ballad, R.drawable.philosophies_of_ballad));
-
                         db.addCharacterPrimary(new CharacterPrimary("Teachings Of Light", "Guide To Light", "Philosophies Of Light", "domain", R.drawable.teachings_of_light, R.drawable.guide_to_light, R.drawable.philosophies_of_light));
                         db.addCharacterPrimary(new CharacterPrimary("Teachings Of Transience", "Guide To Transience", "Philosophies Of Transience", "domain", R.drawable.teachings_of_transience, R.drawable.guide_to_transience, R.drawable.philosophies_of_transience));
                         Log.d("characterPrimary name1", String.valueOf(db.getCharacterPrimaryById(1).getCpName1()));
@@ -198,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
                         db.addCharacterStone(new CharacterStone("Storm Beads", R.drawable.storm_beads));
                         Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCstName()));
 
-                        db.addWeaponPrimary(new WeaponPrimary("weaqpp", "name2", "name3", "name4", "name5", R.drawable.tile_of_decarabians_tower, R.drawable.debris_of_decarabians_city, R.drawable.fragment_of_decarabians_epic, R.drawable.scattered_piece_of_decarabians_dream));
 
+                        db.addWeaponPrimary(new WeaponPrimary("weaqpp", "name2", "name3", "name4", "name5", R.drawable.tile_of_decarabians_tower, R.drawable.debris_of_decarabians_city, R.drawable.fragment_of_decarabians_epic, R.drawable.scattered_piece_of_decarabians_dream));
                         Log.d("weap primary name1", String.valueOf(db.getWeaponPrimaryById(1).getWpName1()));
 
                         db.addWeaponSecondary(new WeaponSecondary("weapse", "name2", "name3", "where", R.drawable.firm_arrowhead, R.drawable.sharp_arrowhead, R.drawable.weathered_arrowhead));
