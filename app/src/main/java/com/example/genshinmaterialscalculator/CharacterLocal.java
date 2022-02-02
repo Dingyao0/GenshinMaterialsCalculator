@@ -4,18 +4,21 @@ public class CharacterLocal {
     private int clId;
     private String clName;
     private String clRegion;
+    private int clImage;
 
     public CharacterLocal() {}
 
-    public CharacterLocal(int id, String name, String region) {
+    public CharacterLocal(int id, String name, String region, int image) {
         clId = id;
         clName = name;
         clRegion = region;
+        clImage = image;
     }
 
-    public CharacterLocal(String name, String region) {
+    public CharacterLocal(String name, String region, int image) {
         clName = name;
         clRegion = region;
+        clImage = image;
     }
 
     public int getClId() {
@@ -40,5 +43,13 @@ public class CharacterLocal {
 
     public void setClRegion(String clRegion) {
         this.clRegion = clRegion;
+    }
+
+    public int getClImage() {
+        return clImage;
+    }
+
+    public void setClImage(int clImage) {
+        this.clImage = clImage;
     }
 }

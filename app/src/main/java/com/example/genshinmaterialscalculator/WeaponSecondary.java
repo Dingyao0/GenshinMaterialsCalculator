@@ -6,25 +6,32 @@ public class WeaponSecondary {
     private String wsName2;
     private String wsName3;
     private String wsWhere;
-    private int wsImage;
+    private int wsImage1;
+    private int wsImage2;
+    private int wsImage3;
+
 
     public WeaponSecondary() {}
 
-    public WeaponSecondary(String name1, String name2, String name3, String where, int image) {
+    public WeaponSecondary(String name1, String name2, String name3, String where, int image1, int image2, int image3) {
         wsName1 = name1;
         wsName2 = name2;
         wsName3 = name3;
         wsWhere = where;
-        wsImage = image;
+        wsImage1 = image1;
+        wsImage2 = image2;
+        wsImage3 = image3;
     }
 
-    public WeaponSecondary(int id, String name1, String name2, String name3, String where, int image) {
+    public WeaponSecondary(int id, String name1, String name2, String name3, String where, int image1, int image2, int image3) {
         wsId = id;
         wsName1 = name1;
         wsName2 = name2;
         wsName3 = name3;
         wsWhere = where;
-        wsImage = image;
+        wsImage1 = image1;
+        wsImage2 = image2;
+        wsImage3 = image3;
     }
 
     public int getWsId() {
@@ -67,11 +74,27 @@ public class WeaponSecondary {
         this.wsWhere = wsWhere;
     }
 
-    public int getWsImage() {
-        return wsImage;
+    public int getWsImage1() {
+        return wsImage1;
     }
 
-    public void setWsImage(int wsImage) {
-        this.wsImage = wsImage;
+    public void setWsImage1(int wsImage1) {
+        this.wsImage1 = wsImage1;
+    }
+
+    public int getWsImage2() {
+        return wsImage2;
+    }
+
+    public void setWsImage2(int wsImage2) {
+        this.wsImage2 = wsImage2;
+    }
+
+    public int getWsImage3() {
+        return wsImage3;
+    }
+
+    public void setWsImage3(int wsImage3) {
+        this.wsImage3 = wsImage3;
     }
 }

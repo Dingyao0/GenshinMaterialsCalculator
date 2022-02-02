@@ -7,27 +7,36 @@ public class WeaponPrimary {
     private String wpName3;
     private String wpName4;
     private String wpWhere;
-    private int wpImage;
+    private int wpImage1;
+    private int wpImage2;
+    private int wpImage3;
+    private int wpImage4;
 
     public WeaponPrimary() {}
 
-    public WeaponPrimary(int id, String name1, String name2, String name3, String name4, String where, int image) {
+    public WeaponPrimary(int id, String name1, String name2, String name3, String name4, String where, int image1, int image2, int image3, int image4) {
         wpId = id;
         wpName1 = name1;
         wpName2 = name2;
         wpName3 = name3;
         wpName4 = name4;
         wpWhere = where;
-        wpImage = image;
+        wpImage1 = image1;
+        wpImage2 = image2;
+        wpImage3 = image3;
+        wpImage4 = image4;
     }
 
-    public WeaponPrimary(String name1, String name2, String name3, String name4, String where, int image) {
+    public WeaponPrimary(String name1, String name2, String name3, String name4, String where, int image1, int image2, int image3, int image4) {
         wpName1 = name1;
         wpName2 = name2;
         wpName3 = name3;
         wpName4 = name4;
         wpWhere = where;
-        wpImage = image;
+        wpImage1 = image1;
+        wpImage2 = image2;
+        wpImage3 = image3;
+        wpImage4 = image4;
     }
 
     public int getWpId() {
@@ -78,11 +87,35 @@ public class WeaponPrimary {
         this.wpWhere = wpWhere;
     }
 
-    public int getWpImage() {
-        return wpImage;
+    public int getWpImage1() {
+        return wpImage1;
     }
 
-    public void setWpImage(int wpImage) {
-        this.wpImage = wpImage;
+    public void setWpImage1(int wpImage1) {
+        this.wpImage1 = wpImage1;
+    }
+
+    public int getWpImage2() {
+        return wpImage2;
+    }
+
+    public void setWpImage2(int wpImage2) {
+        this.wpImage2 = wpImage2;
+    }
+
+    public int getWpImage3() {
+        return wpImage3;
+    }
+
+    public void setWpImage3(int wpImage3) {
+        this.wpImage3 = wpImage3;
+    }
+
+    public int getWpImage4() {
+        return wpImage4;
+    }
+
+    public void setWpImage4(int wpImage4) {
+        this.wpImage4 = wpImage4;
     }
 }

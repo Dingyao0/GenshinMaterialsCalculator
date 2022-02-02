@@ -115,65 +115,68 @@ public class MainActivity extends AppCompatActivity {
 
 //      Add characters
 
-                        db.addCharacter(new Character("Amber", "fire", "Bow", "793", "19", "50", R.drawable.atk_pct, "0", "12",
+                        db.addCharacter(new Character("Amber", "Pyro", "Bow", "793", "19", "50", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.amber, "amber", "4-star", "sdescriptionasd",
-                                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.amberbanner,
+                                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "mondstadt", R.drawable.sharpshooter, R.drawable.explosive_puppet, R.drawable.fiery_rain, R.drawable.amberbanner,
                                 1, 1, 1, 1, 1));
 
-                        db.addCharacter(new Character("Arataki Itto", "fire", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
+                        db.addCharacter(new Character("Arataki Itto", "Geo", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
                                 "12", R.drawable.itto, "itto", "5-star", "sdescriptionasd",
                                 " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.ittobanner,
                                 1, 1, 1, 1, 1));
 
-                        db.addCharacter(new Character("Eula", "fire", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
+                        db.addCharacter(new Character("Eula", "Cryo", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
                                 "12", R.drawable.eula, "eula", "5-star", "sdescriptionasd",
                                 " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.eulabanner,
                                 1, 1, 1, 1, 1));
 
-                        db.addCharacter(new Character("Hu Tao", "fire", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
+                        db.addCharacter(new Character("Hu Tao", "Pyro", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
                                 "12", R.drawable.hutao, "hutao", "5-star", "sdescriptionasd",
                                 " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.hutaobanner,
                                 1, 1, 1, 1, 1));
 
-                        db.addCharacter(new Character("Raiden Shogun", "fire", "Polearm", "1005", "26", "61", R.drawable.em, "0", "12",
+                        db.addCharacter(new Character("Raiden Shogun", "Electro", "Polearm", "1005", "26", "61", R.drawable.em, "0", "12",
                                 "12", R.drawable.shougun, "shougun", "5-star", "sdescriptionasd",
                                 " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.raiden_shogun,
                                 1, 1, 1, 1, 1));
-                        db.addCharacter(new Character("Rosaria", "fire", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
+
+                        db.addCharacter(new Character("Rosaria", "Pyro", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
                                 " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.rosariabanner,
                                 1, 1, 1, 1, 1));
-                        db.addCharacter(new Character("Sangonomiya Kokomi", "fire", "Catalyst", "1049", "18", "51", R.drawable.atk_pct, "0", "12",
+
+                        db.addCharacter(new Character("Sangonomiya Kokomi", "Hydro", "Catalyst", "1049", "18", "51", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.kokomi, "kokomi", "5-star", "sdescriptionasd",
                                 " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.kokomibanner,
                                 1, 1, 1, 1, 1));
 
-                        db.addCharacter(new Character("Kaedehara Kazuha", "fire", "Sword", "1039", "23", "63", R.drawable.atk_pct, "0", "12",
+                        db.addCharacter(new Character("Kaedehara Kazuha", "Anemo", "Sword", "1039", "23", "63", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.kazuha, "kazuha", "5-star", "sdescriptionasd",
                                 " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.kazuhabanner,
                                 1, 1, 1, 1, 1));
 
                         Log.d("character name", String.valueOf(db.getCharacterById(1).getName()));
 
-                        db.addCharacterLocal(new CharacterLocal("name", "region"));
-                        Log.d("characterlocal name", String.valueOf(db.getCharacterLocalById(1).getClName()));
 
-                        db.addCharacterPrimary(new CharacterPrimary("name11", "name2", "name3", "name4", "whereee", R.drawable.w_2313));
+                        db.addCharacterLocal(new CharacterLocal("Small Lamp Grass", "Mondstadt", R.drawable.small_lamp_grass));
+                        Log.d("characterLocal name1", String.valueOf(db.getCharacterLocalById(1).getClName()));
+
+                        db.addCharacterPrimary(new CharacterPrimary("Teachings Of Freedom", "name2", "name3", "domain", R.drawable.teachings_of_freedom, R.drawable.guide_to_freedom, R.drawable.philosophies_of_freedom));
                         Log.d("characterPrimary name1", String.valueOf(db.getCharacterPrimaryById(1).getCpName1()));
 
-                        db.addCharacterSecondary(new CharacterSecondary("name12", "name2", "name3", "wherer", R.drawable.w_2313));
+                        db.addCharacterSecondary(new CharacterSecondary("Firm Arrowhead", "Sharp Arrowhead", "Weathered Arrowhead", "wherer", R.drawable.firm_arrowhead, R.drawable.sharp_arrowhead, R.drawable.weathered_arrowhead));
                         Log.d("characterSecondary name1", String.valueOf(db.getCharacterSecondaryById(1).getCseName1()));
 
-                        db.addCharacterStone(new CharacterStone("stone", R.drawable.w_2313));
+                        db.addCharacterStone(new CharacterStone("stone", R.drawable.everflame_seed));
                         Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCstName()));
 
-                        db.addWeaponPrimary(new WeaponPrimary("weaqpp", "name2", "name3", "name4", "name5", R.drawable.w_2313));
+                        db.addWeaponPrimary(new WeaponPrimary("weaqpp", "name2", "name3", "name4", "name5", R.drawable.tile_of_decarabians_tower, R.drawable.debris_of_decarabians_city, R.drawable.fragment_of_decarabians_epic, R.drawable.scattered_piece_of_decarabians_dream));
                         Log.d("weap primary name1", String.valueOf(db.getWeaponPrimaryById(1).getWpName1()));
 
-                        db.addWeaponSecondary(new WeaponSecondary("weapse", "name2", "name3", "where", R.drawable.w_2313));
+                        db.addWeaponSecondary(new WeaponSecondary("weapse", "name2", "name3", "where", R.drawable.firm_arrowhead, R.drawable.sharp_arrowhead, R.drawable.weathered_arrowhead));
                         Log.d("weap secondary name1", String.valueOf(db.getWeaponSecondaryById(1).getWsName1()));
 
-                        db.addWeekly(new Weekly("weekly", R.drawable.w_2313));
+                        db.addWeekly(new Weekly("weekly", R.drawable.dvalins_sigh));
                         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
 
                         db.addFavorite(2);

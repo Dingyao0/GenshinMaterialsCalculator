@@ -31,15 +31,17 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_CLID = "id";
     private static final String KEY_CLNAME = "name";
     private static final String KEY_CLREGION = "region";
+    private static final String KEY_CLIMAGE = "image";
 
     private static final String TABLE_CHARACTER_PRIMARY = "CharacterPrimary";
     private static final String KEY_CPID = "id";
     private static final String KEY_CPNAME1 = "name1";
     private static final String KEY_CPNAME2 = "name2";
     private static final String KEY_CPNAME3 = "name3";
-    private static final String KEY_CPNAME4 = "name4";
     private static final String KEY_CPWHERE = "'where'";
-    private static final String KEY_CPIMAGE = "image";
+    private static final String KEY_CPIMAGE1 = "image";
+    private static final String KEY_CPIMAGE2 = "image2";
+    private static final String KEY_CPIMAGE3 = "image3";
 
     private static final String TABLE_WEAPON_PRIMARY = "WeaponPrimary";
     private static final String KEY_WPID = "id";
@@ -48,7 +50,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_WPNAME3 = "name3";
     private static final String KEY_WPNAME4 = "name4";
     private static final String KEY_WPWHERE = "'where'";
-    private static final String KEY_WPIMAGE = "image";
+    private static final String KEY_WPIMAGE1 = "image1";
+    private static final String KEY_WPIMAGE2 = "image2";
+    private static final String KEY_WPIMAGE3 = "image3";
+    private static final String KEY_WPIMAGE4 = "image4";
 
     private static final String TABLE_WEAPON_SECONDARY = "WeaponSecondary";
     private static final String KEY_WSID = "id";
@@ -56,7 +61,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_WSNAME2 = "name2";
     private static final String KEY_WSNAME3 = "name3";
     private static final String KEY_WSWHERE = "'where'";
-    private static final String KEY_WSIMAGE = "image";
+    private static final String KEY_WSIMAGE1 = "image1";
+    private static final String KEY_WSIMAGE2 = "image2";
+    private static final String KEY_WSIMAGE3 = "image3";
 
     private static final String TABLE_CHARACTER_SECONDARY = "CharacterSecondary";
     private static final String KEY_cseID = "id";
@@ -64,7 +71,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_cseNAME2 = "name2";
     private static final String KEY_cseNAME3 = "name3";
     private static final String KEY_cseWHERE = "'where'";
-    private static final String KEY_cseIMAGE = "image";
+    private static final String KEY_cseIMAGE1 = "image1";
+    private static final String KEY_cseIMAGE2 = "image2";
+    private static final String KEY_cseIMAGE3 = "image3";
 
     private static final String TABLE_WEEKLY = "Weekly";
     private static final String KEY_WID = "id";
@@ -154,8 +163,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
 
         //create character local table query
         String CREATE_CHARACTER_LOCAL_TABLE = "CREATE TABLE " + TABLE_CHARACTER_LOCAL + "("
-                + KEY_CLID + " INTEGER PRIMARY KEY," + KEY_CLNAME + " TEXT,"
-                + KEY_CLREGION + " TEXT" + ")";
+                + KEY_CLID + " INTEGER PRIMARY KEY,"
+                + KEY_CLNAME + " TEXT,"
+                + KEY_CLREGION + " TEXT,"
+                + KEY_CLIMAGE + " INTEGER" + ")";
         db.execSQL(CREATE_CHARACTER_LOCAL_TABLE);
 
 
@@ -172,9 +183,11 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_CPNAME1 + " TEXT,"
                 + KEY_CPNAME2 + " TEXT,"
                 + KEY_CPNAME3 + " TEXT,"
-                + KEY_CPNAME4 + " TEXT,"
                 + KEY_CPWHERE + " TEXT,"
-                + KEY_CPIMAGE + " INTEGER" + ")";
+                + KEY_CPIMAGE1 + " INTEGER,"
+                + KEY_CPIMAGE2 + " INTEGER,"
+                + KEY_CPIMAGE3 + " INTEGER"
+                + ")";
         db.execSQL(CREATE_CHARACTER_PRIMARY_TABLE);
 
         //create weapon primary table query
@@ -185,7 +198,12 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_WPNAME3 + " TEXT,"
                 + KEY_WPNAME4 + " TEXT,"
                 + KEY_WPWHERE + " TEXT,"
-                + KEY_WPIMAGE + " INTEGER" + ")";
+                + KEY_WPIMAGE1 + " INTEGER,"
+                + KEY_WPIMAGE2 + " INTEGER,"
+                + KEY_WPIMAGE3 + " INTEGER,"
+                + KEY_WPIMAGE4 + " INTEGER"
+
+                + ")";
         db.execSQL(CREATE_WEAPON_PRIMARY_TABLE);
 
         //create weapon secondary table query
@@ -195,7 +213,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_WSNAME2 + " TEXT,"
                 + KEY_WSNAME3 + " TEXT,"
                 + KEY_WSWHERE + " TEXT,"
-                + KEY_WSIMAGE + " INTEGER" + ")";
+                + KEY_WSIMAGE1 + " INTEGER,"
+                + KEY_WSIMAGE2 + " INTEGER,"
+                + KEY_WSIMAGE3 + " INTEGER"
+                + ")";
         db.execSQL(CREATE_WEAPON_SECONDARY_TABLE);
 
         //create character secondary
@@ -205,7 +226,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_cseNAME2 + " TEXT,"
                 + KEY_cseNAME3 + " TEXT,"
                 + KEY_cseWHERE + " TEXT,"
-                + KEY_cseIMAGE + " INTEGER" + ")";
+                + KEY_cseIMAGE1 + " INTEGER,"
+                + KEY_cseIMAGE2 + " INTEGER,"
+                + KEY_cseIMAGE3 + " INTEGER"
+                + ")";
         db.execSQL(CREATE_CHARACTER_SECONDARY_TABLE);
 
         //create weapons table query
@@ -361,6 +385,7 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_CLNAME, characterLocal.getClName());
         values.put(KEY_CLREGION, characterLocal.getClRegion());
+        values.put(KEY_CLIMAGE, characterLocal.getClImage());
 
         // Inserting Row
         db.insert(TABLE_CHARACTER_LOCAL, null, values);
@@ -378,6 +403,7 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         characterLocal.setClId(cursor.getInt(0));
         characterLocal.setClName((cursor.getString(1)));
         characterLocal.setClRegion(cursor.getString(2));
+        characterLocal.setClImage(cursor.getInt(3));
 
         return characterLocal;
     }
@@ -388,10 +414,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_CPNAME1, characterPrimary.getCpName1());
         values.put(KEY_CPNAME2, characterPrimary.getCpName2());
         values.put(KEY_CPNAME3, characterPrimary.getCpName3());
-        values.put(KEY_CPNAME4, characterPrimary.getCpName4());
         values.put(KEY_CPWHERE, characterPrimary.getCpWhere());
-        values.put(KEY_CPIMAGE, characterPrimary.getCpImage());
-
+        values.put(KEY_CPIMAGE1, characterPrimary.getCpImage1());
+        values.put(KEY_CPIMAGE2, characterPrimary.getCpImage2());
+        values.put(KEY_CPIMAGE3, characterPrimary.getCpImage3());
         // Inserting Row
         db.insert(TABLE_CHARACTER_PRIMARY, null, values);
         //2nd argument is String containing nullColumnHack
@@ -409,10 +435,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         characterPrimary.setCpName1((cursor.getString(1)));
         characterPrimary.setCpName2((cursor.getString(2)));
         characterPrimary.setCpName3((cursor.getString(3)));
-        characterPrimary.setCpName4((cursor.getString(4)));
-        characterPrimary.setCpWhere(cursor.getString(5));
-        characterPrimary.setCpImage(cursor.getInt(6));
-
+        characterPrimary.setCpWhere(cursor.getString(4));
+        characterPrimary.setCpImage1(cursor.getInt(5));
+        characterPrimary.setCpImage2(cursor.getInt(6));
+        characterPrimary.setCpImage3(cursor.getInt(7));
 
         return characterPrimary;
     }
@@ -425,8 +451,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_cseNAME2, characterSecondary.getCseName2());
         values.put(KEY_cseNAME3, characterSecondary.getCseName3());
         values.put(KEY_cseWHERE, characterSecondary.getCseWhere());
-        values.put(KEY_cseIMAGE, characterSecondary.getCseImage());
-
+        values.put(KEY_cseIMAGE1, characterSecondary.getCseImage1());
+        values.put(KEY_cseIMAGE2, characterSecondary.getCseImage2());
+        values.put(KEY_cseIMAGE3, characterSecondary.getCseImage3());
         // Inserting Row
         db.insert(TABLE_CHARACTER_SECONDARY, null, values);
         //2nd argument is String containing nullColumnHack
@@ -445,8 +472,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         characterSecondary.setCseName2((cursor.getString(2)));
         characterSecondary.setCseName3((cursor.getString(3)));
         characterSecondary.setCseWhere(cursor.getString(4));
-        characterSecondary.setCseImage(cursor.getInt(5));
-
+        characterSecondary.setCseImage1(cursor.getInt(5));
+        characterSecondary.setCseImage2(cursor.getInt(6));
+        characterSecondary.setCseImage3(cursor.getInt(7));
         return characterSecondary;
     }
 
@@ -457,8 +485,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_WPNAME2, weaponPrimary.getWpName2());
         values.put(KEY_WPNAME3, weaponPrimary.getWpName3());
         values.put(KEY_WPWHERE, weaponPrimary.getWpWhere());
-        values.put(KEY_WPIMAGE, weaponPrimary.getWpImage());
-
+        values.put(KEY_WPIMAGE1, weaponPrimary.getWpImage1());
+        values.put(KEY_WPIMAGE2, weaponPrimary.getWpImage2());
+        values.put(KEY_WPIMAGE3, weaponPrimary.getWpImage3());
         // Inserting Row
         db.insert(TABLE_WEAPON_PRIMARY, null, values);
         //2nd argument is String containing nullColumnHack
@@ -478,8 +507,10 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         weaponPrimary.setWpName3((cursor.getString(3)));
         weaponPrimary.setWpName4((cursor.getString(4)));
         weaponPrimary.setWpWhere(cursor.getString(5));
-        weaponPrimary.setWpImage(cursor.getInt(6));
-
+        weaponPrimary.setWpImage1(cursor.getInt(6));
+        weaponPrimary.setWpImage2(cursor.getInt(7));
+        weaponPrimary.setWpImage3(cursor.getInt(8));
+        weaponPrimary.setWpImage4(cursor.getInt(9));
         return weaponPrimary;
     }
 
@@ -490,7 +521,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_WSNAME2, weaponSecondary.getWsName2());
         values.put(KEY_WSNAME3, weaponSecondary.getWsName3());
         values.put(KEY_WSWHERE, weaponSecondary.getWsWhere());
-        values.put(KEY_WSIMAGE, weaponSecondary.getWsImage());
+        values.put(KEY_WSIMAGE1, weaponSecondary.getWsImage1());
+        values.put(KEY_WSIMAGE2, weaponSecondary.getWsImage2());
+        values.put(KEY_WSIMAGE3, weaponSecondary.getWsImage3());
 
         // Inserting Row
         db.insert(TABLE_WEAPON_SECONDARY, null, values);
@@ -510,7 +543,9 @@ public class    DatabaseHandler extends SQLiteOpenHelper {
         weaponSecondary.setWsName2((cursor.getString(2)));
         weaponSecondary.setWsName3((cursor.getString(3)));
         weaponSecondary.setWsWhere(cursor.getString(4));
-        weaponSecondary.setWsImage(cursor.getInt(5));
+        weaponSecondary.setWsImage1(cursor.getInt(5));
+        weaponSecondary.setWsImage2(cursor.getInt(6));
+        weaponSecondary.setWsImage3(cursor.getInt(7));
 
         return weaponSecondary;
     }
