@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
                         db.addCharacter(new Character("Arataki Itto", "Geo", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
                                 "12", R.drawable.itto, "itto", "5-star", "sdescriptionasd",
-                                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.ittobanner,
+                                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.fight_club_legend, R.drawable.masatsu_zetsugi_akaushi_burst, R.drawable.royal_descent_behold_itto_the_evil, R.drawable.ittobanner,
                                 4, 4, 4, 4, 4));
 
                         db.addCharacter(new Character("Eula", "Cryo", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
@@ -186,14 +186,17 @@ public class MainActivity extends AppCompatActivity {
                         db.addCharacterSecondary(new CharacterSecondary("Recruit's Insignia","Sergeant's Insignia","Lieutenant's Insignia","wherer", R.drawable.recruit_insignia, R.drawable.sergeant_insignia, R.drawable.lieutenant_insignia));
                         db.addCharacterSecondary(new CharacterSecondary("Old Handguard","Kageuchi Handguard","Famed Handguard","wherer", R.drawable.old_handguard, R.drawable.kageuchi_handguard, R.drawable.famed_handguard));
                         db.addCharacterSecondary(new CharacterSecondary("Spectral Husk","Spectral Heart","Spectral Nucleus","wherer",R.drawable.spectral_husk, R.drawable.spectral_heart, R.drawable.spectral_nucleus));
+                        db.addCharacterSecondary(new CharacterSecondary("Treasure Hoarder Insignia","Silver Raven Insignia","Golden Raven Insignia","wherer", R.drawable.treasure_hoarder_insignia, R.drawable.silver_raven_insignia, R.drawable.golden_raven_insignia));
                         Log.d("characterSecondary name1", String.valueOf(db.getCharacterSecondaryById(1).getCseName1()));
 
                         db.addCharacterStone(new CharacterStone("Everflame Seed", R.drawable.everflame_seed));
                         db.addCharacterStone(new CharacterStone("Crystalline Bloom", R.drawable.crystalline_bloom));
                         db.addCharacterStone(new CharacterStone("Juvenile Jade", R.drawable.juvenile_jade));
                         db.addCharacterStone(new CharacterStone("Riftborn Regalia", R.drawable.riftborn_regalia));
-                        db.addCharacterStone(new CharacterStone("Hoarfrost Core", R.drawable.hoarfrost_core));
                         db.addCharacterStone(new CharacterStone("Storm Beads", R.drawable.storm_beads));
+                        db.addCharacterStone(new CharacterStone("Hoarfrost Core", R.drawable.hoarfrost_core));
+                        db.addCharacterStone(new CharacterStone("Dew Of Repudiation", R.drawable.dew_of_repudiation));
+                        db.addCharacterStone(new CharacterStone("Marionette Core", R.drawable.marionette_core));
                         Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCstName()));
 
 
@@ -207,8 +210,8 @@ public class MainActivity extends AppCompatActivity {
                         db.addWeekly(new Weekly("Dragon Lord's Crown",R.drawable.dragon_lords_crown));
                         db.addWeekly(new Weekly("Shard Of A Foul Legacy", R.drawable.shard_of_a_foul_legacy));
                         db.addWeekly(new Weekly("Ashen Heart", R.drawable.ashen_heart));
-                        db.addWeekly(new Weekly("Shadow of the Warrior", R.drawable.shadow_of_the_warrior));
                         db.addWeekly(new Weekly("Molten Moment", R.drawable.molten_moment));
+                        db.addWeekly(new Weekly("Shadow of the Warrior", R.drawable.shadow_of_the_warrior));
                         db.addWeekly(new Weekly("Hellfire Butterfly", R.drawable.hellfire_butterfly));
                         db.addWeekly(new Weekly("Gilded Scale", R.drawable.gilded_scale));
                         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
