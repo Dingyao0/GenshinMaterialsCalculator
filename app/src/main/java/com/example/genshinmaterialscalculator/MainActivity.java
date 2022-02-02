@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
+import java.nio.channels.Channel;
+
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
@@ -123,24 +125,24 @@ public class MainActivity extends AppCompatActivity {
                         db.addCharacter(new Character("Arataki Itto", "Geo", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
                                 "12", R.drawable.itto, "itto", "5-star", "sdescriptionasd",
                                 " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.ittobanner,
-                                1, 1, 1, 1, 1));
+                                4, 4, 4, 4, 4));
 
                         db.addCharacter(new Character("Eula", "Cryo", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
                                 "12", R.drawable.eula, "eula", "5-star", "sdescriptionasd",
-                                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.eulabanner,
-                                1, 1, 1, 1, 1));
+                                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.favonius_bladework_edel, R.drawable.icetide_vortex, R.drawable.glacial_illumination, R.drawable.eulabanner,
+                                2, 2, 2, 2, 2));
 
                         db.addCharacter(new Character("Hu Tao", "Pyro", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
                                 "12", R.drawable.hutao, "hutao", "5-star", "sdescriptionasd",
-                                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.hutaobanner,
-                                1, 1, 1, 1, 1));
+                                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.secret_spear_of_wangsheng, R.drawable.guide_to_afterlife, R.drawable.spirit_soother, R.drawable.hutaobanner,
+                                3, 3, 3, 3, 3));
 
                         db.addCharacter(new Character("Raiden Shogun", "Electro", "Polearm", "1005", "26", "61", R.drawable.em, "0", "12",
                                 "12", R.drawable.shougun, "shougun", "5-star", "sdescriptionasd",
-                                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.raiden_shogun,
+                                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.origin, R.drawable.transcendence_baleful_omen, R.drawable.secret_art_musou_shinsetsu, R.drawable.raiden_shogun,
                                 1, 1, 1, 1, 1));
 
-                        db.addCharacter(new Character("Rosaria", "Pyro", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
+                        db.addCharacter(new Character("Rosaria", "Cryo", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
                                 " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio", R.drawable.w_2313, R.drawable.w_2313, R.drawable.w_2313, R.drawable.rosariabanner,
                                 1, 1, 1, 1, 1));
@@ -159,28 +161,46 @@ public class MainActivity extends AppCompatActivity {
 
 
                         db.addCharacterLocal(new CharacterLocal("Small Lamp Grass", "Mondstadt", R.drawable.small_lamp_grass));
+                        db.addCharacterLocal(new CharacterLocal("Dandelion Seed","Mondstadt", R.drawable.dandelion_seed));
+                        db.addCharacterLocal(new CharacterLocal("Sil Flower", "Li Yue", R.drawable.silk_flower));
+                        db.addCharacterLocal(new CharacterLocal("Onikabuto","Inazuma", R.drawable.onikabuto));
+
                         Log.d("characterLocal name1", String.valueOf(db.getCharacterLocalById(1).getClName()));
 
-                        db.addCharacterPrimary(new CharacterPrimary("Teachings Of Freedom", "name2", "name3", "domain", R.drawable.teachings_of_freedom, R.drawable.guide_to_freedom, R.drawable.philosophies_of_freedom));
+                        db.addCharacterPrimary(new CharacterPrimary("Teachings Of Freedom", "Guide To Freedom", "Philosophies Of Freedom", "domain", R.drawable.teachings_of_freedom, R.drawable.guide_to_freedom, R.drawable.philosophies_of_freedom));
+                        db.addCharacterPrimary(new CharacterPrimary("Teachings Of Resistance", "Guide To Resistance", "Philosophies Of Resistance", "domain", R.drawable.teachings_of_resistance, R.drawable.guide_to_resistance, R.drawable.philosophies_of_resistance));
+                        db.addCharacterPrimary(new CharacterPrimary("Teachings Of Diligence", "Guide To Diligence", "Philosophies Of Diligence", "domain", R.drawable.teachings_of_diligence, R.drawable.guide_to_diligence, R.drawable.philosophies_of_diligence));
+                        db.addCharacterPrimary(new CharacterPrimary("Teachings Of Elegance", "Guide To Elegance", "Philosophies Of Elegance", "domain", R.drawable.teachings_of_elegance, R.drawable.guide_to_elegance, R.drawable.philosophies_of_elegance));
+
                         Log.d("characterPrimary name1", String.valueOf(db.getCharacterPrimaryById(1).getCpName1()));
 
                         db.addCharacterSecondary(new CharacterSecondary("Firm Arrowhead", "Sharp Arrowhead", "Weathered Arrowhead", "wherer", R.drawable.firm_arrowhead, R.drawable.sharp_arrowhead, R.drawable.weathered_arrowhead));
+                        db.addCharacterSecondary(new CharacterSecondary("Damaged Mask", "Stained Mask", "Ominous Mask", "wherer", R.drawable.damaged_mask, R.drawable.stained_mask, R.drawable.ominous_mask));
+                        db.addCharacterSecondary(new CharacterSecondary("Whopperflower Nectar","Shimmering Nectar","Energy Nectar","wherer",R.drawable.whopperflower_nectar, R.drawable.shimmering_nectar, R.drawable.energy_nectar));
+                        db.addCharacterSecondary(new CharacterSecondary("Slime Secretion","Slime Condensate","Slime concentrate","wherer", R.drawable.slime_secretions, R.drawable.slime_condensate, R.drawable.slime_concentrate));
                         Log.d("characterSecondary name1", String.valueOf(db.getCharacterSecondaryById(1).getCseName1()));
 
-                        db.addCharacterStone(new CharacterStone("stone", R.drawable.everflame_seed));
+                        db.addCharacterStone(new CharacterStone("Everflame Seed", R.drawable.everflame_seed));
+                        db.addCharacterStone(new CharacterStone("Crystalline Bloom", R.drawable.crystalline_bloom));
+                        db.addCharacterStone(new CharacterStone("Juvenile Jade", R.drawable.juvenile_jade));
+                        db.addCharacterStone(new CharacterStone("Riftborn Regalia", R.drawable.riftborn_regalia));
                         Log.d("characterStone name", String.valueOf(db.getCharacterStoneById(1).getCstName()));
 
                         db.addWeaponPrimary(new WeaponPrimary("weaqpp", "name2", "name3", "name4", "name5", R.drawable.tile_of_decarabians_tower, R.drawable.debris_of_decarabians_city, R.drawable.fragment_of_decarabians_epic, R.drawable.scattered_piece_of_decarabians_dream));
+
                         Log.d("weap primary name1", String.valueOf(db.getWeaponPrimaryById(1).getWpName1()));
 
                         db.addWeaponSecondary(new WeaponSecondary("weapse", "name2", "name3", "where", R.drawable.firm_arrowhead, R.drawable.sharp_arrowhead, R.drawable.weathered_arrowhead));
                         Log.d("weap secondary name1", String.valueOf(db.getWeaponSecondaryById(1).getWsName1()));
 
-                        db.addWeekly(new Weekly("weekly", R.drawable.dvalins_sigh));
+                        db.addWeekly(new Weekly("Dvalin's Sigh", R.drawable.dvalins_sigh));
+                        db.addWeekly(new Weekly("Dragon Lord's Crown",R.drawable.dragon_lords_crown));
+                        db.addWeekly(new Weekly("Shard Of A Foul Legacy", R.drawable.shard_of_a_foul_legacy));
+                        db.addWeekly(new Weekly("Ashen Heart", R.drawable.ashen_heart));
                         Log.d("weekly name", String.valueOf(db.getWeeklyById(1).getName()));
 
-                        db.addFavorite(2);
-                        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
+//                        db.addFavorite(2);
+//                        Log.d("list id first", Integer.toString(db.getAllFavouriteCharacterId().get(0)));
                         dialog.dismiss();
                     }
                 })
