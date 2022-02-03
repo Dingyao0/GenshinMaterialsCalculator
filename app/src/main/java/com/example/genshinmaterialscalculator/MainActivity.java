@@ -119,42 +119,42 @@ public class MainActivity extends AppCompatActivity {
 
                         db.addCharacter(new Character("Amber", "Pyro", "Bow", "793", "19", "50", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.amber, "amber", "4-star", "sdescriptionasd",
-                                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "mondstadt", R.drawable.sharpshooter, R.drawable.explosive_puppet, R.drawable.fiery_rain, R.drawable.amberbanner,
+                                "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.", "Mondstadt", R.drawable.sharpshooter, R.drawable.explosive_puppet, R.drawable.fiery_rain, R.drawable.amberbanner,
                                 1, 1, 1, 1, 1));
 
                         db.addCharacter(new Character("Arataki Itto", "Geo", "Claymore", "1001", "18", "75", R.drawable.cr, "5", "12",
                                 "12", R.drawable.itto, "itto", "5-star", "sdescriptionasd",
-                                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "regio", R.drawable.fight_club_legend, R.drawable.masatsu_zetsugi_akaushi_burst, R.drawable.royal_descent_behold_itto_the_evil, R.drawable.ittobanner,
+                                " The first and greatest head of the Arataki Gang, famed throughout Inazuma City's Hanamizaka... Wait, what? You've never heard of them? Are you trying to be funny here?", "Inazuma", R.drawable.fight_club_legend, R.drawable.masatsu_zetsugi_akaushi_burst, R.drawable.royal_descent_behold_itto_the_evil, R.drawable.ittobanner,
                                 4, 4, 4, 4, 4));
 
                         db.addCharacter(new Character("Eula", "Cryo", "Claymore", "1030", "27", "58", R.drawable.cd, "50", "12",
                                 "12", R.drawable.eula, "eula", "5-star", "sdescriptionasd",
-                                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "regio", R.drawable.favonius_bladework_edel, R.drawable.icetide_vortex, R.drawable.glacial_illumination, R.drawable.eulabanner,
+                                " The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.", "Mondstadt", R.drawable.favonius_bladework_edel, R.drawable.icetide_vortex, R.drawable.glacial_illumination, R.drawable.eulabanner,
                                 2, 2, 2, 2, 2));
 
                         db.addCharacter(new Character("Hu Tao", "Pyro", "Polearm", "1211", "8", "68", R.drawable.cd, "50", "12",
                                 "12", R.drawable.hutao, "hutao", "5-star", "sdescriptionasd",
-                                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "regio", R.drawable.secret_spear_of_wangsheng, R.drawable.guide_to_afterlife, R.drawable.spirit_soother, R.drawable.hutaobanner,
+                                " The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.", "Liyue", R.drawable.secret_spear_of_wangsheng, R.drawable.guide_to_afterlife, R.drawable.spirit_soother, R.drawable.hutaobanner,
                                 3, 3, 3, 3, 3));
 
                         db.addCharacter(new Character("Raiden Shogun", "Electro", "Polearm", "1005", "26", "61", R.drawable.em, "0", "12",
                                 "12", R.drawable.shougun, "shougun", "5-star", "sdescriptionasd",
-                                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "regio", R.drawable.origin, R.drawable.transcendence_baleful_omen, R.drawable.secret_art_musou_shinsetsu, R.drawable.raiden_shogun,
+                                " Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.", "Inazuma", R.drawable.origin, R.drawable.transcendence_baleful_omen, R.drawable.secret_art_musou_shinsetsu, R.drawable.raiden_shogun,
                                 5, 5, 5, 5, 5));
 
                         db.addCharacter(new Character("Rosaria", "Cryo", "Polearm", "1030", "20", "60", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.rosaria, "rosaria", "4-star", "sdescriptionasd",
-                                " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "regio", R.drawable.spear_of_the_church, R.drawable.ravaging_confession, R.drawable.rites_of_termination, R.drawable.rosariabanner,
+                                " A sister of the church, though you wouldn't know it if it weren't for her attire. Known for her sharp, cold words and manner, she often works alone..", "Mondstadt", R.drawable.spear_of_the_church, R.drawable.ravaging_confession, R.drawable.rites_of_termination, R.drawable.rosariabanner,
                                 6, 6, 6, 6, 6));
 
                         db.addCharacter(new Character("Sangonomiya Kokomi", "Hydro", "Catalyst", "1049", "18", "51", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.kokomi, "kokomi", "5-star", "sdescriptionasd",
-                                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "regio",R.drawable.the_shape_of_water, R.drawable.kurage_oath, R.drawable.nereid_ascension, R.drawable.kokomibanner,
+                                " The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.", "Inazuma",R.drawable.the_shape_of_water, R.drawable.kurage_oath, R.drawable.nereid_ascension, R.drawable.kokomibanner,
                                 7, 7, 7, 7, 7));
 
                         db.addCharacter(new Character("Kaedehara Kazuha", "Anemo", "Sword", "1039", "23", "63", R.drawable.atk_pct, "0", "12",
                                 "12", R.drawable.kazuha, "kazuha", "5-star", "sdescriptionasd",
-                                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "regio", R.drawable.garyuu_bladework, R.drawable.chihayaburu, R.drawable.kazuha_slash, R.drawable.kazuhabanner,
+                                " A wandering samurai from Inazuma who is currently with Liyue's Crux Fleet. A gentle and carefree soul whose heart hides a great many burdens from the past.", "Inazuma", R.drawable.garyuu_bladework, R.drawable.chihayaburu, R.drawable.kazuha_slash, R.drawable.kazuhabanner,
                                 8, 8, 3, 8, 8));
 
                         Log.d("character name", String.valueOf(db.getCharacterById(1).getName()));
