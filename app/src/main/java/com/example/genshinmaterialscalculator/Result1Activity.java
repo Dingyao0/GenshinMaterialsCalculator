@@ -248,6 +248,7 @@ public class Result1Activity extends AppCompatActivity {
         }
 
         this.setBossImage(cBoss.getCstName());
+        this.setCharBg(c.getName());
 
     }
 
@@ -339,6 +340,39 @@ public class Result1Activity extends AppCompatActivity {
             return;
         }
 
+    }
+
+    protected void setCharBg(String character) {
+        ImageView pic2 = (ImageView) findViewById(R.id.pic2);
+        if (character.equals("Amber")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.amber_bg));
+            return;
+        }
+        if (character.equals("Arataki Itto")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.arataki_itto_bg));
+            return;
+        }
+        if (character.equals("Eula")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.eula_bg));
+            return;
+        }
+        if (character.equals("Hu Tao")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.hutao_bg));
+            return;
+        }
+        if (character.equals("Raiden Shogun")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.raiden_shogun_bg));
+            return;
+        }
+        if (character.equals("Rosaria")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.rosaria_bg));
+        }
+        if (character.equals("Sangonomiya Kokomi")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.kokomi_bg));
+        }
+        if (character.equals("Kaedehara Kazuha")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.kaedehara_kazuha_bg));
+        }
     }
 
 

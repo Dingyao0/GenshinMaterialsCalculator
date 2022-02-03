@@ -158,6 +158,9 @@ public class Result2Activity extends AppCompatActivity {
 
         rarity = c.getRarity();
 
+        this.setCharBg(c.getName());
+        this.setBossPic(w.getName());
+
         if(rarity.equals("5-star")){
             switch(region) {
                 case "Inazuma":
@@ -218,6 +221,62 @@ public class Result2Activity extends AppCompatActivity {
         startActivity(i);
     }
 
+    protected void setCharBg(String character) {
+        ImageView pic2 = (ImageView) findViewById(R.id.pic2);
+        if (character.equals("Amber")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.amber_bg));
+            return;
+        }
+        if (character.equals("Arataki Itto")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.arataki_itto_bg));
+            return;
+        }
+        if (character.equals("Eula")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.eula_bg));
+            return;
+        }
+        if (character.equals("Hu Tao")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.hutao_bg));
+            return;
+        }
+        if (character.equals("Raiden Shogun")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.raiden_shogun_bg));
+            return;
+        }
+        if (character.equals("Rosaria")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.rosaria_bg));
+        }
+        if (character.equals("Sangonomiya Kokomi")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.kokomi_bg));
+        }
+        if (character.equals("Kaedehara Kazuha")) {
+            pic2.setImageDrawable(getResources().getDrawable(R.drawable.kaedehara_kazuha_bg));
+        }
+    }
 
+    protected void setBossPic (String item) {
+        ImageView pic = (ImageView) findViewById(R.id.pic);
+        if (item.equals("Ashen Heart") || item.equals("Molten Moment") || item.equals("Hellfire Butterfly")) {
+            pic.setImageDrawable(getResources().getDrawable(R.drawable.signora));
+            return;
+        }
+        if (item.equals("Dvalin's Plume") || item.equals("Dvalin's Claw") || item.equals("Dvalin's Sigh")) {
+            pic.setImageDrawable(getResources().getDrawable(R.drawable.dvalin));
+            return;
+        }
+        if (item.equals("Tail of Boreas") || item.equals("Ring of Boreas") || item.equals("Spirit Locket of Boreas")) {
+            pic.setImageDrawable(getResources().getDrawable(R.drawable.wolf));
+            return;
+        }
+        if (item.equals("Tusk of Monoceros Caeli") || item.equals("Shard of a Foul Legacy") || item.equals("Shadow of the Warrior")) {
+            pic.setImageDrawable(getResources().getDrawable(R.drawable.childe));
+            return;
+        }
+        if (item.equals("Dragon Lord's Crown") || item.equals("Bloodjade Branch") || item.equals("Gilded Scale")) {
+            pic.setImageDrawable(getResources().getDrawable(R.drawable.azhdaha));
+            return;
+        }
+
+    }
 
 }
