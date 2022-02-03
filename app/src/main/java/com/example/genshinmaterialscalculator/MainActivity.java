@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             firstTime();
         }
         DatabaseHandler db = new DatabaseHandler(this);
-        Log.d("getCharacterByName: ", db.getCharacterByName("Arataki Itto").getName());
+//        Log.d("getCharacterByName: ", db.getCharacterByName("Arataki Itto").getName());
 
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.homeicon));
