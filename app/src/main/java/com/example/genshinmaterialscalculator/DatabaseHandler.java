@@ -711,6 +711,43 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return resultList;
     }
 
+    public Character getCharacterByName(String fullName) {
+        String selectQuery = "SELECT * FROM " + TABLE_CHARACTERS + " WHERE name = '" + fullName + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        cursor.moveToFirst();
+        Character character = new Character();
+        character.setId((cursor.getInt(0)));
+        character.setName((cursor.getString(1)));
+        character.setElement((cursor.getString(2)));
+        character.setWeaponType((cursor.getString(3)));
+        character.setHp((cursor.getString(4)));
+        character.setAttackValue((cursor.getString(5)));
+        character.setDef((cursor.getString(6)));
+        character.setSecondaryStat((cursor.getInt(7)));
+        character.setSecondaryStatValue((cursor.getString(8)));
+        character.setCritRate((cursor.getString(9)));
+        character.setCritDamage((cursor.getString(10)));
+        character.setImage((cursor.getInt(11)));
+        character.setCode((cursor.getString(12)));
+        character.setRarity((cursor.getString(13)));
+        character.setSDescription((cursor.getString(14)));
+        character.setIDescription((cursor.getString(15)));
+        character.setRegion((cursor.getString(16)));
+        character.setSkill1((cursor.getInt(17)));
+        character.setSkill2((cursor.getInt(18)));
+        character.setSkill3((cursor.getInt(19)));
+        character.setBannerImage((cursor.getInt(20)));
+        character.setCharacterStoneId((cursor.getInt(21)));
+        character.setCharacterLocalId((cursor.getInt(22)));
+        character.setCharacterPrimaryId((cursor.getInt(23)));
+        character.setCharacterSecondaryId((cursor.getInt(24)));
+        character.setWeeklyBossId((cursor.getInt(25)));
+        // Adding weapons to list
+        return character;
+    }
+
     public List<Weapon> getWeaponSearchResult(String search) {
         List<Weapon> resultList = new ArrayList<Weapon>();
         String selectQuery = "SELECT  * FROM " + TABLE_WEAPONS + " WHERE name LIKE " + search +"%";
