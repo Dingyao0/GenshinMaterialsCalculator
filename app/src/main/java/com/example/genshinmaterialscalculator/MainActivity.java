@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         bnv_Main = findViewById(R.id.bnv_Main);
-        bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.home));
-        bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.search));
-        bnv_Main.add(new MeowBottomNavigation.Model(3, R.drawable.bookmark));
-        bnv_Main.add(new MeowBottomNavigation.Model(4, R.drawable.person));
+        bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.homeicon));
+        bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.weaponsicon));
+        bnv_Main.add(new MeowBottomNavigation.Model(3, R.drawable.char_35));
+        bnv_Main.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_calculate_24));
 
         bnv_Main.show(1, true);
         replace(new com.example.genshinmaterialscalculator.HomeFragment());
