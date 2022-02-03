@@ -36,9 +36,9 @@
 
         <TextView
             android:id="@+id/charMat1"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:text="BACK22"
+            android:text="BACK"
             android:textColor="@android:color/black"
             android:textSize="15dp" />
     </LinearLayout>
@@ -46,7 +46,7 @@
     <LinearLayout
         android:layout_width="110dp"
         android:layout_height="70dp"
-        android:layout_marginLeft="290dp"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -59,7 +59,7 @@
 
         <TextView
             android:id="@+id/charMat2"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="BACK"
             android:textColor="@android:color/black"
@@ -82,7 +82,7 @@
 
         <TextView
             android:id="@+id/charMat3"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="BACK"
             android:textColor="@android:color/black"
