@@ -6,11 +6,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
 import org.w3c.dom.Text;
 
@@ -19,7 +26,7 @@ import org.w3c.dom.Text;
  * Use the {@link CalculatorFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CalculatorFragment extends Fragment implements View.OnClickListener {
+public class CalculatorFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,16 +37,25 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     private String mParam1;
     private String mParam2;
 
-    // Variables
-    private String CharName = "Arataki Itto";
-    private String Rarity = "4-star";
-    //TODO: need getters for the below
-    private int skill1 = R.drawable.itto_1;
-    private int skill2 = R.drawable.itto_2;
-    private int skill3 = R.drawable.itto_3;
-    private int charImg = R.drawable.itto;
+    // Variables TODO: Incoming intent
+    private int charId = 1;
+    //TODO: need getters for the below --Done
+    private String Rarity;
+    private int skill1;
+    private int skill2;
+    private int skill3;
+    private int charImg;
     // end
-    private String region = "Liyue";
+
+    Character c;
+
+    //to Send to results activity
+    private String region; //also for calculation
+    private int ascension;
+    private String element;
+    private int talent1Lvl;
+    private int talent2Lvl;
+    private int talent3Lvl;
 
     //Seekbar
     SeekBar seekBar1;
@@ -51,6 +67,9 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     // Etc Views
     ImageButton calculate;
+    RadioGroup radioGroup;
+    RadioButton radioSexButton;
+    ImageView skill1Img, skill2Img, skill3Img, charCImg;
 
 
     public CalculatorFragment() {
@@ -89,10 +108,33 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_calculator, container, false);
 
-        //put code here
+        //DB data and images
+        DatabaseHandler dbHandler = new DatabaseHandler(this.getActivity());
+        c = dbHandler.getCharacterById(charId);
+
+        Rarity = c.getRarity();
+        Log.d("Rarity: ", Rarity);
+        skill1 = c.getSkill1();
+        skill2 = c.getSkill2();
+        skill3 = c.getSkill3();
+        charImg = c.getImage();
+        region = c.getRegion();
+        element = c.getElement();
+
+        //set img from db
+        skill1Img = (ImageView) rootView.findViewById(R.id.skill1);
+        skill2Img = (ImageView) rootView.findViewById(R.id.skill2);
+        skill3Img = (ImageView) rootView.findViewById(R.id.skill3);
+        charCImg = (ImageView) rootView.findViewById(R.id.card);
+
+        skill1Img.setImageDrawable(getResources().getDrawable(skill1));
+        skill2Img.setImageDrawable(getResources().getDrawable(skill2));
+        skill3Img.setImageDrawable(getResources().getDrawable(skill3));
+        charCImg.setImageDrawable(getResources().getDrawable(charImg));
 
         // intent
         String codeText = null;
@@ -104,7 +146,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         // View stuff
         View layout = (View) rootView.findViewById(R.id.bg);
-        View banner = (View) rootView.findViewById(R.id.banner);
+        ImageView banner = (ImageView) rootView.findViewById(R.id.banner);
         //end
 
 
@@ -142,15 +184,15 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         switch (region) {
             case "Inazuma":
-                banner.setBackground(getResources().getDrawable(R.drawable.banner_ina));
+                banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_ina));
                 break;
             case "Liyue":
                 // code block  TODO: make banner for liyue and change this
-                banner.setBackground(getResources().getDrawable(R.drawable.banner_ina));
+                banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_ina));
                 break;
             case "Mondstadt":
                 // code block
-                banner.setBackground(getResources().getDrawable(R.drawable.banner_mon));
+                banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_mon));
                 break;
         }
 
@@ -165,6 +207,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
                 textView1.setText("" + progress);
                 textView1.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
+                talent1Lvl = progress;
                 //textView.setY(100); just added a value set this properly using screen with height aspect ratio , if you do not set it by default it will be there below seek bar
 
             }
@@ -188,7 +231,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
                 textView2.setText("" + progress);
                 textView2.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
-                //textView.setY(100); just added a value set this properly using screen with height aspect ratio , if you do not set it by default it will be there below seek bar
+                talent2Lvl = progress;
 
             }
 
@@ -211,6 +254,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
                 textView3.setText("" + progress);
                 textView3.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
+                talent2Lvl = progress;
 
             }
 
@@ -226,23 +270,80 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         });
         // END
 
+//        //ascension spinner
+//        Spinner ascensionSpinner = rootView.findViewById(R.id.spinner);
+//        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(rootView.getContext(), R.array.ascension_list, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+//
+//        ascensionSpinner.setAdapter(adapter);
+
+        radioGroup=(RadioGroup)rootView.findViewById(R.id.radiogroup);
+        calculate = rootView.findViewById(R.id.imageButton);
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                radioSexButton = (RadioButton)rootView.findViewById(selectedId);
+
+                String temp = (String) radioSexButton.getText();
+
+                switch(temp) {
+                    case "Ascension 1 (20/40)":
+                        ascension = 2;
+                        break;
+                    case "Ascension 2 (40/50)":
+                        ascension = 3;
+                        break;
+                    case "Ascension 3 (50/60)":
+                        ascension = 4;
+                        break;
+                    case "Ascension 4 (60/70)":
+                        ascension = 5;
+                        break;
+                    case "Ascension 5 (70/80)":
+                        ascension = 6;
+                        break;
+                    case "Ascension 6 (80/90)":
+                        ascension = 7;
+                        break;
+                }
+
+                Intent i = new Intent(v.getContext(), Result1Activity.class);
+                i.putExtra("region", region);
+                i.putExtra("ascension", ascension); // ("key", value/data)
+                i.putExtra("element", element);
+                i.putExtra("charId", charId);
+                i.putExtra("talent1Lvl", talent1Lvl);
+                i.putExtra("talent2Lvl", talent2Lvl);
+                i.putExtra("talent3Lvl", talent3Lvl);
+                startActivity(i);
+            }
+        });
+
         return rootView;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.imageButton:
-                Intent i = new Intent(v.getContext(), Result1Activity.class);
-                i.putExtra("key", 1); // ("key", value/data)
-                startActivity(i);
-                break;
-        }
-        // TODO: receiving activity needs this:
-        //Bundle extras = getIntent().getExtras();
-        //if (extras != null) {
-        //    String value = extras.getString("key");
-        //    //The key argument here must match that used in the other activity
-        //}
-    }
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.imageButton:
+//                Intent i = new Intent(v.getContext(), Result1Activity.class);
+//                i.putExtra("region", region);
+//                i.putExtra("ascension", ascension); // ("key", value/data)
+//                i.putExtra("element", element);
+//                i.putExtra("charName", charName);
+//                i.putExtra("talent1Lvl", talent1Lvl);
+//                i.putExtra("talent2Lvl", talent2Lvl);
+//                i.putExtra("talent3Lvl", talent3Lvl);
+//                startActivity(i);
+//                break;
+//        }
+//        // TODO: receiving activity needs this:
+//        //Bundle extras = getIntent().getExtras();
+//        //if (extras != null) {
+//        //    String value = extras.getString("key");
+//        //    //The key argument here must match that used in the other activity
+//        //}
+//    }
+
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/bg">
 
 
     <ImageView
@@ -27,14 +29,17 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/charMat1Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/w_2313" />
 
         <TextView
+            android:id="@+id/charMat1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BACK"
+            android:textSize="20dp"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
@@ -47,14 +52,17 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/charMat2Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/w_2313" />
 
         <TextView
+            android:id="@+id/charMat2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BACK"
+            android:textSize="20dp"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
@@ -67,14 +75,17 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/charMat3Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/w_2313" />
 
         <TextView
+            android:id="@+id/charMat3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BACK"
+            android:textSize="20dp"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
@@ -87,14 +98,17 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/bossMatImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/w_2313" />
 
         <TextView
+            android:id="@+id/bossMat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BACK"
+            android:textSize="20dp"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
@@ -118,12 +132,15 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/book1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BACK"
+                    android:textSize="20dp"
                     android:textColor="@android:color/black" />
 
                 <ImageView
+                    android:id="@+id/book1Img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/w_2313" />
@@ -143,14 +160,17 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/mora"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/w_2313" />
 
                 <TextView
+                    android:id="@+id/tMora"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BACK"
+                    android:textSize="20dp"
                     android:textColor="@android:color/black" />
             </LinearLayout>
         </LinearLayout>
@@ -176,14 +196,17 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/book2Img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/w_2313" />
 
                 <TextView
+                    android:id="@+id/book2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BACK"
+                    android:textSize="20dp"
                     android:textColor="@android:color/black" />
             </LinearLayout>
         </LinearLayout>
@@ -201,14 +224,17 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/crownImg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/w_2313" />
 
                 <TextView
+                    android:id="@+id/crownTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BACK"
+                    android:textSize="20dp"
                     android:textColor="@android:color/black" />
             </LinearLayout>
         </LinearLayout>
@@ -223,35 +249,18 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/book3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BACK"
+            android:textSize="20dp"
             android:textColor="@android:color/black" />
 
         <ImageView
+            android:id="@+id/book3Img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/w_2313" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/fifth"
-        android:layout_width="160dip"
-        android:layout_height="70dip"
-        android:layout_below="@id/fourth"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/w_2313" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BACK"
-            android:textColor="@android:color/black" />
     </LinearLayout>
 
     <ImageView
@@ -260,7 +269,19 @@
         android:layout_height="250dp"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="450dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:src="@drawable/itto" />
 
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="630dp"
+        android:background="@color/transparent"
+        android:onClick="onClick"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/arrow" />
 
 </RelativeLayout>
