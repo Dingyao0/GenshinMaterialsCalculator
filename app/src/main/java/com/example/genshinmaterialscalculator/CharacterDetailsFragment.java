@@ -123,6 +123,7 @@ public class CharacterDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), CalculatorFragment.class);
+                Log.d("Send: ", sTitle);
                 intent.putExtra("Name", sTitle);
                 Fragment newFragment = new CalculatorFragment();
                 // consider using Java coding conventions (upper first char class names!!!)

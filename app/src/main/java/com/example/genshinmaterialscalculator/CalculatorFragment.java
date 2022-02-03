@@ -37,14 +37,14 @@ public class CalculatorFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    // Variables TODO: Incoming intent
-    private int charId = 1;
-    //TODO: need getters for the below --Done
+    // Variables
+    private int charId;
     private String Rarity;
     private int skill1;
     private int skill2;
     private int skill3;
     private int charImg;
+    private String name = "Arataki Itto";
     // end
 
     Character c;
@@ -112,12 +112,19 @@ public class CalculatorFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_calculator, container, false);
 
+        // intent
+        Bundle extras = getActivity().getIntent().getExtras();
+        if (extras != null) {
+            name = extras.getString("Name");
+            Log.d("hi",name);
+        }
+
         //DB data and images
         DatabaseHandler dbHandler = new DatabaseHandler(this.getActivity());
-        c = dbHandler.getCharacterById(charId);
+        c = dbHandler.getCharacterByName(name);
 
+        charId = c.getId();
         Rarity = c.getRarity();
-        Log.d("Rarity: ", Rarity);
         skill1 = c.getSkill1();
         skill2 = c.getSkill2();
         skill3 = c.getSkill3();
@@ -135,14 +142,6 @@ public class CalculatorFragment extends Fragment {
         skill2Img.setImageDrawable(getResources().getDrawable(skill2));
         skill3Img.setImageDrawable(getResources().getDrawable(skill3));
         charCImg.setImageDrawable(getResources().getDrawable(charImg));
-
-        // intent
-        String codeText = null;
-        Bundle extras = getActivity().getIntent().getExtras();
-        if (extras != null) {
-            codeText = extras.getString("Name");
-            Log.d("hi",codeText);
-        }
 
         // View stuff
         View layout = (View) rootView.findViewById(R.id.bg);
