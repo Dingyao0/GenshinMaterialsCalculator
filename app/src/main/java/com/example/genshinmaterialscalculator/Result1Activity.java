@@ -3,6 +3,7 @@ package com.example.genshinmaterialscalculator;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -160,9 +161,11 @@ public class Result1Activity extends AppCompatActivity {
             cMoraTxt.setText(""+cMora);
         }
 
-        // LocalMat set text
+        // LocalMat
         TextView localMatTxt = (TextView) findViewById(R.id.LocalMat);
+        ImageView localMatImg = (ImageView) findViewById(R.id.LocalMatImg);
         localMatTxt.setText("x"+localMatNum);
+        localMatImg.setImageDrawable(getResources().getDrawable(cl.getClImage()));
 
         // Stone setText
         TextView stone1txt = (TextView) findViewById(R.id.stone1);
@@ -191,6 +194,7 @@ public class Result1Activity extends AppCompatActivity {
         bossMattxt = (TextView) findViewById(R.id.bossMat);
         bossMatimg = (ImageView) findViewById(R.id.bossMatImg);
         bossMattxt.setText("x"+bossMatNum);
+        bossMatimg.setImageDrawable(getResources().getDrawable(cBoss.getCstImage()));
 
         // View stuff
         View layout = (View) findViewById(R.id.bg);
@@ -242,6 +246,8 @@ public class Result1Activity extends AppCompatActivity {
                 banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_mon));
                 break;
         }
+
+        this.setBossImage(cBoss.getCstName());
 
     }
 
@@ -296,6 +302,43 @@ public class Result1Activity extends AppCompatActivity {
                 Stone4id = R.drawable.vayuda_turquoise_gemstone;
                 return;
         }
+    }
+
+    public void setBossImage(String item) {
+        ImageView bossPic = (ImageView) findViewById(R.id.pic);
+        if (item.equals("Everflame Seed")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.pyro_regisvine));
+            return;
+        }
+        if (item.equals("Crystalline Bloom")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.cryo_hypostasis));
+            return;
+        }
+        if (item.equals("Juvenile Jade")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.primo_geovishap));
+            return;
+        }
+        if (item.equals("Riftborn Regalia")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.golden_wolflord));
+            return;
+        }
+        if (item.equals("Storm Beads")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.thunder_manifestation));
+            return;
+        }
+        if (item.equals("Hoarfrost Core")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.cryo_regisvine));
+            return;
+        }
+        if (item.equals("Dew Of Repudiation")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.hydro_hypostasis));
+            return;
+        }
+        if (item.equals("Marionette Core")) {
+            bossPic.setImageDrawable(getResources().getDrawable(R.drawable.maguu_kenki));
+            return;
+        }
+
     }
 
 

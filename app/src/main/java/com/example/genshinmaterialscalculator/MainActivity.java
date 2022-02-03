@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
                         db.addCharacterLocal(new CharacterLocal("Small Lamp Grass", "Mondstadt", R.drawable.small_lamp_grass));
                         db.addCharacterLocal(new CharacterLocal("Dandelion Seed","Mondstadt", R.drawable.dandelion_seed));
-                        db.addCharacterLocal(new CharacterLocal("Sil Flower", "Li Yue", R.drawable.silk_flower));
+                        db.addCharacterLocal(new CharacterLocal("Silk Flower", "Li Yue", R.drawable.silk_flower));
                         db.addCharacterLocal(new CharacterLocal("Onikabuto","Inazuma", R.drawable.onikabuto));
                         db.addCharacterLocal(new CharacterLocal("Valberry","Mondstadt", R.drawable.valberry));
                         db.addCharacterLocal(new CharacterLocal("Amakumo Fruit","Inazuma",R.drawable.amakumo_fruit));

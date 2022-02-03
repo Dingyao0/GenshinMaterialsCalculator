@@ -1,6 +1,8 @@
 package com.example.genshinmaterialscalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +20,7 @@ public class Result2Activity extends AppCompatActivity {
     private int talent3Lvl;
 
     //calculation
-    private int[] talentMora = {0, 12500, 30000, 280000, 580000, 617500, 737500, 997500, 1447500};
+    private int[] talentMora = {0, 12500, 17500, 25000, 30000, 37500, 120000, 260000, 450000, 700000};
     private int[] talentAmt1 = {0,3,0,0,0,0,0,0,0,0};
     private int[] talentAmt2 = {0,0,2,4,6,9,0,0,0,0};
     private int[] talentAmt3 = {0,0,0,0,0,0,4,6,12,16};
@@ -40,6 +42,7 @@ public class Result2Activity extends AppCompatActivity {
 
     //Misc
     private int[] talentLvl;
+    private String rarity;
     ImageView bossImg, book1Img, book2Img, book3Img, moraImg, crownImg, char1Img, char2Img, char3Img, bossIcon;
     TextView bossTxt, book1Txt, book2Txt, book3Txt, moraTxt, crownTxt, char1Txt, char2Txt, char3Txt;
     Weekly w;
@@ -83,7 +86,21 @@ public class Result2Activity extends AppCompatActivity {
         moraImg = (ImageView) findViewById(R.id.mora);
         moraTxt = (TextView) findViewById(R.id.tMora);
         moraImg.setImageDrawable(getResources().getDrawable(R.drawable.mora));
-        moraTxt.setText("x"+tMora);// TODO: change mora to float
+
+        String unit = "";
+        float cMora2;
+        int MoraLen = (int) (Math.log10(tMora) + 1); //number of digits
+        if (MoraLen > 6) {
+            cMora2 = tMora/1000000;
+            unit = "M";
+            moraTxt.setText(""+cMora2+unit);
+        } else if (MoraLen > 3){
+            cMora2 = tMora/1000;
+            unit = "K";
+            moraTxt.setText(""+cMora2+unit);
+        } else {
+            moraTxt.setText(""+tMora);
+        }
 
         DatabaseHandler dbHandler = new DatabaseHandler(this);
         c = dbHandler.getCharacterById(charId);
@@ -134,6 +151,71 @@ public class Result2Activity extends AppCompatActivity {
         crownImg.setImageDrawable(getResources().getDrawable(R.drawable.crown_of_insight));
         crownTxt.setText("x"+crown);
 
+        // View stuff
+        View layout = (View) findViewById(R.id.bg);
+        ImageView banner = (ImageView) findViewById(R.id.banner);
+        //end
+
+        rarity = c.getRarity();
+
+        if(rarity.equals("5-star")){
+            switch(region) {
+                case "Inazuma":
+                    // code block
+                    layout.setBackground(getResources().getDrawable(R.drawable.ina5star));
+                    break;
+                case "Liyue":
+                    // code block
+                    layout.setBackground(getResources().getDrawable(R.drawable.liy5star));
+                    break;
+                case "Mondstadt":
+                    // code block
+                    layout.setBackground(getResources().getDrawable(R.drawable.mon5star));
+                    break;
+            }
+        } else if(rarity.equals("4-star")){
+            switch(region) {
+                case "Inazuma":
+                    // code block
+                    layout.setBackground(getResources().getDrawable(R.drawable.ina4star));
+                    break;
+                case "Liyue":
+                    // code block
+                    layout.setBackground(getResources().getDrawable(R.drawable.liy4star));
+                    break;
+                case "Mondstadt":
+                    // code block
+                    layout.setBackground(getResources().getDrawable(R.drawable.mon4star));
+                    break;
+            }
+        }
+
+        switch (region) {
+            case "Inazuma":
+                banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_ina));
+                break;
+            case "Liyue":
+                // code block  TODO: make banner for liyue and change this
+                banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_ina));
+                break;
+            case "Mondstadt":
+                // code block
+                banner.setImageDrawable(getResources().getDrawable(R.drawable.banner_mon));
+                break;
+        }
+
+    }
+
+    public void onClick(View view) {
+        Intent i = new Intent(this, Result1Activity.class);
+        i.putExtra("region", region);
+        i.putExtra("ascension", ascension); // ("key", value/data)
+        i.putExtra("element", element);
+        i.putExtra("charId", charId);
+        i.putExtra("talent1Lvl", talent1Lvl);
+        i.putExtra("talent2Lvl", talent2Lvl);
+        i.putExtra("talent3Lvl", talent3Lvl);
+        startActivity(i);
     }
 
 
