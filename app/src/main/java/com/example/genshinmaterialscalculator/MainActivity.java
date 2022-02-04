@@ -27,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-//        DatabaseHandler db = new DatabaseHandler(this);
-//        Log.d("getCharacterByName: ", db.getCharacterByName("Arataki Itto").getName());
-
         bnv_Main = findViewById(R.id.bnv_Main);
         bnv_Main.add(new MeowBottomNavigation.Model(1, R.drawable.homeicon));
         bnv_Main.add(new MeowBottomNavigation.Model(2, R.drawable.weaponsicon));

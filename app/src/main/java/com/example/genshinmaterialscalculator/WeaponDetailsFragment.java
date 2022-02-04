@@ -119,24 +119,6 @@ public class WeaponDetailsFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        button4 = view.findViewById(R.id.calculator);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CalculatorFragment.class);
-                intent.putExtra("Name", sTitle);
-                Fragment newFragment = new CalculatorFragment();
-                // consider using Java coding conventions (upper first char class names!!!)
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(R.id.detailsBG, newFragment);
-                transaction.addToBackStack(null);
-                // Commit the transaction
-                transaction.commit();
-            }
-        });
 
         if (Rarity.equals("1-star")) {
             layout.setBackgroundResource(R.drawable.onestar);

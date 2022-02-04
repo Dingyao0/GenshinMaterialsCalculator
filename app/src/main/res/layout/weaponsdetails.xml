@@ -220,16 +220,6 @@
         android:onClick="show"
         android:src="@drawable/butt_web" />
 
-    <ImageButton
-        android:id="@+id/calculator"
-        android:layout_width="125dp"
-        android:layout_height="63dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="right"
-        android:background="@null"
-        android:onClick="show"
-        android:src="@drawable/butt_calc" />
 
     <com.github.aakira.expandablelayout.ExpandableRelativeLayout
         android:id="@+id/special"
