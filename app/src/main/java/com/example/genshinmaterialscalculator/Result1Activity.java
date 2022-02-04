@@ -296,7 +296,7 @@ public class Result1Activity extends AppCompatActivity {
                 Stone3id = R.drawable.shivada_jade_chunk;
                 Stone4id = R.drawable.shivada_jade_gemstone;
                 return;
-            case "Dendro":
+            case "Anemo":
                 Stone1id = R.drawable.vayuda_turquoise_sliver;
                 Stone2id = R.drawable.vayuda_turquoise_fragment;
                 Stone3id = R.drawable.vayuda_turquoise_chunk;
